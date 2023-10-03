@@ -1,0 +1,341 @@
+@import '../../../../../styles.scss';
+
+* {
+  font-family: $fontFamily;
+}
+.plan-builder-header {
+  background-color: white;
+  height: fit-content;
+  // border-bottom: 1px solid $borderLineColor;
+  padding: 8px 24px 8px 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plan-builder-header-left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $primaryTextColor;
+  width: 100%;
+}
+.plan-builder-container {
+  //height: 850px;
+  //max-height: 581px;
+  min-width: 211px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.plan-builder-wrapper {
+  width: 375px;
+}
+@media (max-width: 375px) {
+  .plan-builder-wrapper {
+    width: 100%;
+  }
+}
+
+// .plan-builder-header-right-section {
+// }
+.plan-builder-content {
+  height: fit-content;
+  padding: 16px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+}
+.plan-builder-content-2-head-title {
+  color: $primaryTextColor;
+  font-weight: 700;
+}
+
+.plan-builder-content-1 {
+  color: $secondaryTextColor;
+  line-height: 140%;
+}
+
+.plan-builder-content-2-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 16px;
+}
+.plan-builder-content-2-app {
+  cursor: pointer;
+  height: 64px;
+  width: 64px;
+  border-radius: 16px;
+  background-color: transparent;
+}
+.plan-builder-content-3 {
+  padding: 8px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.plan-builder-content-3-button {
+  border-top: 1px solid $borderLineColor3;
+  height: 51px;
+  width: 323px;
+  display: flex;
+
+  align-items: flex-end;
+}
+
+.plan-builder-header-left-section-amount {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  gap: 12px;
+}
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.custom-drawer-right .cdk-overlay-pane {
+  transform: translateX(100%) !important;
+}
+.plan-builder-content-1-wrapper {
+  width: 100%;
+}
+
+.plan-builder-content-2-app-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  overflow-y: scroll;
+  height: 184px;
+
+  border: 1px solid #e9ebee;
+  border-radius: 8px;
+  padding: 8px 3px 8px 3px;
+}
+.plan-builder-content-2 {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 324px;
+}
+
+@media screen and (min-width: 768px) {
+  .plan-builder-container {
+    height: 850px;
+    //max-height: 700px;
+  }
+  .plan-builder-content-2 {
+    height: fit-content;
+  }
+}
+
+.change-plan-content {
+  width: 100%;
+  height: fit-content;
+  max-height: 332px;
+  overflow-y: scroll;
+  padding: 24px 24px 32px;
+  background-color: $bgColor;
+  overflow-x: hidden;
+  padding-left: 0px;
+  padding-right: 0px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.change-plan-drop-down {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-bottom: 1px solid $borderLineColor3;
+  padding: 8px 0px;
+  width: 327px;
+  color: $regalBlue;
+}
+
+.change-plan-plan-item {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 4px rgba(26, 69, 139, 0.1);
+  border-radius: 6px;
+  padding: 12px 12px 8px 12px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.change-plan-plan-item-header > div:first-child {
+  font-size: 18px;
+  color: $primaryTextColor;
+  font-weight: 700;
+}
+.change-plan-plan-item:hover,
+.selected-plan-wrapper {
+  border: 2px solid $buttonColor;
+}
+.selected-plan {
+  color: $buttonColor !important;
+}
+.selected-plan-features {
+  color: $primaryTextColor !important;
+}
+
+.change-plan-plan-item-details > div:first-child {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.change-plan-plan-item-header {
+  font-size: 14px;
+  display: flex;
+  width: fit-content;
+  max-width: 190px;
+  flex-direction: column;
+  line-height: 140%;
+  gap: 10px;
+}
+.change-plan-plan-item-details {
+  width: 63px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5em;
+  align-self: stretch;
+  padding-top: 3px;
+}
+
+.change-plan-drop-down-content {
+}
+.change-plan-drop-down-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.change-plan-plans {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.badge {
+  display: flex;
+  font-size: 9px;
+  align-items: center;
+  padding: 2px 8px 4px;
+  width: fit-content;
+  height: 16px;
+  // background: #ff837f;
+  border-radius: 16px;
+  color: white;
+  @extend .font-semibold;
+}
+.change-plan-drop-down-head {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.change-plan-plan-item-features > div,
+.change-plan-features > div {
+  display: flex;
+
+  gap: 6.43px;
+  align-items: center;
+}
+.change-plan-plan-item-features {
+  flex-direction: column;
+  color: $secondaryTextColor;
+}
+.change-plan-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: $secondaryTextColor;
+}
+
+.plan-benefits-icons {
+  display: flex;
+  gap: 23px;
+}
+.plan-duration {
+  color: $primaryTextColor;
+  opacity: 0.5;
+}
+
+.nz-drawer-body {
+  height: auto;
+  max-height: calc(100vh - 64px); /* Adjust as needed */
+  overflow-y: auto;
+}
+
+div.ant-drawer-content-wrapper {
+  height: fit-content;
+}
+
+.selected-unliapp {
+  width: 100px;
+  height: 100px;
+}
+
+.change-plan-amount > div {
+  color: $primaryTextColor;
+  text-align: center;
+  font-size: 16px;
+  line-height: 100%;
+  width: fit-content;
+  @extend .font-semibold;
+}
+.change-plan-amount {
+  display: flex;
+  gap: 12px;
+}
+
+.change-plan-selected-title-2 {
+  color: $primaryTextColor;
+  text-align: center;
+  @extend .font-semibold;
+  width: 100%;
+  font-size: 16px;
+
+  line-height: 100%; /* 16px */
+}
+
+.change-plan-selected-title {
+  color: $primaryTextColor;
+  @extend .font-light;
+  width: fit-content;
+  font-size: 12px;
+  line-height: 140%; /* 16.8px */
+}
+
+.change-plan-amount-button-icon > img {
+  height: 16px;
+  width: 16px;
+}
+
+#peso-icon {
+  padding-top: 3px;
+  height: 14px;
+  width: 14px;
+  margin-right: -2px;
+}
+.change-plan-name-text {
+  color: $primaryTextColor;
+}

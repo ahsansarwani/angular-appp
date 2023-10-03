@@ -1,0 +1,83 @@
+@import '../../../styles.scss';
+* {
+  font-family: $fontFamily;
+}
+.custom-dropdown {
+  height: 249px;
+  border-top: 1px solid $borderLineColor3;
+  color: $regalBlue;
+}
+.custom-dropdown-menu {
+  font-size: 14px;
+  line-height: 135%;
+}
+.custom-dropdown-menu-wrapper {
+  height: 100%;
+}
+.custom-dropdown-menu > div:first-child {
+  height: 74px;
+}
+.custom-dropdown-menu > div:nth-child(2) {
+  height: 102px;
+}
+.custom-dropdown-menu > div:nth-child(3) {
+  height: 71px;
+}
+
+.gap-8 {
+  gap: 8px;
+}
+
+.w-187 {
+  width: 187px;
+}
+.daf-plan-details-1,
+.daf-plan-details-2 {
+  border-bottom: 1px solid rgba(207, 221, 244, 0.4);
+}
+.daf-plan-details-1 > div {
+  padding: 12px 12px 11px 20px;
+  justify-content: space-between;
+}
+.daf-plan-details-1 > div:first-child,
+.daf-plan-details-2 > div:first-child {
+  border-right: 1px solid rgba(207, 221, 244, 0.4);
+}
+
+.daf-plan-details-2 > div:first-child,
+.daf-plan-details-2 > div:nth-child(2) {
+  padding: 0px 12px 0px 20px;
+}
+
+.app-title {
+  width: 110px;
+  overflow: visible;
+}
+.app-title,
+.contract-duration {
+}
+.contract-duration {
+}
+strong {
+  font-weight: 700;
+}
+
+.daf-plan-details-3 {
+  padding: 12px 12px 11px 20px;
+  border-bottom: 1px solid rgba(207, 221, 244, 0.4);
+}
+
+@media (min-width: 705px) {
+}
+
+#plan-data-allowance,
+#go-wifi-allowance {
+  height: 24px;
+  display: flex;
+}
+#plan-data-allowance > svg,
+#go-wifi-allowance > svg {
+  align-self: flex-end;
+  padding-bottom: -4px;
+  margin-bottom: 3px;
+}

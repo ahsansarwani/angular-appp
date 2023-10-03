@@ -1,0 +1,32 @@
+<div class="list-group list-group-flush">
+  <div class="list-group-item flex-column align-items-start">
+    <div class="d-flex w-100">
+      <p class="font-16 font-bold h-12" id="payment-mode-label">
+        How will you be paying?
+      </p>
+    </div>
+    <div
+      class="d-flex w-100 flex-column justify-content-between payment-mode-class"
+      *ngFor="let pm of paymentMode.paymentModes">
+      <div
+        class="card card-class mt-2"
+        style="cursor: pointer"
+        [id]="pm.id"
+        (click)="onSelect($event, pm.id)">
+        <div class="card-body">
+          <div class="d-flex w-100" style="margin-left: 15px">
+            <div style="width: 30px">
+              <img src="{{ pm.icon }}" alt="payment mode icon" id="pm.icon" />
+            </div>
+            <p
+              class="font-18 font-bold primary-text-color"
+              style="margin-left: 12px"
+              id="pm.id">
+              {{ pm.name }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,187 @@
+<div class="list-group list-group-flush" id="pay-today">
+  <div class="list-group-item flex-column align-items-start">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex w-100 justify-content-between">
+          <p
+            id="pay-today-title"
+            class="primary-text-color font-16 font-bold h-12">
+            Pay Today
+          </p>
+        </div>
+        <div class="d-flex w-100 justify-content-between">
+          <p
+            id="pay-today-amount"
+            class="primary-text-color font-24 mb-1 font-bold">
+            <span class="font-light">₱</span>
+            {{ payTodayAmt | currency : '' : '' }}
+          </p>
+          <p
+            *ngIf="(isPaymentModeVisible$ | async) === true"
+            class="font-14"
+            data-toggle="collapse"
+            data-target="#pay-today-breakdown"
+            aria-expanded="true"
+            aria-controls="pay-today-breakdown"
+            style="margin-top: 10px;cursor: pointer">
+            <span id="view-breakdown-label" class="if-collapsed breakdown-link"
+              >View Breakdown</span
+            >
+            <span
+              id="hide-breakdown-label"
+              class="if-not-collapsed breakdown-link"
+              >Hide Breakdown</span
+            >
+          </p>
+        </div>
+        <div
+          id="pay-today-breakdown"
+          *ngIf="(isPaymentModeVisible$ | async) === true"
+          class="row collapse show"
+          aria-labelledby="headingOne"
+          data-parent="#pay-today">
+          <div class="d-flex w-100 justify-content-between">
+            <div class="d-flex w-100 flex-column align-items-start">
+              <p class="font-14 font-bold h-5 regal-blue" id="plan-title">
+                {{ planTitle$ | async }}
+              </p>
+            </div>
+            <p class="font-14 font-reg regal-blue" id="plan-amount">₱0.00</p>
+          </div>
+
+          <div *ngIf="(isPaymentModeVisible$ | async) === true">
+            <div
+              class="d-flex w-100 justify-content-between align-items-center">
+              <div class="d-flex w-100">
+                <p
+                  class="font-14 font-bold regal-blue"
+                  id="overdue-balance-label">
+                  Overdue Balance
+                </p>
+                <button
+                  class="btn btn-link click d-block chevron"
+                  aria-controls="overdueBalances"
+                  data-target="#overdueBalances"
+                  data-toggle="collapse"
+                  aria-expanded="false"
+                  (click)="rotateArrow()">
+                  <img
+                    src="../../../../../assets/overdueBalanceArrow.svg"
+                    class="menu-arrow-down"
+                    id="arrow-icon" />
+                </button>
+              </div>
+              <!-- <p class="font-14 font-bold regal-blue" id="overdue-balance-amount">
+               {{ _payToday | number }}
+              </p> -->
+              <div style="display: flex">
+                <span class="font-light font-14 regal-blue">₱</span>
+                <p
+                  id="overdue-balance-amount"
+                  class="font-14 font-bold regal-blue">
+                  {{ payTodayAmt | currency : '' : '' }}
+                </p>
+              </div>
+            </div>
+            <div
+              id="overdueBalances"
+              class="row collapse hide"
+              aria-labelledby="heading-dosing">
+              <div>
+                <div class="accordion-body">
+                  <div class="l-accordion-body">
+                    <div class="d-flex w-100 flex-column">
+                      <p
+                        id="obTitle"
+                        class="font-14 font-bold text-success"
+                        style="margin-left: 15px"
+                        *ngIf="showOBTitle">
+                        Balances from active accounts
+                      </p>
+                      <div
+                        *ngFor="
+                          let bl of overdueBalanceList$ | async;
+                          let i = index
+                        ">
+                        <div
+                          class="d-flex w-100 justify-content-between"
+                          *ngIf="bl.overdueBalance !== null">
+                          <div class="d-flex w-100 ml-15">
+                            <div
+                              *ngIf="bl.product === 'Mobile'; else broadband">
+                              <div class="w-40" id="{{ 'mobile-img' + i }}">
+                                <gor-svg-mobile />
+                              </div>
+                            </div>
+
+                            <ng-template #broadband>
+                              <div class="w-40" id="{{ 'broadband-img' + i }}">
+                                <gor-svg-broadband />
+                              </div>
+                            </ng-template>
+                            <p
+                              class="font-bold overdue-balance-color"
+                              id="{{ 'bl.accountNumber' + i }}">
+                              {{ bl.accountNumber }}
+                            </p>
+                          </div>
+
+                          <p
+                            class="overdue-balance-color"
+                            id="{{ 'bl.overdueBalance ' + i }}">
+                            {{ bl.overdueBalance | currency : '' : '' }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex w-100 flex-column">
+                      <p
+                        id="hbTitle"
+                        class="font-14 font-bold text-danger"
+                        style="margin-left: 15px"
+                        *ngIf="showHBTitle">
+                        Balances from previously terminated accounts
+                      </p>
+                      <div
+                        *ngFor="
+                          let bl of historicBalanceList$ | async;
+                          let i = index
+                        ">
+                        <div class="d-flex w-100 justify-content-between">
+                          <div class="d-flex w-100 ml-15">
+                            <div
+                              *ngIf="bl.product === 'Mobile'; else broadband">
+                              <div class="w-40" id="{{ 'mobile-img ' + i }}">
+                                <gor-svg-mobile />
+                              </div>
+                            </div>
+
+                            <ng-template #broadband>
+                              <div class="w-40" id="{{ 'broadband-img ' + i }}">
+                                <gor-svg-broadband />
+                              </div>
+                            </ng-template>
+
+                            <p
+                              class="font-bold overdue-balance-color"
+                              id="{{ 'acc ' + i }}">
+                              {{ bl.accountNumber }}
+                            </p>
+                          </div>
+
+                          <p class="overdue-balance-color" id="{{ 'hb ' + i }}">
+                            {{ bl.historicBalance | currency : '' : '' }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<button
+  type="button"
+  class="btn btn-primary"
+  id="modalButton"
+  data-toggle="modal"
+  data-target="#fta-in-ada-modal"
+  style="display: none">
+  Launch demo modal
+</button>
+<div class="row">
+  <div class="col">
+    <div
+      class="modal"
+      id="fta-in-ada-modal"
+      role="dialog"
+      aria-labelledby="fta-in-ada-modal"
+      aria-hidden="true"
+      data-backdrop="static"
+      >
+      <div
+        class="modal-dialog modal-dialog-centered horizontal-center"
+        role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+           
+            <div class="container">
+              <div class="row">
+                <div class="col horizontal-center">
+                  <p
+                    id="title"
+                    class="text-center font-bold"
+                   >
+                    {{ title }}
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col horizontal-center">
+                  <p id="sub-title" class="text-center subtitle-class w-275">
+                    {{ subTitle }}
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <button
+                  id="primary-btn"
+                  type="button"
+                  data-dismiss="modal"
+                  (click)="clickMethod('new')"
+                  class="btn btn-primary btn-block primary-btn-class font-bold">
+                  {{ primaryBtnText }}
+                </button>
+              </div>
+              <div class="row mt-2">
+                <button
+                  id="secondary-btn"
+                  type="button"
+                  data-dismiss="modal"
+                  (click)="clickMethod('change')"
+                  class="btn btn-primary btn-block secondary-btn-class font-bold">
+                  {{ secondaryBtnText }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

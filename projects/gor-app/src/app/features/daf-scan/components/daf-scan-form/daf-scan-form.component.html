@@ -1,0 +1,26 @@
+<div class="daf-steps-content">
+  <div class="daf-steps-content-text" id="poid-informative-text">
+    We will also use this document as part of your SIM registration once your
+    application is approved.
+  </div>
+  <div class="daf-steps-actions">
+    <div class="daf-steps-actions-dropdowns">
+      <gor-drop-down
+        [dropDownHeight]="'44'"
+        (selectedOption)="selectedOption($event)"
+        id="{{ item.id }}"
+        *ngFor="let item of dropdown; index as i"
+        [dropdownTitle]="item.title"
+        [dropDownOptions]="item.options"></gor-drop-down>
+    </div>
+
+    <div class="daf-button-container">
+      <button
+        (click)="scanMyId()"
+        [disabled]="submitDisabled"
+        id="scanId-button">
+        Scan my ID
+      </button>
+    </div>
+  </div>
+</div>

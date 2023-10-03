@@ -1,0 +1,62 @@
+<div class="list-group list-group-flush">
+  <gor-payment-card [event]="openDrawer.asObservable()"></gor-payment-card>
+  <div class="flex-column align-items-start">
+    <div class="row">
+      <div class="col">
+        <p class="color-grey mb-1 font-semibold" id="applying-for-label">
+          Applying For
+        </p>
+      </div>
+      <div class="col">
+        <p class="color-regal font-semibold fullName" id="name">
+          {{ fullName$ | async }}
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <a
+          href="{{ daf }}"
+          class="primary-text-color font-14"
+          id="review-personal-details-label"
+          >Review Personal Details</a
+        >
+      </div>
+    </div>
+    <div class="mt-2 d-flex w-100 justify-content-between">
+      <div class="card card-class">
+        <div class="card-body">
+          <div
+            class="d-flex w-100 justify-content-between"
+            style="height: 30px">
+            <div class="d-flex w-100">
+              <div class="ml-8">
+                <p id="before-you-proceed-label" class="font-18 font-bold">
+                  Before you proceed...
+                </p>
+                <p class="font-12" id="before-you-proceed-description">
+                  All sales are considered final. Globe does not offer
+                  cancellation and/or refunds once order has been
+                  <span id="confirmed-text" class="font-bold">confirmed.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    id="submit-button"
+    (click)="proceed()"
+    [disabled]="
+      !(isTncChecked$ | async) ||
+      ((isPaymentModeVisible$ | async) && !(payModeSelect$ | async))
+    "
+    type="button"
+    class="btn btn-primary btn-block mt-4 font-semibold">
+    {{ buttonText$ | async }}
+  </button>
+</div>

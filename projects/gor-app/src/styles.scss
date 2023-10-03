@@ -1,0 +1,416 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$gor-app-primary: mat.define-palette(mat.$indigo-palette);
+$gor-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$gor-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$gor-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $gor-app-primary,
+      accent: $gor-app-accent,
+      warn: $gor-app-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($gor-app-theme);
+
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/maps'; // **Newly added!**
+@import '../../../node_modules/bootstrap/scss/mixins';
+@import '../../../node_modules/bootstrap/scss/utilities';
+@import '../../../node_modules/bootstrap/scss/helpers';
+@import '../../../node_modules/bootstrap/scss/utilities/api';
+@import '../../../node_modules/bootstrap/scss/spinners';
+@import '../../../node_modules/bootstrap/scss/tooltip';
+@import '../../../node_modules/bootstrap/scss/dropdown';
+@import '../../../node_modules/bootstrap/scss/buttons';
+@import '../../../node_modules/bootstrap/scss/progress';
+@import '../../../node_modules/bootstrap/scss/grid';
+@import '../../../node_modules/bootstrap/scss/forms/floating-labels';
+@import '../../../node_modules/bootstrap/scss/forms/form-control';
+@import '../../../node_modules/bootstrap/scss/forms/form-select';
+@import '../../../node_modules/bootstrap/scss/modal';
+@import '../../../node_modules/bootstrap/scss/buttons';
+@import '../../../node_modules/bootstrap/scss/tooltip';
+@import '../../../node_modules/bootstrap/scss/offcanvas';
+@import '../../../node_modules/bootstrap/scss/carousel';
+@import '../../../node_modules//bootstrap/scss/navbar';
+@import '../../../node_modules//bootstrap/scss/nav';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+// @import url('https://fonts.cdnfonts.com/css/neue-plak');
+// Then add additional custom code here
+
+/* You can add global styles to this file, and also import other style files */
+$primaryColor: #11336a;
+$primaryTextColor: #1a458b;
+$secondaryTextColor: #354f6a;
+$tertiaryTextColor: #4d97ff;
+$buttonColor: #2274e5;
+$buttonTextColor: white;
+$regalBlue: #1f3b59;
+$borderLineColor: #d7dce1;
+$borderLineColor2: #e9ebee;
+$borderLineColor3: #cfddf4;
+$borderLineColor4: #1877f2;
+$disabledTextColor: #bcc4cd;
+$textColor: #637282;
+$textColor2: #62768b;
+$textColor3: #153973;
+$sectionColor: #f5f9fc;
+$sectionColor1: #fbfbfb;
+$fontFamily: 'NeuePlakReg';
+$requiredColor: #b91e28;
+$bgColor: #f7f7f7;
+$fillColor: #064720;
+$fillColor2: #0c2e66;
+$fillColor3: #00a441;
+$absoluteBlack: #111111;
+$tagColor: #fce8b2;
+$tagTextColor: #a66b11;
+$scrollHeight: 150px;
+$fontReg: 'NeuePlakReg';
+
+@font-face {
+  font-family: 'NeuePlakTextReg';
+  src: url('./assets/gor-fonts/TTF/Neue\ Plak\ Text\ Regular.ttf')
+    format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeuePlakTextBold';
+  src: url('./assets/gor-fonts/TTF/Neue\ Plak\ Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family: 'NeuePlakTextLight';
+//   src: url('./assets/gor-fonts/TTF/Neue\ Plak\ Text\ Light.ttf')
+//     format('truetype');
+//   font-style: normal;
+// }
+
+@font-face {
+  font-family: 'NeuePlakReg';
+  src: url('./assets/gor-fonts/TTF/Neue\ Plak\ Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeuePlakLight';
+  src: url('./assets/gor-fonts/TTF/Neue\ Plak\ Light.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeuePlakBold';
+  src: url('./assets/gor-fonts/TTF/Neue\ Plak\ Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeuePlakSemiBold';
+  src: url('./assets/gor-fonts/TTF/Neue\ Plak\ SemiBold.ttf') format('truetype');
+  font-style: normal;
+}
+
+// .font-text-light {
+//   font-family: 'NeuePlakTextLight';
+// }
+
+.font-light {
+  font-family: 'NeuePlakLight';
+}
+
+.font-reg {
+  font-family: 'NeuePlakReg';
+}
+
+.font-semibold {
+  font-family: 'NeuePlakSemiBold';
+}
+
+.font-bold {
+  font-family: 'NeuePlakBold';
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 9px;
+  /* Set the width of the scrollbar */
+  // border-radius: 8px;
+}
+.regal-blue {
+  color: $regalBlue;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: $buttonColor;
+  /* Set the color of the scrollbar thumb */
+  border-radius: 9px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  /* Set the width of the scrollbar */
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-ms-scrollbar-thumb {
+  background-color: $buttonColor;
+  /* Set the color of the scrollbar thumb */
+  border-radius: 9px;
+}
+
+//   By applying these styles to the desired element, you can customize the scrollbar's appearance in Angular. Keep in mind that the level of customization may vary across browsers, as some browsers may restrict certain modifications to the scrollbar's appearance.
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.required-input {
+  color: $requiredColor;
+}
+
+.font-8 {
+  font-size: 8px;
+}
+
+.font-10 {
+  font-size: 10px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.h-12 {
+  height: 12px;
+}
+
+.click.collapsed .icon {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in-out;
+}
+
+.color-grey {
+  color: #4c627a;
+}
+
+.highlighted-text {
+  color: $buttonColor;
+}
+
+.custom-fill-button {
+  background-color: $buttonColor;
+  border-radius: 6px;
+  border: 0px;
+  color: $buttonTextColor;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.custom-fill-button:disabled {
+  background-color: $borderLineColor2;
+  border-radius: 6px;
+  border: 0px;
+  color: $disabledTextColor;
+  cursor: pointer;
+}
+
+.custom-outline-button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: 2px solid $buttonColor !important;
+
+  font-size: 14px;
+  border-radius: 8px;
+  color: $buttonColor;
+  border: none;
+}
+
+@media (max-width: 374px) {
+  .custom-fill-button,
+  .custom-outline-button {
+    width: 100% !important;
+  }
+}
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.h-12 {
+  height: 12px;
+}
+
+.click.collapsed .icon {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in-out;
+}
+
+.color-grey {
+  color: #4c627a;
+}
+
+.breakdown-link {
+  color: #2274e5;
+}
+
+.primary-text-color {
+  color: #1a458b;
+}
+
+.daf-review-heading {
+  color: $primaryTextColor;
+  font-size: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+// shared components styles
+@font-face {
+  font-family: 'Neue Plak';
+  src: url('./assets/gor-fonts/TTF/Neue\ Plak\ SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Plak';
+  src: url('./assets/gor-fonts/TTF/Neue\ Plak\ Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Plak';
+  src: url('./assets/gor-fonts/TTF/Neue\ Plak\ Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@mixin font-decoration($font-family, $font-style, $font-weight, $font-size) {
+  font-family: $font-family;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}
+
+// * {
+//   font-family: 'NeuePlakReg';
+// }
+
+.error-text {
+  font-size: 10px;
+  color: $requiredColor;
+}
+
+.span-highlight {
+  color: $buttonColor;
+}
+
+strong {
+  @extend .font-semibold;
+}
+.font-12 {
+  font-size: 12px;
+}
+.font-10 {
+  font-size: 10px;
+}
+.ant-drawer .ant-drawer-content {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.custom-box-shadow {
+  box-shadow: 0px 4px 12px 0px rgba(17, 45, 90, 0.12);
+}

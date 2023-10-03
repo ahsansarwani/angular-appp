@@ -1,0 +1,165 @@
+@import '../../../../styles.scss';
+.duplicate-order-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: $sectionColor;
+  padding: 32px 0px;
+}
+.duplicate-order-wrapper {
+  width: 324px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+.duplicate-order-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.duplicate-order-header {
+  width: 276px;
+  color: $textColor3;
+  font-size: 32px;
+  text-align: center;
+}
+.duplicate-order-content {
+  width: 100%;
+}
+.duplicate-order-card,
+.payment-block-card {
+  width: 100%;
+  height: fit-content;
+  padding: 16px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.payment-block-card {
+  height: fit-content;
+}
+.duplicate-order-card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-between;
+}
+.duplicate-order-card-plan-title {
+  font-size: 16px;
+  color: $primaryTextColor;
+  @extend .font-semibold;
+  font-weight: 400;
+  line-height: 100%; /* 16px */
+}
+.duplicate-order-card-plan-label,
+.payment-block-card-plan-label {
+  background-color: $borderLineColor;
+  height: 28px;
+  width: fit-content;
+  padding: 8px 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $regalBlue;
+  border-radius: 6px;
+  font-size: 10px;
+}
+.payment-block-card-plan-label {
+  color: $buttonColor;
+  width: fit-content;
+  padding: 8px 10px 10px;
+}
+.duplicate-order-card-details {
+  display: flex;
+  height: fit-content;
+}
+.duplicate-order-card-details-1,
+.duplicate-order-card-details-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 10px;
+  height: fit-content;
+  gap: 4px;
+}
+.duplicate-order-card-details-1 {
+  border-right: 1px solid $disabledTextColor;
+  padding-right: 24px;
+}
+.duplicate-order-card-details-2 {
+  padding-left: 24px;
+}
+
+.duplicate-order-card-details-1 > div:first-child,
+.duplicate-order-card-details-2 > div:first-child {
+  font-size: 12px;
+  color: $buttonColor;
+}
+.duplicate-order-card-details-1 > div:nth-child(2),
+.duplicate-order-card-details-2 > div:nth-child(2) {
+  color: $buttonColor;
+}
+
+.payment-block-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: $textColor3;
+  line-height: 100%;
+}
+.payment-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.duplicate-order-card-action {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  gap: 32px;
+  color: $textColor3;
+  line-height: 100%;
+  text-align: center;
+}
+.homepage-button {
+  font-size: 14px;
+  padding: 14px 24px 20px;
+}
+
+.duplicate-order-card-action-title {
+  width: 316px;
+}
+
+.duplicate-order-card-head-fill {
+  display: flex;
+  justify-content: space-between;
+}
+
+.duplicate-order-card-head-fill-ref > span {
+  color: $regalBlue;
+
+  font-size: 12px;
+  @extend .font-semibold;
+  font-weight: 400;
+  line-height: 135%;
+}
+.duplicate-order-card-head-fill-ref > label {
+  color: $textColor2;
+
+  font-size: 12px;
+
+  font-weight: 400;
+  line-height: 135%; /* 16.2px */
+}
+.duplicate-order-card-head-fill-ref {
+  display: flex;
+  flex-direction: column;
+}

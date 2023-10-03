@@ -1,0 +1,117 @@
+<div [ngClass]="{ 'gradient-border-bg': subCard.hasBadge === true }">
+  <div class="main-card-div" [style.background]="background">
+    <div style="height: 90%">
+      <div
+        class="badge-class font-12 font-bold"
+        *ngIf="subCard.hasBadge"
+        [style.backgroundColor]="subCard.badgeColor.backgroundColor"
+        [style.color]="subCard.badgeColor.color">
+        <p [style.marginTop.px]="-6">{{ subCard.badgeContent }}</p>
+      </div>
+      <div class="icon-div">
+        <div class="image-div">
+          <img
+            alt=" plan amount "
+            src="{{ subCard?.svg }}"
+            class="img-class"
+            [style.width.px]="102"
+            [style.height.px]="65" />
+        </div>
+
+        <div *ngIf="false" class="plan-name-image font-bold">
+          <span class="font-12" style="letter-spacing: 1px">PLAN</span
+          ><span class="font-10" style="letter-spacing: 1px">{{
+            subCard?.amount
+          }}</span>
+        </div>
+      </div>
+
+      <div class="text-center" [style.marginTop.px]="marginTop">
+        <p class="font-bold plan-name-class">{{ subCard.planName_ }}</p>
+      </div>
+      <div class="text-center">
+        <p class="font-reg data-title-class font-16">
+          {{ subCard.accessDataTitle }}
+        </p>
+      </div>
+      <div class="text-center">
+        <p
+          class="font-semibold font-16 data-content-class"
+          [style.color]="contentColor">
+          {{ subCard.accessData }}
+        </p>
+      </div>
+      <div class="text-center" *ngIf="subCard?.appDataTitle">
+        <p class="font-reg font-16 data-title-class">
+          {{ subCard?.appDataTitle }}
+        </p>
+      </div>
+      <div class="text-center" *ngIf="subCard?.appData">
+        <p
+          class="font-semibold font-16 data-content-class"
+          [style.color]="contentColor">
+          {{ subCard?.appData }}
+        </p>
+      </div>
+      <div class="text-center" *ngIf="subCard?.roamingTitle">
+        <p class="font-reg font-16 data-title-class">
+          {{ subCard?.roamingTitle }}
+        </p>
+      </div>
+      <div class="text-center" *ngIf="subCard?.roamingDays">
+        <p
+          class="font-semibold font-16 data-content-class"
+          [style.color]="contentColor">
+          {{ subCard?.roamingDays }}
+        </p>
+      </div>
+      <div class="text-center" *ngIf="subCard?.monthlyConsumableAllowanceTitle">
+        <p class="font-reg font-16 data-title-class">
+          {{ subCard?.monthlyConsumableAllowanceTitle }}
+        </p>
+      </div>
+      <div class="text-center" *ngIf="subCard?.monthlyConsumableAllowance">
+        <p
+          class="font-semibold font-16 data-content-class"
+          [style.color]="contentColor">
+          <span class="font-light">₱</span
+          >{{ subCard?.monthlyConsumableAllowance }}
+        </p>
+      </div>
+    </div>
+    <div
+      *ngIf="subCard.redirectionLink"
+      [ngStyle]="{ 'margin-top': deviceType === 'Mobile' ? '-6px' : '-3px' }">
+      <a
+        class="btn btn-primary button-buy-link font-bold"
+        href="{{ subCard?.redirectionLink }}"
+        (click)="buyClickRedirect(subCard, $event)"
+        role="button">
+        <div class="d-flex align-items-center justify-content-center">
+          <span [style.marginBottom.px]="2">Buy</span>
+          <img
+            alt=" Shape svg "
+            src="../../../../../assets/Shape.svg"
+            [style.marginLeft.px]="10"
+            [style.paddingTop.px]="2" />
+        </div>
+      </a>
+    </div>
+    <div *ngIf="!subCard.redirectionLink">
+      <button
+        type="button"
+        class="btn btn-primary font-bold button-buy"
+        [ngStyle]="{ 'margin-top': deviceType === 'Mobile' ? '-9px' : '-6px' }"
+        (click)="buyClick(subCard)">
+        <div class="d-flex align-items-center justify-content-center">
+          <span [style.marginBottom.px]="3">Buy</span>
+          <img
+            alt=" Shape svg "
+            src="../../../../../assets/Shape.svg"
+            [style.marginLeft.px]="10"
+            [style.paddingTop.px]="1" />
+        </div>
+      </button>
+    </div>
+  </div>
+</div>

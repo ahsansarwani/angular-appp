@@ -1,0 +1,45 @@
+<div class="order-container border">
+    <p class="font-bold font-w-400 font-20 primary-text-color" style="margin: 0px;">Your order details</p>
+    <p class="font-w-400 font-12 color-grey" style="letter-spacing: 0.1em">REFERENCE NUMBER: {{
+        referenceNo }}</p>
+    <div class="plan">
+        <img alt="{{ planDetails.planLabel }}" src="{{ planDetails.planIcon }}">
+        <div class="plan-details">
+            <p class="font-10 font-bold plan-label">{{ planDetails.planLabel }}</p>
+            <p class="font-bold font-w-400 font-20 primary-text-color">{{ planDetails.planName }}</p>
+            <p class="font-12 primary-text-color">Ordered on {{ orderDate }}</p>
+        </div>
+    </div>
+    <div class="dropdown">
+        <p class="font-bold font-w-400 font-16 primary-text-color" style="margin: 0px;">Enjoy these and more
+            with your plan:</p>
+        <img src="assets/images/svg/small-drop-down.svg" alt="dropdown"
+            (click)="openDropdown = !openDropdown" (keypress)="openDropdown = !openDropdown"
+            *ngIf="!openDropdown" class="mobile">
+        <img src="assets/images/svg/small-drop-up.svg" alt="dropup"
+            (click)="openDropdown = !openDropdown" (keypress)="openDropdown = !openDropdown"
+            *ngIf="openDropdown" class="mobile">
+    </div>
+    <div class="dropdown-content-container mobile" *ngIf="openDropdown">
+        <div class="inclusion-container" *ngFor="let inclusion of planDetails.planInclusion">
+            <div class="inclusion-card">
+                <div class="inclusion-icon">
+                    <img src="{{ inclusion.icon }}" alt="{{ inclusion.label }}">
+                </div>
+                <p class="font-bold inclusion-label">{{ inclusion.label }}</p>
+                <p class="font-12 color-grey">{{ inclusion.desc }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown-content-container desktop">
+        <div class="inclusion-container" *ngFor="let inclusion of planDetails.planInclusion">
+            <div class="inclusion-card">
+                <div class="inclusion-icon">
+                    <img src="{{ inclusion.icon }}" alt="{{ inclusion.label }}">
+                </div>
+                <p class="font-bold inclusion-label">{{ inclusion.label }}</p>
+                <p class="font-12 color-grey">{{ inclusion.desc }}</p>
+            </div>
+        </div>
+    </div>
+</div>

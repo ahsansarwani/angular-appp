@@ -1,0 +1,47 @@
+@import '../../../../../styles.scss';
+.error-title {
+  color: #1f3b59;
+}
+.error-description {
+  color: #62768b;
+  font-size: 14px;
+}
+@media screen and (min-width: 1025px) {
+  .container {
+    max-width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.button-class {
+  margin-top: 20px;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header-style {
+  color: #153973;
+  font-family: 'NeuePlakBold';
+  font-size: 32px;
+}
+.content-style {
+  color: #153973;
+  font-size: 18px;
+  font-family: 'NeuePlakSemiBold';
+  margin-top: 32px;
+  width: 276px;
+}
+.button-style {
+  margin-top: 0px !important;
+  font-family: 'NeuePlakSemiBold';
+  font-size: 14px;
+  color: #fff;
+  height: 42px;
+  border-radius: 6px;
+  width: 276px !important;
+  line-height: 180%;
+}

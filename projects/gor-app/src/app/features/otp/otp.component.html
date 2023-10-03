@@ -1,0 +1,350 @@
+<gor-spinner *ngIf="isLoading$ | async"></gor-spinner>
+<div
+  *ngIf="(customerType$ | async) === 'ADA'"
+  class="modal-dialog"
+  role="document">
+  <div class="modal-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h5 class="modal-title text-center font-semibold" id="title">
+            Before we proceed we’ll check available offers for you
+          </h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <h6 class="text-center modal-subtitle" id="sub-title">
+            Enter your existing Globe Postpaid mobile number for the OTP
+            verification.
+          </h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div style="display: flex">
+            <div class="form-floating mt-3 fill-input">
+              <input
+                type="text"
+                class="form-control"
+                id="mobile-number"
+                onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                placeholder="99991112234"
+                [(ngModel)]="mobileNo"
+                maxlength="11" />
+              <label for="mobile">Enter your mobile number</label>
+            </div>
+            <button
+              type="button"
+              id="send-code-button"
+              (click)="sendCode()"
+              class="btn btn-primary send-code-button"
+              [disabled]="
+                mobileNo.length < 11 ||
+                (mobileNo.length === 11 && (activeButton$ | async) === false)
+              ">
+              {{
+                (initCount$ | async) === undefined || (initCount$ | async) === 0
+                  ? 'Send Code'
+                  : 'Resend Code'
+              }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm" *ngIf="(showTimer$ | async) === true">
+          <small id="resend-otp-timer" class="form-text resend-otp"
+            >Resend OTP after {{ rxTime }}s</small
+          >
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-sm d-flex justify-content-center">
+          <div class="otp-input-wrapper">
+            <input
+              id="code"
+              type="text"
+              maxlength="6"
+              gorAllownumbersonly
+              [disabled]="(activeInput$ | async) === false"
+              autocomplete="off"
+              (onInputChangeEvent)="checkInputLength($event)"
+              [(ngModel)]="code"
+              [ngClass]="{
+                incorrectColor:
+                  (errorMsg$ | async) === 'Incorrect Code.' ||
+                  (errorMsg$ | async) === 'Expired Code.',
+                disableColor:
+                  (errorMsg$ | async) !== 'Incorrect Code.' &&
+                  (errorMsg$ | async) !== 'Expired Code.'
+              }"
+              [ngStyle]="{
+                'caret-color': this.code.length === 6 ? 'transparent' : '#000'
+              }" />
+            <svg viewBox="0 0 240 1" xmlns="http://www.w3.org/2000/svg">
+              <line
+                x1="0"
+                y1="0"
+                x2="240"
+                y2="0"
+                [ngClass]="{
+                  incorrectStroke:
+                    (errorMsg$ | async) === 'Incorrect Code.' ||
+                    (errorMsg$ | async) === 'Expired Code.',
+                  normalStroke:
+                    (errorMsg$ | async) !== 'Incorrect Code.' &&
+                    (errorMsg$ | async) !== 'Expired Code.'
+                }"
+                stroke-width="2"
+                stroke-dasharray="30,12" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- Message After inserting OTP -->
+      <div class="row justify-content-center mt-2">
+        <!-- If the code is incorrect -->
+        <div
+          class="col-xl d-flex justify-content-end w-260"
+          *ngIf="(verifyStatus$ | async) === false">
+          <p
+            id="incorrect-code-text"
+            [ngClass]="{
+              'incorrect-code':
+                (errorMsg$ | async) === 'Incorrect Code.' ||
+                (errorMsg$ | async) === 'Expired Code.',
+              'disable-button':
+                (errorMsg$ | async) !== 'Incorrect Code.' &&
+                (errorMsg$ | async) !== 'Expired Code.'
+            }">
+            {{ errorMsg$ | async }}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <p class="agreement-clause" id="agreement-clause">
+            By submitting, I understand that the collection and use of my
+            personal data, which may include personal and sensitive personal
+            information, shall be in accordance with the Data Privacy Act of
+            2012 and
+            <a
+              target="_blank"
+              href="https://www.globe.com.ph/privacy-policy.html?_ga=2.80431198.830539158.1686115271-306363992.1677649729">
+              Globe’s Privacy Policy.
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <button
+            id="submit-button"
+            type="button"
+            class="btn btn-primary btn-submit"
+            (click)="confirmOtp()"
+            [disabled]="
+              (activeInput$ | async) === false ||
+              code.length < 6 ||
+              (isCountExceed$ | async) === true ||
+              (isCodeAllNumeric === false && codeLength === 6)
+            ">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- Cancel Button -->
+      <div class="row">
+        <div class="col-sm">
+          <button
+            id="cancel-button"
+            (click)="goBack()"
+            type="button"
+            class="btn btn-link btn-cancel">
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="
+    (customerType$ | async) === 'FTA' || (customerType$ | async) === 'RECOVERY'
+  "
+  class="modal-dialog"
+  role="document">
+  <div class="modal-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h5 class="modal-title text-center" id="title">
+            We’ve sent a security code to the mobile number you’ve provided on
+            your application form
+          </h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <h6 class="text-center hidden-phone-number" id="hidden-phone-number">
+            ********{{ this.mobileNoLast3 }}
+          </h6>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-sm">
+          <button
+            id="resend-code-button"
+            (click)="sendCode()"
+            type="button"
+            [disabled]="(activeButton$ | async) === false"
+            class="btn btn-primary btn-resend-code">
+            Resend Code
+          </button>
+        </div>
+      </div>
+      <!-- Resend OTP -->
+      <div class="row text-center">
+        <div class="col-sm" *ngIf="(showTimer$ | async) === true">
+          <small
+            id="resend-otp-timer"
+            class="form-text text-muted resend-otp"
+            style="text-align: center"
+            >Resend OTP after {{ rxTime }}s</small
+          >
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-sm">
+          <small
+            id="resend-otp-label"
+            class="label-resend-code"
+            style="text-align: center"
+            >Didn’t receive a code? Click Resend code.</small
+          >
+        </div>
+      </div>
+      <div class="row text-center mt-3">
+        <div class="col-sm">
+          <small id="enter-code-text" class="label-enter-code"
+            >Enter the code below for verification</small
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm d-flex justify-content-center">
+          <div class="otp-input-wrapper">
+            <input
+              id="code"
+              type="text"
+              maxlength="6"
+              gorAllownumbersonly
+              (onInputChangeEvent)="checkInputLength($event)"
+              autocomplete="off"
+              [disabled]="(activeInput$ | async) === false"
+              [(ngModel)]="code"
+              [ngClass]="{
+                incorrectColor:
+                  (errorMsg$ | async) === 'Incorrect Code.' ||
+                  (errorMsg$ | async) === 'Expired Code.',
+                disableColor:
+                  (errorMsg$ | async) !== 'Incorrect Code.' &&
+                  (errorMsg$ | async) !== 'Expired Code.'
+              }"
+              [ngStyle]="{
+                'caret-color': this.code.length === 6 ? 'transparent' : '#000'
+              }" />
+            <svg viewBox="0 0 240 1" xmlns="http://www.w3.org/2000/svg">
+              <line
+                x1="0"
+                y1="0"
+                x2="240"
+                y2="0"
+                [ngClass]="{
+                  incorrectStroke:
+                    (errorMsg$ | async) === 'Incorrect Code.' ||
+                    (errorMsg$ | async) === 'Expired Code.',
+                  normalStroke:
+                    (errorMsg$ | async) !== 'Incorrect Code.' &&
+                    (errorMsg$ | async) !== 'Expired Code.'
+                }"
+                stroke-width="2"
+                stroke-dasharray="30,12" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- Message After inserting OTP -->
+      <div class="row justify-content-center mt-2">
+        <!-- If the code is incorrect -->
+        <div
+          class="col-xl d-flex justify-content-end w-260"
+          *ngIf="(verifyStatus$ | async) === false">
+          <p
+            id="incorrect-code-text"
+            [ngClass]="{
+              'incorrect-code':
+                (errorMsg$ | async) === 'Incorrect Code.' ||
+                (errorMsg$ | async) === 'Expired Code.',
+              'disable-button':
+                (errorMsg$ | async) !== 'Incorrect Code.' &&
+                (errorMsg$ | async) !== 'Expired Code.'
+            }">
+            {{ errorMsg$ | async }}
+          </p>
+        </div>
+      </div>
+      <!-- Agreement Clause -->
+      <div class="row">
+        <div class="col-sm">
+          <p class="agreement-clause" id="agreement-clause">
+            By submitting, I understand that the collection and use of my
+            personal data, which may include personal and sensitive personal
+            information, shall be in accordance with the Data Privacy Act of
+            2012 and
+            <a
+              target="_blank"
+              href="https://www.globe.com.ph/privacy-policy.html?_ga=2.80431198.830539158.1686115271-306363992.1677649729">
+              Globe’s Privacy Policy.
+            </a>
+          </p>
+        </div>
+      </div>
+      <!-- Submit Button -->
+      <div class="row">
+        <div class="col-sm" style="display: flex; justify-content: center">
+          <button
+            id="submit-button"
+            type="button"
+            class="btn btn-primary btn-submit"
+            (click)="confirmOtp()"
+            [disabled]="
+              (activeInput$ | async) === false ||
+              code.length < 6 ||
+              (isCountExceed$ | async) === true ||
+              (isCodeAllNumeric === false && codeLength === 6)
+            ">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- Cancel Button -->
+      <div class="row">
+        <div class="col-sm">
+          <button
+            (click)="goBack()"
+            id="cancel-button"
+            type="button"
+            class="btn btn-link btn-cancel">
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<nav style="--bs-breadcrumb-divider: url('')" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li id="choose-your-plan" class="breadcrumb-item">
+      <div>CHOOSE YOUR PLAN</div>
+
+      <img
+        alt="{{ alt }}"
+        *ngIf="false; else navigateDivider0"
+        src="{{ breadcrumbDivider2 }}" />
+      <ng-template #navigateDivider0>
+        <img alt="{{ alt }}" src="{{ breadcrumbDivider }}" />
+      </ng-template>
+    </li>
+
+    <li
+      id="choose-your-app"
+      class="breadcrumb-item"
+      aria-current="page"
+      [ngClass]="{ 'active-crumb': url === unliUrl }">
+      <div>CHOOSE YOUR APP</div>
+      <img
+        alt="{{ alt }}"
+        *ngIf="url === unliUrl; else navigateDivider1"
+        src="{{ breadcrumbDivider2 }}" />
+      <ng-template #navigateDivider1>
+        <img alt="{{ alt }}" src="{{ breadcrumbDivider }}" />
+      </ng-template>
+    </li>
+    <li
+      id="fill-out-form"
+      class="breadcrumb-item"
+      aria-current="page"
+      [ngClass]="{
+        'active-crumb': url === personalInfoOffline || url === personalInfo
+      }">
+      <div>fill out form</div>
+      <img
+        *ngIf="
+          url === personalInfoOffline || url === personalInfo;
+          else navigateDivider2
+        "
+        alt="{{ alt }}"
+        src="{{ breadcrumbDivider2 }}" />
+      <ng-template #navigateDivider2>
+        <img alt="{{ alt }}" src="{{ breadcrumbDivider }}" />
+      </ng-template>
+    </li>
+    <li id="review" class="breadcrumb-item" aria-current="page">
+      <div>review</div>
+
+      <img
+        alt="{{ alt }}"
+        *ngIf="false; else navigateDivider3"
+        src="{{ breadcrumbDivider2 }}" />
+      <ng-template #navigateDivider3>
+        <img alt="{{ alt }}" src="{{ breadcrumbDivider }}" />
+      </ng-template>
+    </li>
+    <li id="order-confirmation" class="breadcrumb-item" aria-current="page">
+      order confirmation
+    </li>
+  </ol>
+</nav>

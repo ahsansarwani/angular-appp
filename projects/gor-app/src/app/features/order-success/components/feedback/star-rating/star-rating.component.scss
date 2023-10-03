@@ -1,0 +1,44 @@
+@import '../../../../../../styles.scss';
+
+
+.star-rating{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.star-rating-value{
+    color:$secondaryTextColor;
+    font-size: 12px;
+    line-height: 135%;
+    
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+}
+.star-rating-stars{
+    width: 343px;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+}
+.feedback-container-star-rating{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.icon-button{
+    padding: 0px;
+}
+
+@media (max-width: 375px) {
+    .feedback-container-star-rating{
+        width: 100%;
+    }
+    .star-rating{
+        width: 100%;
+    }
+    .star-rating-stars{
+        width: 100%;
+    }
+}

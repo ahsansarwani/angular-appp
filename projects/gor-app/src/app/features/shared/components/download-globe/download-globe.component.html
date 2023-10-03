@@ -1,0 +1,65 @@
+<div class="download-globe-container">
+  <!-- <div class="download-globe-wrapper"></div> -->
+  <div class="download-globe-section-1">
+    <div class="download-globe-1">
+      <div class="download-globe-1-title">
+        <span>{{ title }}</span>
+        <div class="download-globe-1-details">
+          {{ details }}
+        </div>
+      </div>
+      <div class="order-success-section-3-info-stores">
+        <a
+          target="_blank"
+          href="https://apps.apple.com/us/app/globeone/id1555659963"
+          class="icon-button"
+          ><img src="assets/images/svg/appstore.svg" alt="app store icon"
+        /></a>
+        <a
+          target="_blank"
+          href="https://play.google.com/store/apps/details?id=ph.com.globe.globeonesuperapp&hl=en&gl=US&pli=1"
+          class="icon-button"
+          ><img src="assets/images/svg/playstore.svg" alt="playstore icon"
+        /></a>
+      </div>
+    </div>
+    <div class="download-globe-2">
+      <div class="mobiles">
+        <div>
+          <img
+            src="assets/images/svg/mobiles-2.svg"
+            alt="Iphone and Android phone image" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="download-globe-section-2">
+    <div class="order-success-section-4">
+      <div class="order-success-section-4-head font-semibold">
+        Enjoy these in GlobeOne
+      </div>
+      <div class="order-success-section-4-cards">
+        <div class="order-success-section-4-card" *ngFor="let card of cards">
+          <div style="display: flex; align-items: flex-start">
+            <img
+              style="padding-top: 7px"
+              alt="card data icon"
+              src="{{ card.icon }}" />
+            <div class="order-success-section-4-title font-semibold">
+              {{ card.title }}
+            </div>
+          </div>
+          <div class="order-success-section-4-desc">
+            <span *ngIf="card.id === 'transcript'; else success">
+              <span class="font-semibold">Pay Your Bills</span> Anytime,
+              Anywhere. Enjoy hassle-free payments using the Pay Bill
+            </span>
+            <ng-template #success>
+              <span>{{ card.desc2 }}</span>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

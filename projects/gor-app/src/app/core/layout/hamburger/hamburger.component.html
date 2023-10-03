@@ -1,0 +1,17 @@
+<button (click)="open()">
+  <img src="/assets/hamburger.svg" alt="hamburger icon" />
+</button>
+
+<nz-drawer
+  [nzClosable]="true"
+  [nzVisible]="visible"
+  nzPlacement="right"
+  nzTitle="Basic Drawer"
+  nzWidth="300px"
+  (nzOnClose)="close()">
+  <ng-container *nzDrawerContent>
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+  </ng-container>
+</nz-drawer>

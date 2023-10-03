@@ -1,0 +1,5 @@
+<swiper [slidesPerView]="3"  [virtual]="true">
+  <ng-container *ngFor="let sc of dummyArray; index as i">
+    <gor-inner-card [subCard]="sc" [id]="i"></gor-inner-card>
+  </ng-container>
+</swiper>

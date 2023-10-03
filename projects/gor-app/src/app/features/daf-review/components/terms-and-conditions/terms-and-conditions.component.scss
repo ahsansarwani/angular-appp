@@ -1,0 +1,33 @@
+.click.collapsed .icon {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in-out;
+}
+.card-body {
+  font-size: 12px;
+}
+.primary-text-color {
+  color: #1f3b59;
+}
+.required-field::after {
+  content: '*';
+  color: red;
+}
+
+.checkbox-class {
+  width: 24px;
+  height: 24px;
+}
+.condition-description {
+  margin-left: 45px;
+  width: 90%;
+  color: #1f3b59;
+}
+.condition-title {
+  color: #1f3b59;
+  margin-left: 20px;
+  width:190px
+}
+
+.ml-20{
+  margin-left:20px;
+}

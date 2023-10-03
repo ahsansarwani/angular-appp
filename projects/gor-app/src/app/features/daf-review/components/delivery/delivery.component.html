@@ -1,0 +1,54 @@
+<div class="list-group list-group-flush" [style.paddingBottom.px]="16">
+  <div class="list-group-item flex-column align-items-start">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex w-100">
+          <p
+            class="primary-text-color font-18 font-bold h-12"
+            id="delivery-label">
+            Delivery
+          </p>
+        </div>
+        <div class="mt-2 d-flex w-100 justify-content-between">
+          <div class="card card-class">
+            <div class="card-body">
+              <div
+                class="d-flex w-100 justify-content-between"
+                style="height: 30px">
+                <div class="d-flex w-100">
+                  <div class="p-1">
+                    <gor-svg-delivery id="delivery-icon" />
+                  </div>
+                  <div style="margin-left: 12px">
+                    <p
+                      class="font-18 font-bold primary-text-color"
+                      id="delivery-type">
+                      {{ delivery.deliveryType }}
+                    </p>
+                  </div>
+                  <div></div>
+                </div>
+                <p
+                  class="font-16 primary-text-color font-bold"
+                  id="delivery-charge">
+                  {{ delivery.deliveryCharge }}
+                </p>
+              </div>
+              <div class="d-flex w-100">
+                <div style="width: 1.2rem; margin-left: 45px">
+                  <gor-svg-timer id="delivery-timer" />
+                </div>
+
+                <div style="width: 180px">
+                  <p class="font-12 font-bold" id="delivery-description">
+                    {{ delivery.deliveryDescription }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

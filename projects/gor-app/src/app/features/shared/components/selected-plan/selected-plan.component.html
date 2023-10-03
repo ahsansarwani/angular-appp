@@ -1,0 +1,36 @@
+<div class="selected-plan-bg">
+  <div class="selected-plan-container">
+    <div class="feature-tags">
+      {{ tags[0] }}
+    </div>
+    <div class="selected-plan-content">
+      <div class="plan-amount">
+        <div class="icon-div">
+          <div class="image-div">
+            <img
+              src="{{ svgUrl }}"
+              alt="plan amount"
+              class="img-class"
+              [class.mob-img]="isMobile" />
+          </div>
+          <div
+            class="plan-name-image font-bold"
+            [class.tl-mob]="isMobile"
+            style="display: none">
+            <span class="font-12" [class.font-mob]="isMobile">PLAN</span>
+            <span class="font-10" [class.font-2-mob]="isMobile">
+              {{ planDetails[5] }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="plan-details">
+        <div class="font-semibold">{{ planDetails[0] }}</div>
+        <span>{{ planDetails[1] }}</span>
+        <span>{{ planDetails[2] }}</span>
+        <span>{{ planDetails[6] ? 'App Data' : '' }}</span>
+        <span>{{ planDetails[6] ? 'Unlimited' : '' }}</span>
+      </div>
+    </div>
+  </div>
+</div>

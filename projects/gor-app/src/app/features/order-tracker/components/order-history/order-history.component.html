@@ -1,0 +1,66 @@
+<div class="steps-container border mobile">
+    <div class="step" *ngFor="let step of steps; let i=index;">
+        <div class="step-left">
+            <img src="../../../../../assets/order-tracker/step-success.svg" alt="success"
+                *ngIf="step.date && step.title !== 'Cancelled' && !step.ongoing && !step.download" />
+            <img src="../../../../../assets/order-tracker/step-cancelled.svg" alt="cancelled"
+                *ngIf="step.date && step.title === 'Cancelled'" />
+            <img src="{{ step.icon }}" alt="{{ step.title }}"
+                *ngIf="!step.date || (step.date && step.ongoing) || (step.date && step.download)" />
+            <div *ngIf="i+1 !== steps.length">
+                <div *ngIf="(steps[i+1].date || steps[i+1].ongoing) && !step.downloadMobile" 
+                class="vl fulfilled solid"></div>
+                <div *ngIf="!steps[i+1].date && !steps[i+1].ongoing && !step.downloadMobile"
+                    class="vl unfulfilled dashed"></div>
+                <div *ngIf="step.downloadMobile" class="vl fulfilled dashed"></div>
+            </div>
+        </div>
+        <div class="step-right">
+            <p class="font-12" [ngClass]="{'fulfilled': step.date && step.title !== 'Cancelled',
+                            'fulfilled-cancel': step.date && step.title === 'Cancelled',
+                            'unfulfilled-ongoing': step.ongoing,
+                            'unfulfilled': !step.date}">
+                {{step.title}}</p>
+            <p class="step-date font-10" *ngIf="step.date">{{step.date}}</p>
+        </div>
+    </div>
+    <div class="qr-container" *ngIf="showQr">
+        <img alt="qr-code" src="../../../../../assets/order-tracker/qr-code.svg" />
+        <p class="font-12">Scan this QR Code to <br />redirect to GlobeOne App</p>
+    </div>
+</div>
+<div class="steps-container border desktop">
+    <div class="steps-content-container">
+        <div class="steps-content" *ngFor="let step of steps; let i=index;">
+            <div class="step-top">
+                <hr *ngIf="i !== 0 && (steps[i].date || steps[i].ongoing) && !step.download"
+                    class="fulfilled progress-line solid">
+                <hr *ngIf="i !== 0 && !steps[i].date && !steps[i].ongoing && !step.download"
+                    class="unfulfilled progress-line dashed" style="margin-left: -3px;">
+                <hr *ngIf="i !== 0 && step.download" class="fulfilled progress-line dashed" style="margin-left: -3px;">
+                <img src="../../../../../assets/order-tracker/step-success.svg" alt="success"
+                    *ngIf="step.date && step.title !== 'Cancelled' && !step.ongoing && !step.download" />
+                <img src="../../../../../assets/order-tracker/step-cancelled.svg" alt="cancelled"
+                    *ngIf="step.date && step.title === 'Cancelled'" />
+                <img src="{{ step.icon }}" alt="{{ step.title }}"
+                    *ngIf="!step.date || (step.date && step.ongoing) || (step.date && step.download)" />
+                <hr *ngIf="i+1 !== steps.length && (steps[i+1].date || steps[i+1].ongoing) && !steps[i+1].download"
+                    class="fulfilled progress-line solid">
+                <hr *ngIf="i+1 !== steps.length && !steps[i+1].date && !steps[i+1].ongoing && !steps[i+1].download"
+                    class="unfulfilled progress-line dashed">
+                <hr *ngIf="i+1 !== steps.length && steps[i+1].download" class="fulfilled progress-line dashed">
+            </div>
+            <p class="font-10 font-semibold" style="white-space: pre;" 
+                [ngClass]="{'fulfilled': step.date && step.title !== 'Cancelled && !step.ongoing',
+                            'fulfilled-cancel': step.date && step.title === 'Cancelled',
+                            'unfulfilled-ongoing': step.ongoing,
+                            'unfulfilled': !step.date || (step.date && step.ongoing)}">
+                {{step.title}}</p>
+            <p class="step-date font-10" *ngIf="step.date">{{step.date}}</p>
+        </div>
+    </div>
+    <div class="qr-container" *ngIf="showQr">
+        <img alt="qr-code" src="../../../../../assets/order-tracker/qr-code.svg" />
+        <p class="font-12 font-bold">Scan this QR Code to <br />redirect to GlobeOne App</p>
+    </div>
+</div>

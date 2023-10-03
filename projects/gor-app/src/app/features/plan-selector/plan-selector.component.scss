@@ -1,0 +1,378 @@
+// @import url('https://fonts.cdnfonts.com/css/neue-plak');
+@import '../../../styles.scss';
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+// @import '/node_modules/bootstrap/scss/bootstrap.scss';
+$zIndex: 100;
+.container {
+  z-index: $zIndex;
+}
+body{
+  overflow-x: hidden;
+}
+* {
+  font-family: 'Neue Plak', sans-serif;
+}
+
+.app-icon-title-class {
+  color: #1a458b;
+  font-size: 20px;
+}
+.opacity-full {
+  opacity: 1 !important;
+}
+.opacity-none {
+  opacity: 0.45;
+}
+
+.overlay {
+  background-color: rgba(239, 239, 239, 0.3);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: alpha(opacity=50);
+}
+
+.bold-text-color {
+  color: #2274e5;
+}
+.list-class {
+  list-style: none;
+}
+.centered-div {
+  margin: auto;
+  width: 20%;
+  padding: 2px;
+  display: flex;
+}
+.list-class > li {
+  height: 25px;
+}
+.icon-div-feature{
+  padding-right:2px;
+}
+.icon-div {
+  padding-right: 3px;
+  align-items: center;
+}
+// .plan-benefit-div {
+//   display: inline-block;
+//   align-items: center;
+// }
+.centered-plan-benefits-div {
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
+}
+.plan-benefit-div {
+  display: flex;
+  padding: 2px;
+  align-items: center;
+}
+.plan-feature-div {
+  display: flex;
+  padding: 2px;
+}
+.plan-type {
+  color: black;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.no-text-decoration {
+  text-decoration: none;
+}
+.plan-type-div {
+  margin: auto;
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 50px;
+  height: 80px;
+}
+// .swiper-slide-active{
+//   display: flex;
+//   justify-content: center;
+//   //transition: all .4s ease;
+// }
+// .main-body-class {
+//   background-color: #f5f9fc;
+// }
+
+.underline span {
+  display: inline-block;
+  position: relative;
+}
+.underline span::after {
+  content: '';
+  height: 8px;
+  width: 48px;
+  background: #2274e5;
+  border-radius: 15px;
+  display: block;
+  margin-top: 16px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+.footer-image-div {
+  position: relative;
+}
+.pt-20 {
+  padding-top: 20px;
+}
+// ***********************  Swiper ***************************************
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 12px;
+  font-weight: bolder;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: white;
+  border-radius: 100%;
+  color: #2274e5;
+  height: 48px;
+  width: 48px;
+  filter: drop-shadow(0px 8px 8px rgba(24, 39, 75, 0.08))
+    drop-shadow(0px 4px 6px rgba(24, 39, 75, 0.12));
+}
+
+// .swiper-slide-active {
+//   transform: scale(1.1);
+//   opacity: 1 !important;
+// }
+
+.swiper {
+  height: 340px;
+  //display: flex;
+  //justify-content: center;
+}
+.on-click-active {
+  transform: scale(1.1) !important;
+  opacity: 1 !important;
+}
+
+.gradient-border-bg {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, purple, orange) border-box;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  padding: -15px;
+}
+
+// **********************    Mobile  *************************************
+
+@media screen and (max-width: 647px) {
+  .title-class {
+    font-size: 20px;
+    text-align: center;
+    color: #1f3b59;
+    width: 95%;
+    margin: auto;
+  }
+  .subtitle-class {
+    font-size: 14px;
+    margin-top: 16px;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    margin-top: 16px !important;
+    color: #354f6a;
+  }
+  .centered-plan-features-div {
+    margin: auto;
+    height: auto;
+    width: fit-content;
+  }
+  .centered-plan-benefits-div {
+    margin-top: 3px;
+  }
+  .plan-feature-div {
+    height: 22px;
+  }
+  .plan-benefit-div {
+    height: 22px;
+  }
+  .plan-feature-text {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #354f6a;
+    padding-left: 3px;
+  }
+  .plan-benefit-text {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #354f6a;
+  }
+  .icon-div > img {
+    height: 16px;
+    width: 16px;
+  }
+  .app-icon-image-div {
+    display: flex;
+    height: 65px;
+    overflow: hidden;
+  }
+  .app-icon-class {
+    width: 98%;
+    height: 5rem;
+    margin: auto;
+  }
+  .swiper-slide {
+    padding-left: 20px;
+  }
+}
+// **********************    Tablet   *************************************
+
+@media screen and (min-width: 648px) and (max-width: 1048px) {
+  .title-class {
+    font-size: 40px;
+    text-align: center;
+    color: #1f3b59;
+    margin: auto;
+    width: 700px;
+  }
+  .subtitle-class {
+    font-size: 20px;
+    margin-top: 30px;
+    width: 700px;
+    margin: auto;
+    text-align: center;
+    margin-top: 40px !important;
+    color: #354f6a;
+  }
+  .centered-plan-features-div {
+    margin: auto;
+    height: auto;
+    width: fit-content;
+    margin-top: 10px;
+  }
+  .plan-feature-div {
+    height: 31px;
+  }
+  .centered-plan-benefits-div {
+    margin-top: 10px;
+  }
+  .plan-benefit-div {
+    height: 31px;
+  }
+  .plan-feature-text {
+    font-size: 18px;
+    color: #354f6a;
+    padding-left: 3px;
+  }
+  .plan-benefit-text {
+    font-size: 18px;
+    color: #354f6a;
+  }
+  .icon-div > img {
+    height: 28px;
+    width: 28px;
+  }
+  .app-icon-class {
+    width: 80%;
+    height: 8rem;
+    margin: auto;
+  }
+  .app-icon-image-div {
+    display: flex;
+    height: 100px;
+    overflow: hidden;
+    width: 90%;
+    margin: auto;
+  }
+  .swiper-slide {
+    padding-left: 20px;
+  }
+  .swiper {
+    min-width: 800px;
+    max-width: 1000px;
+  }
+}
+
+// **********************    Desktop   *************************************
+
+
+@media screen and (min-width: 1049px) {
+  .title-class {
+    font-size: 42px;
+    width: 700px;
+    text-align: center;
+    color: #1f3b59;
+    margin: auto;
+  }
+  .subtitle-class {
+    font-size: 20px;
+    margin-top: 30px !important;
+    width: 700px;
+    margin: auto;
+    text-align: center;
+    color: #354f6a;
+  }
+  .centered-plan-features-div {
+    margin: auto;
+    height: fit-content;
+    width: fit-content;
+    margin-top: 10px;
+  }
+  .centered-plan-benefits-div {
+    margin: auto;
+    //width: 70%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
+  }
+  .plan-feature-text {
+    font-size: 18px;
+    color: #354f6a;
+    padding-left: 3px;
+  }
+  .plan-benefit-text {
+    font-size: 18px;
+    color: #354f6a;
+  }
+  .icon-div > img {
+    height: 39px;
+    width: 39px;
+  }
+  .app-icon-class {
+    width: 90%;
+    height: 15rem;
+    margin: auto;
+  }
+  .app-icon-image-div {
+    display: flex;
+    height: 200px;
+    overflow: hidden;
+    width: 80%;
+    margin: auto;
+  }
+  .swiper-button-prev {
+    left: 50px;
+  }
+  .swiper-button-next {
+    right: 50px;
+  }
+  .swiper-slide:hover {
+    transform: scale(1.1);
+  }
+  .swiper {
+    min-width: 1400px;
+  }
+  
+}
+
+.swiper-wrapper {
+  padding-top: 21px;
+}

@@ -1,0 +1,643 @@
+@import '../../../styles.scss';
+
+* {
+  font-family: $fontFamily;
+}
+
+.daf-fill-container {
+  width: 100%;
+  overflow-x: hidden;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.daf-fill-form {
+  width: 100%;
+}
+
+.hidden-form,
+.daf-fill-form,
+.submit-form {
+  padding: 0px 24px 48px;
+}
+
+.daf-fill-form,
+.hidden-form {
+  padding: 0px 24px 0px 24px;
+}
+
+.daf-fill-form,
+.hidden-form-content {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.daf-fill-wrapper {
+  width: 375px;
+  // padding: 0px 24px 48px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  // flex-wrap: wrap;
+}
+
+.desk-daf-fill-wrapper {
+}
+.error {
+  border: 2px solid #b91e28;
+  background: #f5f5f5;
+}
+
+.error-text {
+  color: #b91e28;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+}
+
+.error-wrapper {
+  height: 60px !important;
+}
+
+.fill-input {
+  width: 100%;
+  max-height: 60px;
+}
+
+.fill-input-container {
+  height: fit-content !important;
+}
+
+.fill-input > label {
+  padding: 0px !important;
+  padding-top: 10px !important;
+  padding-left: 12px !important;
+  font-size: 12px;
+  color: $textColor2;
+}
+
+.fill-input > input {
+  padding: 16px 12px 6px 12px !important;
+  height: 44px;
+  color: $primaryTextColor;
+  font-size: 14px;
+  // outline: none !important;
+  // border: none !important;
+  box-shadow: none;
+  width: 100%;
+}
+
+.submit-text > p {
+  width: 100%;
+  font-size: 12px;
+  color: $regalBlue;
+  line-height: 140%;
+}
+
+.i-icon-button {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  position: absolute;
+  top: 3px;
+  right: 12px;
+}
+
+.hidden-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.hidden-form-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hidden-form-head > div:first-child {
+  font-size: 16px;
+  color: $regalBlue;
+  @extend .font-semibold;
+}
+
+.hidden-form-head > div:nth-child(2) {
+  font-size: 12px;
+  color: $textColor2;
+  line-height: 100%;
+}
+
+.hidden-form-content {
+}
+
+.form-check-label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  color: $regalBlue;
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.daf-dropdown {
+  width: 100%;
+}
+
+.daf-dropdown-btn:hover,
+.daf-dropdown-btn:active,
+.daf-dropdown-btn:focus,
+.daf-dropdown-btn:active:focus,
+.daf-dropdown-btn:visited {
+  background-color: white;
+  border: 1px solid $buttonColor;
+  color: $textColor2;
+}
+
+.daf-dropdown-btn-clicked {
+  border: 1px solid $buttonColor !important;
+}
+
+.daf-dropdown-btn {
+  padding: 6px 12px 6px 12px;
+  background-color: white;
+  border: 1px solid $borderLineColor3;
+  border-radius: 6px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $textColor2;
+  font-size: 12px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu {
+  width: 100%;
+}
+
+.required-input {
+  color: $requiredColor;
+}
+
+.selected-option-view {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  color: $primaryTextColor;
+  font-size: 14px;
+  align-items: flex-start;
+}
+
+.selected-option-view > span:first-child {
+  font-size: 10px;
+}
+
+.dropdown-menu,
+.dropdown-menu {
+  border: 1px solid $buttonColor;
+}
+
+.inputs-error-message {
+  display: flex;
+  gap: 2px;
+  justify-content: flex-end;
+  color: $textColor2;
+  font-size: 12px;
+  line-height: 140%;
+}
+
+.form-check {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.form-check-input {
+  height: 24px;
+  width: 24px;
+  margin-top: 0px;
+}
+
+.submit-form {
+  margin-top: 16px;
+  padding-bottom: 0px;
+}
+
+button[title]:hover:after {
+  content: attr(title);
+  position: absolute;
+  // top: -100%;
+  left: 0;
+  background: $regalBlue;
+  color: white;
+  border-radius: 8px;
+  width: 282px;
+  font-size: 14px;
+  padding: 16px;
+  text-align: left;
+}
+
+button[title] {
+  // pointer-events: none;
+}
+
+[data-title].hide:after {
+  opacity: 0 !important;
+}
+
+[data-title].active:after {
+  opacity: 1;
+  // transition: all 0.1s ease 0.5s;
+  visibility: visible;
+}
+
+[data-title]:after {
+  content: attr(data-title);
+  font-size: 14px;
+  position: absolute;
+  padding: 1px 5px 2px 5px;
+  bottom: 0.6em;
+  right: 0.1em;
+  box-shadow: 1px 1px 3px #222222;
+  opacity: 0;
+  z-index: 99999;
+  visibility: hidden;
+  background: $regalBlue;
+  color: white;
+  border-radius: 8px;
+  width: 282px;
+  text-align: left;
+}
+
+[data-title] {
+  // position: relative;
+}
+
+@media (min-width: 375px) {
+  .daf-fill-wrapper {
+    width: 100%;
+  }
+}
+
+.pb-button {
+  background-color: $buttonColor;
+  border-radius: 6px;
+  border: 0px;
+  color: $buttonTextColor;
+  cursor: pointer;
+}
+
+.pb-button:disabled {
+  background-color: $borderLineColor2;
+  border-radius: 6px;
+  border: 0px;
+  color: $disabledTextColor;
+  cursor: pointer;
+}
+
+.fill-gender {
+  width: 100%;
+}
+:host ::ng-deep {
+  .birthday-input .mat-mdc-text-field-wrapper {
+    width: 100%;
+    height: 44px;
+
+    min-width: 100%;
+  }
+
+  .birthday-input .mdc-text-field {
+    border: 1px solid #cfddf4;
+    border-radius: 4px;
+    padding-left: 12px;
+    background-color: transparent;
+  }
+
+  .birthday-input .mdc-line-ripple {
+    border-bottom-width: 0px;
+  }
+
+  .birthday-input .mdc-line-ripple::before {
+    border-bottom-width: 0px;
+  }
+
+  .birthday-input .mdc-line-ripple::after {
+    border-bottom-width: 0px;
+  }
+}
+
+.birthday {
+  color: #1f3b59;
+  font-family: 'NeuePlakSemiBold' !important;
+}
+
+#prefix {
+  color: $primaryTextColor;
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  padding-top: 16px !important;
+  @extend .font-semibold;
+}
+
+.desk-error-indicator > div:first-child {
+  @extend .font-semibold;
+}
+.desk-error-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  color: #1f3b59;
+  width: 100%;
+
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.mob-error-indicator {
+  width: 100%;
+}
+
+.desk-daf-fill-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 36px;
+}
+
+.desk-daf-fill-title {
+  justify-content: flex-start;
+  @extend .font-semibold;
+  color: $regalBlue;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 100%; /* 24px */
+  padding-top: 19px;
+  padding-bottom: 24px;
+}
+
+.desk-daf-fill-form {
+  padding: 0 24px;
+}
+.tab-daf-fill-form {
+  padding-right: 16px;
+}
+.desk-daf-input-container {
+  width: 100% !important   ;
+}
+.desk-daf-bg-container {
+  width: 49% !important;
+}
+
+.offline-daf-section-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.daf-title {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  color: $regalBlue;
+  height: 71px;
+  @extend .font-semibold;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 71px;
+}
+
+.desk-daf-fill-wrapper {
+  width: 375px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+}
+
+.w-49 {
+  width: 49% !important;
+}
+@media (max-width: 374px) {
+  .w-49 {
+    width: 49% !important;
+  }
+}
+@media (max-width: 347px) {
+  .w-49 {
+    width: 100% !important;
+  }
+  .desk-daf-bg-container {
+    width: 100% !important;
+  }
+}
+
+.daf-form-1-title > div:nth-child(2) {
+  color: $textColor2;
+  font-size: 12px;
+}
+
+.daf-form-1-title > span:first-child {
+  color: $regalBlue;
+  font-size: 18px;
+}
+
+.daf-form-1-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $regalBlue;
+}
+.daf-form-1-sub-title {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: $secondaryTextColor;
+
+  font-size: 14px;
+
+  font-weight: 400;
+  line-height: 100%;
+}
+
+@media (max-width: 374px) {
+  .pb-button {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 375px) {
+  .daf-input-container,
+  .zipcode-input {
+    width: 49%;
+  }
+  .daf-form-1-title {
+    justify-content: flex-end;
+  }
+}
+.field-required {
+  opacity: 0.77;
+  color: $textColor2;
+  font-family: $fontReg;
+  font-size: 12px;
+  line-height: 140%;
+}
+
+@media (min-width: 650px) {
+  .daf-form-1-title {
+    justify-content: space-between;
+  }
+}
+
+.daf-fill-nav {
+  width: 100%;
+}
+
+@media (min-width: 650px) {
+  .daf-fill-nav {
+    padding-left: 24px;
+  }
+}
+.daf-fill-nav-button {
+}
+
+@media (min-width: 888px) {
+  .daf-input-container,
+  .zipcode-input {
+    width: 248px;
+  }
+
+  .desk-daf-fill-container {
+    align-items: stretch;
+    gap: 32px;
+  }
+  .desk-daf-fill-wrapper {
+    width: 504px;
+  }
+  .desk-daf-fill-form,
+  .desk-daf-fill-form,
+  .desk-daf-fill-wrapper {
+    padding: 0px;
+  }
+  .daf-fill-nav {
+    padding-left: 6.9vw;
+  }
+}
+
+input:disabled {
+  color: #1a458b !important;
+  -webkit-text-fill-color: #1a458b !important;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 480px) and (min-width: 375px) {
+  .fill-input-container {
+    width: 100% !important;
+  }
+  .w-49 {
+    width: 49% !important;
+  }
+}
+
+.birthday {
+  color: #1f3b59;
+  font-family: 'NeuePlakSemiBold' !important;
+}
+
+:host ::ng-deep {
+  .birthday-input .mat-mdc-form-field-infix {
+    // padding-top: 0px;
+    // padding-bottom: 0px;
+  }
+  .birthday-input .mat-mdc-form-field-focus-overlay {
+    background-color: white;
+  }
+  .birthday-input input {
+    color: $primaryTextColor !important;
+  }
+  .birthday-input .mdc-floating-label {
+    padding-bottom: 13px;
+  }
+  .birthday-input .mdc-floating-label--float-above {
+    padding-bottom: 3px;
+  }
+}
+:host ::ng-deep {
+  .mdc-text-field--focused {
+    border: 1px solid #85b7fe !important;
+  }
+  .error-wrapp .mat-mdc-text-field-wrapper {
+    @extend .error;
+  }
+  input.error-wrapp {
+    //to make text red
+    // color: #b91e28 !important;
+  }
+  .birthday-input .mat-mdc-form-field-required-marker {
+    color: $requiredColor;
+  }
+  .birthday-input .mdc-icon-button {
+    padding: 9px;
+  }
+  .birthday-input .mdc-icon-button,
+  .birthday-input .mat-mdc-button-ripple,
+  .birthday-input .mat-mdc-button-touch-target,
+  .birthday-input .mat-mdc-focus-indicator {
+    height: 42px;
+    width: 42px;
+  }
+  .birthday-input .mat-mdc-form-field-infix {
+    min-height: 42px;
+    max-height: 42px;
+    padding: 0px;
+    padding-top: 18px;
+  }
+}
+
+@media (max-width: 888px) {
+  :host ::ng-deep {
+    .birthday-input .mat-mdc-text-field-wrapper {
+      max-width: 160px;
+    }
+  }
+}
+@media (min-width: 480px) {
+  div.fill-gender {
+    width: 49%;
+  }
+}
+@media (max-width: 375px) {
+  .daf-fill-wrapper {
+    width: 100%;
+  }
+
+  .dynamic-width {
+    width: 100% !important;
+  }
+
+  [data-title]:after {
+    width: 67vw;
+  }
+}

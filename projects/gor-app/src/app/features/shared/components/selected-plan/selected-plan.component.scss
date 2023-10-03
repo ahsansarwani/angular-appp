@@ -1,0 +1,142 @@
+@import '../../../../../styles.scss';
+
+@media only screen and (min-width: 1049px) {
+  .selected-plan-container {
+    width: 280px;
+    max-width: 280px;
+  }
+}
+
+//tab to lap
+@media only screen and (max-width: 1048px) {
+  .selected-plan-container {
+    width: 280px;
+    max-width: 280px;
+  }
+}
+.selected-plan-container {
+  // background: linear-gradient(to bottom, red, blue);
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  min-width: 211px;
+  height: 120px;
+}
+
+@media only screen and (max-width: 647px) {
+  .selected-plan-container {
+    height: 106px;
+    width: 100%;
+  }
+}
+.selected-plan-bg {
+  background-image: linear-gradient(
+    93.58deg,
+    #ff837f 0%,
+    #f8a629 48.96%,
+    #0093e6 100%
+  );
+  border-radius: 12px;
+  padding: 1.5px;
+  box-shadow: 0px 4px 12px 0px rgba(17, 45, 90, 0.12);
+}
+
+.selected-plan-content {
+  display: flex;
+
+  height: 100%;
+  margin-bottom: 0px;
+  padding: 6px 12px 0px 12px;
+  padding-right: 0px;
+  gap: 18.65px;
+  text-align: start;
+}
+
+.plan-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-details > div:first-child {
+  color: $regalBlue;
+  font-size: 12px;
+  line-height: 100%;
+}
+.plan-details > span:nth-child(even) {
+  margin-top: 4px;
+  color: $textColor2;
+  /* GO/compact/label/small-neutral */
+  font-family: Neue Plak;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+.plan-details > span:nth-child(odd) {
+  color: $buttonColor;
+  @extend .font-semibold;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 135%;
+}
+
+.feature-tags {
+  background-color: $tagColor;
+  color: $tagTextColor;
+  width: fit-content;
+  padding: 2px 8px 4px 10px;
+  height: 16px;
+  @extend .font-bold;
+  font-size: 9px;
+  border-radius: 12px 0px 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-class {
+  width: 108px;
+  height: 64px;
+}
+.mob-img {
+  width: 67.5px;
+  height: 40px;
+}
+.image-div {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+.icon-div {
+  position: relative;
+}
+.plan-name-image > span {
+  letter-spacing: 2px;
+}
+.plan-name-image {
+  position: absolute;
+  top: 10px;
+  left: 64px;
+  font-size: 10px;
+  color: white;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.plan-amount {
+  position: relative;
+  top: -16px;
+}
+
+.tl-mob {
+  top: 3px;
+  left: 32px;
+}
+.font-mob {
+  font-size: 10px;
+}
+.font-2-mob {
+  font-size: 8px;
+}

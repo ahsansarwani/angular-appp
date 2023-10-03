@@ -1,0 +1,21 @@
+.overlay {
+  background-color: #efefef;
+  position: fixed;
+
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  // display: none;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  // background-color:linear-gradient(to right, red, purple);c
+  color: #2274e5;
+}

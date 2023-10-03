@@ -1,0 +1,96 @@
+<div class="select-unliapp-container">
+  <div class="daf-fill-nav">
+    <gor-back-button></gor-back-button>
+  </div>
+  <div class="select-unliapp-wrapper">
+    <div class="select-unliapp-group">
+      <gor-breadcrumbs-new></gor-breadcrumbs-new>
+
+      <div class="select-unliapp-content">
+        <div class="select-unliapp-section-1">
+          <div class="select-unliapp-section-1-title">Your Plan</div>
+
+          <gor-selected-plan
+            [svgUrl]="card?.svg"
+            class="box-shadow-unli-app"
+            [tags]="[card?.badgeContent]"
+            [planDetails]="[
+              card?.planName_,
+              card?.accessDataTitle,
+              card?.accessData,
+              'App Data',
+              'Unlimited',
+              card?.amount,
+              card?.hasUnlimitedAccess
+            ]"
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              max-width: 280px;
+              align-self: center;
+            "></gor-selected-plan>
+          <div class="selected-plan-features">
+            <div class="selected-plan-feature" *ngFor="let feature of features">
+              <img
+                alt="green tick icon"
+                src="assets/images/svg/green-tick.svg" />
+              <span>{{ feature }}</span>
+            </div>
+          </div>
+        </div>
+        <hr
+          class="vertical-hr"
+          [class.vertical-hr-tab]="(lob$ | async) === 'Tablet'" />
+        <div class="select-unliapp-section-2">
+          <div class="select-unliapp-section-2-title">Choose your App:</div>
+          <div class="unli-app-container">
+            <button
+              class="unli-app-item app-box-shadow"
+              [class.app-box-lesser-shadow]="item.whiteBg"
+              [style.box-shadow]="
+                item.whiteBg
+                  ? 'box-shadow: 0px 4px 12px 0px rgba(17, 45, 90, 0.12);'
+                  : ''
+              "
+              *ngFor="let item of appList; index as i"
+              (click)="onAppClick($event, item, i)">
+              <img
+                alt="success tick"
+                *ngIf="selectedIndex === i"
+                src="../../../assets/images/svg/youtube-success.svg"
+                class="image selected-app-check" />
+              <img
+                [ngClass]="{
+                  'selected-app-check-border': selectedIndex !== i && appClicked
+                }"
+                src="{{ item.svgPath }}"
+                alt="{{ item.altText }}"
+                class="image app-image"
+                [ngClass]="{
+                  'custom-box-shadow': item.whiteBg
+                }" />
+            </button>
+          </div>
+          <gor-pb-button
+            *ngIf="(lob$ | async) === 'Desktop'"
+            class="pb-button"
+            style="width: 100%; padding-top: 74px"
+            [height]="42"
+            [disabled]="!isSelected"
+            [buttonText]="'Proceed'"
+            (clickedProceed)="onProceed($event)"></gor-pb-button>
+        </div>
+      </div>
+      <div class="select-unli-action" *ngIf="(lob$ | async) === 'Tablet'">
+        <gor-pb-button
+          class="pb-button"
+          style="width: 100%"
+          [height]="42"
+          [disabled]="!isSelected"
+          [buttonText]="'Proceed'"
+          (clickedProceed)="onProceed($event)"></gor-pb-button>
+      </div>
+    </div>
+  </div>
+</div>

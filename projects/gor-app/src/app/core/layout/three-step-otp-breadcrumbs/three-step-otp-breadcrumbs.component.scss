@@ -1,0 +1,10 @@
+* {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-text-stroke: 1px transparent;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern';
+  text-rendering: optimizeLegibility;
+  @supports (-moz-appearance: none) {
+    font-weight: 500;
+  }
+}

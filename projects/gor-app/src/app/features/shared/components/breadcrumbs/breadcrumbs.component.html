@@ -1,0 +1,35 @@
+<nav
+  style="--bs-breadcrumb-divider: url('{{ breadcrumbDivider }}');"
+  aria-label="breadcrumb">
+  <ol
+    class="breadcrumb font-semibold"
+    [ngClass]="{ 'order-success-breadcrumb': url === success }">
+    <li
+      *ngIf="this.ctype !== 'ADA'"
+      class="breadcrumb-item font-semibold"
+      id="scan-id"
+      [ngClass]="{ 'active-class': url === uploadId }">
+      Scan ID
+    </li>
+    <li
+      class="breadcrumb-item font-semibold"
+      id="fill-out"
+      aria-current="page"
+      [ngClass]="{ 'active-class': url === daf || url === offDaf }">
+      Fill out
+    </li>
+    <li
+      class="breadcrumb-item font-semibold"
+      id="review"
+      [ngClass]="{ 'active-class': url === review }">
+      Review
+    </li>
+    <li
+      class="breadcrumb-item font-semibold"
+      id="success"
+      aria-current="page"
+      [ngClass]="{ 'active-class': url === success }">
+      Success
+    </li>
+  </ol>
+</nav>

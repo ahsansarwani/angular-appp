@@ -1,0 +1,34 @@
+<!-- <button
+  *ngIf="app"
+  class="outline-button-with-app"
+  (click)="app = null"
+  id="side-section-app-list">
+  <img
+    width="22.5"
+    height="22.5"
+    src="{{ app.svgPath }}"
+    alt="{{ app.altText }}" />
+  {{ app.nameOfApp | titlecase }}
+</button> -->
+<div class="plan-builder-content-2-app-list custom-scrollbar" #container>
+  <button
+    *ngFor="let app of listOfApps; index as i"
+    id="{{ app.id }}"
+    name="app.name "
+    class="plan-builder-content-2-app image-container"
+    (click)="onAppClick($event, app, i)">
+    <img
+      *ngIf="selectedIndex === i"
+      src="../../../assets/images/svg/youtube-success.svg"
+      alt="{{ app.altText }}"
+      class="image selected-app-check" />
+    <img
+      [ngClass]="{
+        'selected-app-check-border': selectedIndex !== i && appClicked
+      }"
+      src="{{ app.svgPath }}"
+      alt="{{ app.altText }}"
+      class="image app-image"
+      [ngClass]="{ 'custom-box-shadow': app.whiteBg }" />
+  </button>
+</div>

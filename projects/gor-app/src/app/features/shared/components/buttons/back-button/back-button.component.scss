@@ -1,0 +1,24 @@
+@import '../../../../../../styles.scss';
+.select-unliapp-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin: 20px 0px 0px 0px;
+}
+.select-unliapp-back > span {
+  padding-bottom: 3px;
+  @extend .font-semibold;
+  color: $textColor2;
+  font-size: 10px;
+  line-height: 100%; /* 10px */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 1049px) {
+  .select-unliapp-back {
+    align-self: flex-start;
+    // margin-left: -8.3vw;
+  }
+}

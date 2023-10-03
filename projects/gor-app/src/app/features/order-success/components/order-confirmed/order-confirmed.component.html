@@ -1,0 +1,339 @@
+<div *ngIf="(lob$ | async) === 'Mobile'" class="order-success-container">
+  <div class="order-success-wrapper">
+    <div *ngIf="breadCrumbs" class="order-breadcrumbs">
+      <gor-breadcrumbs></gor-breadcrumbs>
+    </div>
+    <div *ngIf="!inTouch" class="order-success-title">
+      {{ orderSuccessTitle }}
+    </div>
+    <img
+      alt="circle icon"
+      class="receipt-design"
+      src="assets/images/svg/circle-line.svg" />
+    <div class="order-success-content">
+      <div class="order-success-section-1">
+        <div class="order-success-receipt">
+          <div class="order-success-receipt-reference font-semibold">
+            <span>{{ reference.text }}</span>
+            <span>
+              {{ orderId$ | async }}
+              <span class="icon-button-circle">
+                <button
+                  title="click to copy refernce id"
+                  (click)="onCopyId()"
+                  class="icon-button">
+                  <img src="assets/images/svg/copy.svg" alt="Copy button" />
+                </button>
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="order-success-info">
+          <div class="order-success-icon font-semibold">
+            <img src="{{ statusSvg }}" alt="status icon" />
+            <span [style.color]="statusColor">{{ statusText }}</span>
+          </div>
+          <span class="order-success-text">{{ statusDesc }}</span>
+        </div>
+      </div>
+      <div class="order-success-section-2">
+        <div class="order-success-section-2-head font-semibold">
+          What's next?
+        </div>
+        <div class="order-success-section-2-content">
+          <div class="order-success-section-2-content-1">
+            <div class="order-success-section-2-content-head font-semibold">
+              {{ expectTitle }}
+            </div>
+            <div class="order-success-section-2-content-data">
+              {{ expectDesc }}
+            </div>
+          </div>
+          <div
+            class="order-success-section-2-content-2"
+            *ngIf="tellYourFriends">
+            <div class="order-success-section-2-content-head font-semibold">
+              Tell your friends
+            </div>
+            <div class="order-success-section-2-content-data">
+              Spread the word and invite your friends to join Globe by sharing
+              this link.
+            </div>
+            <div class="icon-copy-button">
+              <span class="icon-button-circle">
+                <button
+                  title="click to copy link"
+                  (click)="
+                    onCopy('https://globeonesuperapp.page.link/GlobeOne')
+                  "
+                  class="icon-button">
+                  <img src="assets/images/svg/copy.svg" alt="Copy button" />
+                </button>
+              </span>
+              <a target="_blank" class="icon-copy-button-link" href="{{ url }}">
+                {{ url }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="order-success-section-3">
+        <!-- <div class="order-success-section-3-head font-semibold">
+          Download the GlobeOne App today!
+        </div> -->
+        <div class="order-success-section-3-content">
+          <div class="order-success-section-3-info">
+            <div class="order-success-section-3-info-data">
+              <div class="order-success-section-3-info-head font-semibold">
+                Download the GlobeOne App Today
+              </div>
+              <div class="order-success-section-3-info-text">
+                Enroll your new postpaid line in Globe One and manage your
+                account all in one app.
+              </div>
+            </div>
+            <div class="order-success-section-3-info-stores">
+              <a
+                target="_blank"
+                href="https://apps.apple.com/us/app/globeone/id1555659963"
+                class="icon-button"
+                ><img src="assets/images/svg/appstore.svg" alt="app store icon"
+              /></a>
+              <a
+                target="_blank"
+                href="https://play.google.com/store/apps/details?id=ph.com.globe.globeonesuperapp&hl=en&gl=US&pli=1"
+                class="icon-button"
+                ><img
+                  src="assets/images/svg/playstore.svg"
+                  alt="playstore icon"
+              /></a>
+            </div>
+          </div>
+
+          <div class="mobiles">
+            <div>
+              <img
+                src="assets/images/svg/mobiles.svg"
+                alt="Iphone and Android phone image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img
+      alt="circle icon"
+      class="receipt-design-down"
+      src="assets/images/svg/circle-line-down.svg" />
+    <div class="download-globe-section-2">
+      <div class="order-success-section-4">
+        <div class="order-success-section-4-head font-semibold">
+          Enjoy these in GlobeOne
+        </div>
+        <div class="order-success-section-4-cards">
+          <div
+            class="order-success-section-4-card"
+            *ngFor="let card of cards"
+            [class.justify-content-center]="
+              card.id === 'gift' || card.id === 'data'
+            ">
+            <div style="display: flex; align-items: flex-start">
+              <img
+                style="padding-top: 6px"
+                alt="card data icon"
+                src="{{ card.icon }}" />
+              <div class="order-success-section-4-title font-semibold">
+                {{ card.title }}
+              </div>
+            </div>
+            <div class="order-success-section-4-desc">
+              <span *ngIf="card.id === 'transcript'; else success">
+                <span class="font-semibold">Pay Your Bills</span> Anytime,
+                Anywhere. Enjoy hassle-free payments using the Pay Bill
+              </span>
+              <ng-template #success>
+                <span>{{ card.desc2 }}</span>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="(lob$ | async) !== 'Mobile'">
+  <div class="container">
+    <div class="row justify-content-center mt-20">
+      <div class="col" style="display: flex; justify-content: center">
+        <div class="card" class="desktop-card">
+          <div class="card-body">
+            <div class="order-success-content">
+              <div class="order-success-section-1">
+                <div class="order-success-receipt">
+                  <div class="order-success-receipt-reference-desktop">
+                    <span class="font-bold">{{ reference.text }}</span>
+
+                    <div style="display: flex; justify-content: end; gap: 15px">
+                      <span class="font-bold">
+                        {{ orderId$ | async }}
+                      </span>
+                      <span class="icon-button-circle-desktop">
+                        <button
+                          title="click to copy refernce id"
+                          class="copy-btn"
+                          (click)="onCopyId()">
+                          <img
+                            src="assets/images/svg/copy.svg"
+                            alt="Copy button"
+                            class="icon-button-copy" />
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="order-success-info">
+                  <div class="order-success-icon font-semibold">
+                    <img src="{{ statusIconDesktop }}" alt="status icon" />
+                    <span
+                      [style.color]="statusColor"
+                      class="text-center font-semibold status-text font-20"
+                      >{{ statusText }}</span
+                    >
+                  </div>
+                  <!-- <span
+                    class="order-success-text-desktop status-text font-reg"
+                    >{{ statusDescriptionDesktop }}</span
+                  > -->
+                  <hr style="width: 100%" />
+                </div>
+              </div>
+              <div class="order-success-section-2-desktop">
+                <div
+                  class="order-success-section-2-head-desktop font-semibold font-20">
+                  What's next?
+                </div>
+                <div class="order-success-section-2-content">
+                  <div class="order-success-section-2-content-1">
+                    <div
+                      class="order-success-section-2-content-head-desktop font-semibold">
+                      Expect an update from us
+                    </div>
+                    <div
+                      class="order-success-section-2-content-data-desktop"
+                      [style.marginTop.px]="8">
+                      {{ expectDescriptionDesktop }}<br />
+                    </div>
+                  </div>
+                  <div
+                    class="order-success-section-2-content-2"
+                    *ngIf="tellYourFriends">
+                    <div
+                      class="order-success-section-2-content-head-desktop font-semibold mt-2">
+                      Tell your friends
+                    </div>
+                    <div
+                      class="order-success-section-2-content-data-desktop"
+                      [style.marginTop.px]="8">
+                      Spread the word and invite your friends to join Globe by
+                      sharing this link.
+                    </div>
+                    <div class="icon-copy-button mt-2">
+                      <span class="icon-button-circle">
+                        <button
+                          title="click to copy link"
+                          (click)="
+                            onCopy(
+                              'https://globeonesuperapp.page.link/GlobeOne'
+                            )
+                          "
+                          class="icon-button">
+                          <img
+                            src="assets/images/svg/copy.svg"
+                            alt="Copy button" />
+                        </button>
+                      </span>
+                      <a
+                        target="_blank"
+                        class="icon-copy-button-link-desktop font-16"
+                        href="{{ url }}">
+                        {{ url }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="order-success-section-3-desktop mt-2">
+    <div class="order-success-section-3-content-desktop">
+      <div class="order-success-section-3-info-desktop">
+        <div class="order-success-section-3-info-data">
+          <div>
+            <span
+              class="order-success-section-3-info-head-desktop font-bold footer-text-color">
+              Download the <br />
+              GlobeOne App Today!</span
+            >
+          </div>
+          <div class="footer-text-color">
+            <p class="font-semibold font-18 mt-10 h-10">
+              Reimagine your Globe experience
+            </p>
+            <p
+              class="footer-text-color font-reg order-success-section-3-info-text w-370">
+              {{ footerDescriptionDesktop }}
+            </p>
+          </div>
+        </div>
+        <div
+          class="order-success-section-3-info-stores"
+          style="display: flex; flex-direction: row"
+          [style.marginTop.px]="24">
+          <a
+            target="_blank"
+            href="https://apps.apple.com/us/app/globeone/id1555659963"
+            class="icon-button"
+            ><img
+              src="assets/Badge.png"
+              [style.width.px]="126"
+              [style.height.px]="37"
+              alt="app store icon"
+          /></a>
+          <a
+            target="_blank"
+            href="https://play.google.com/store/apps/details?id=ph.com.globe.globeonesuperapp&hl=en&gl=US&pli=1"
+            class="icon-button"
+            ><img
+              src="assets/Badge-1.png"
+              [style.width.px]="126"
+              [style.height.px]="37"
+              alt="playstore icon"
+          /></a>
+          <a
+            *ngIf="showAppGallery"
+            alt="app gallery icon"
+            target="_blank"
+            href="https://apps.apple.com/us/app/globeone-superapp/id1555659963"
+            class="icon-button">
+            <img
+              src="assets/Badge-2.png"
+              [style.width.px]="126"
+              [style.height.px]="37"
+          /></a>
+        </div>
+      </div>
+
+      <div class="mobiles">
+        <div>
+          <img
+            class="footer-image-class"
+            src="../../../../../assets/thankyou-footer-image.png"
+            alt="Iphone and Android phone image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

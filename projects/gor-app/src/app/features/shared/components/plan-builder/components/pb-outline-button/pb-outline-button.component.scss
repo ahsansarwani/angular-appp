@@ -1,0 +1,17 @@
+@import '../../../../../../../styles.scss';
+.outline-button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: 2px solid $buttonColor !important;
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 8px;
+  color: $buttonColor;
+  border: none;
+}
+
+@media (max-width: 374px) {
+  .outline-button {
+    width: 100% !important;
+  }
+}

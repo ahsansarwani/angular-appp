@@ -1,0 +1,35 @@
+<div class="feedback-container-number-rating">
+  <div class="number-rating">
+    <div class="text-rating-texts">
+      <button
+        (click)="onText(rate, i)"
+        *ngFor="let rate of rating; index as i"
+        class="text-rating-text icon-button"
+        [class.number-rating-number-selected]="rate.selected">
+        {{ rate.text }}
+      </button>
+    </div>
+    <div class="number-rating-value" *ngIf="rating[rating.length - 1].selected">
+      <input
+        type="text"
+        [(ngModel)]="othersText"
+        [placeholder]="placeHolderText"
+        maxlength="60"
+        name="othersText" />
+    </div>
+  </div>
+  <div class="upload">
+    <!-- <input type="file" accept="image/*" (change)="handleFileInput($event)"> -->
+    <button class="icon-button" (click)="onUpload()">
+      <img src="assets/images/svg/camera.svg" alt="camera icon" />
+      Upload an Image/Photo (optional)
+    </button>
+    <button
+      class="custom-fill-button"
+      [style.height.px]="60"
+      [style.width.px]="343"
+      (click)="onProceed()">
+      {{ buttonText }}
+    </button>
+  </div>
+</div>

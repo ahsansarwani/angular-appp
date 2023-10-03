@@ -1,0 +1,123 @@
+<div class="custom-dropdown daf-steps-action-dropdown">
+  <div class="custom-dropdown-menu-wrapper" aria-labelledby="dropdownMenu2">
+    <div class="d-flex flex-column w-100 h-100 custom-dropdown-menu">
+      <div class="daf-plan-details-1 d-flex flex-row w-100">
+        <div class="d-flex flex-column w-187" id="plan-data-allowance-text">
+          <div class="font-semibold">All-access data</div>
+          <div class="d-flex align-items-center gap-8" id="plan-data-allowance">
+            <svg
+              width="16"
+              height="11.3"
+              viewBox="0 0 16 11.3"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14.8645 4.8496L16 3.71408C11.6026 -0.68334 4.45935 -0.68334 0.0619246 3.71408L0 3.77601L1.13552 4.91153C1.15611 4.89093 1.17685 4.8702 1.19745 4.8496C4.99616 1.07154 11.1071 1.07154 14.8646 4.8496H14.8645Z"
+                fill="#BCC4CD" />
+              <path
+                d="M12.594 7.12045L13.7295 5.98493C10.5914 2.84682 5.49212 2.84682 2.33341 5.98493C2.31282 6.00552 2.29208 6.02626 2.27148 6.04685L3.40701 7.18237L3.46893 7.12045C6.0084 4.60174 10.0754 4.60174 12.5941 7.12045H12.594Z"
+                fill="#BCC4CD" />
+              <path
+                d="M10.3225 9.39152L11.458 8.256C9.55862 6.35664 6.50314 6.35664 4.62442 8.256C4.60383 8.27659 4.58309 8.29733 4.5625 8.31792L5.69802 9.45344L5.75995 9.39152C7.01915 8.13216 9.0631 8.13216 10.3225 9.39152H10.3225Z"
+                fill="#BCC4CD" />
+              <path
+                d="M9.18648 10.5476C8.56709 9.92816 7.53483 9.92816 6.91544 10.5476L6.85352 10.6095L7.98904 11.745L9.18648 10.5476Z"
+                fill="#BCC4CD" />
+            </svg>
+            <div class="font-bold">{{ allAccessData$ | async }}</div>
+          </div>
+        </div>
+        <div class="d-flex flex-column w-187" id="go-wifi-allowance-text">
+          <div class="font-semibold">GoWifi access</div>
+          <div class="d-flex align-items-center gap-8" id="go-wifi-allowance">
+            <svg
+              width="16"
+              height="11.3"
+              viewBox="0 0 16 11.3"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14.8645 4.8496L16 3.71408C11.6026 -0.68334 4.45935 -0.68334 0.0619246 3.71408L0 3.77601L1.13552 4.91153C1.15611 4.89093 1.17685 4.8702 1.19745 4.8496C4.99616 1.07154 11.1071 1.07154 14.8646 4.8496H14.8645Z"
+                fill="#BCC4CD" />
+              <path
+                d="M12.594 7.12045L13.7295 5.98493C10.5914 2.84682 5.49212 2.84682 2.33341 5.98493C2.31282 6.00552 2.29208 6.02626 2.27148 6.04685L3.40701 7.18237L3.46893 7.12045C6.0084 4.60174 10.0754 4.60174 12.5941 7.12045H12.594Z"
+                fill="#BCC4CD" />
+              <path
+                d="M10.3225 9.39152L11.458 8.256C9.55862 6.35664 6.50314 6.35664 4.62442 8.256C4.60383 8.27659 4.58309 8.29733 4.5625 8.31792L5.69802 9.45344L5.75995 9.39152C7.01915 8.13216 9.0631 8.13216 10.3225 9.39152H10.3225Z"
+                fill="#BCC4CD" />
+              <path
+                d="M9.18648 10.5476C8.56709 9.92816 7.53483 9.92816 6.91544 10.5476L6.85352 10.6095L7.98904 11.745L9.18648 10.5476Z"
+                fill="#BCC4CD" />
+            </svg>
+            <div class="font-bold">{{ goWIFI$ | async }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="daf-plan-details-2 d-flex flex-row w-100 align-items-center">
+        <div
+          class="d-flex flex-column gap-8 w-187"
+          id="plan-call-text-allowance-text">
+          <div style="padding-left: 4px" class="font-semibold">Call & Text</div>
+          <div
+            class="d-flex align-items-center gap-8"
+            id="plan-call-text-allowance">
+            <div
+              style="
+                align-self: flex-start;
+                width: 24px;
+                height: 24px;
+                padding-top: 10px;
+              "
+              class="d-flex justify-content-center align-items-center">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3.59996 8.40567C1.27498 4.37868 2.1097 2.10698 2.1097 2.10698L5.28056 1.17117L6.11282 3.67362L4.73459 4.46934C4.73459 4.46934 4.79185 5.62947 5.69601 7.19552C6.60017 8.76157 7.57624 9.39122 7.57624 9.39122L8.95447 8.59551L10.7055 10.5675L8.30967 12.8456C8.30967 12.8456 5.92495 12.4327 3.59996 8.40567Z"
+                  stroke="#BCC4CD"
+                  stroke-width="1.25" />
+                <path
+                  d="M8.72273 2.26948C8.72273 2.26948 10.3017 2.48919 11.3212 3.8382C12.3406 5.18722 12.1209 6.7662 12.1209 6.7662"
+                  stroke="#BCC4CD" />
+                <path
+                  d="M8.27884 4.01951C8.27884 4.01951 9.1363 4.21929 9.74797 5.0287C10.3596 5.83811 10.3178 6.71754 10.3178 6.71754"
+                  stroke="#BCC4CD" />
+              </svg>
+            </div>
+            <div style="width: 110px; height: 57px">
+              <div class="font-bold">{{ callNText$ | async }}</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-flex flex-column w-187 gap-8"
+          style="height: 86px"
+          *ngIf="(hasUnli$ | async) === true">
+          <div>UnliApp</div>
+          <div class="d-flex flex-row gap-1 align-items-center">
+            <img
+              style="border-radius: 8px"
+              src="{{ unliAppPath$ | async }}"
+              alt="selectedValue.altText"
+              height="24px"
+              width="24px" />
+            <div class="app-title">
+              <div class="font-bold">{{ unliAppName$ | async }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 d-flex flex-column daf-plan-details-3 gap-8">
+        <div id="plan-contract-text" class="font-semibold">
+          Contract duration
+        </div>
+        <div class="contract-duration" id="plan-contract-duration">
+          <div class="font-bold">{{ contractDuration$ | async }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

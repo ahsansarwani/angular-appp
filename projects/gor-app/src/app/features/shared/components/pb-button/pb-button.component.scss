@@ -1,0 +1,24 @@
+@import '../../../../../styles.scss';
+
+.pb-button {
+  width: 100% !important;
+  background-color: $buttonColor;
+  border-radius: 6px;
+  border: 0px;
+  color: $buttonTextColor;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  padding-bottom: 4px;
+}
+
+.pb-button:disabled {
+  background-color: $borderLineColor2;
+  border-radius: 6px;
+  border: 0px;
+  color: $disabledTextColor;
+  cursor: pointer;
+}

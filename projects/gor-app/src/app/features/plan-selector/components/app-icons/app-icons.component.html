@@ -1,0 +1,28 @@
+<button *ngIf="app" class="outline-button-with-app" (click)="app = null">
+  <img src="{{ app.svgPath }}" alt="{{ app.altText }}" />
+  {{ app.nameOfApp | titlecase }}
+</button>
+<div *ngIf="!app" class="plan-builder-content-2-app-list custom-scrollbar">
+  <button
+    *ngFor="let app of listOfApps; index as i"
+    id="app.id"
+    name="app.name"
+    class="plan-builder-content-2-app"
+    (click)="onAppClick(app, i)">
+    <div class="image-container">
+      <!-- <img
+        *ngIf="selectedIndex === i"
+        src="../../../assets/images/svg/youtube-success.svg"
+        alt="app.altText"
+        class="image selected-app-check"
+      /> -->
+      <img
+        [ngClass]="{ 'selected-app-check-border': selectedIndex === i }"
+        src="{{ app.svgPath }}"
+        alt="app.altText"
+        class="image"
+        height="15px"
+        width="15px" />
+    </div>
+  </button>
+</div>

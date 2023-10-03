@@ -1,0 +1,445 @@
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta": {
+      "links": { "self": { "href": "http://jsonapi.org/format/1.0/" } }
+    }
+  },
+  "data": [
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:94df0b37-e672-4798-bfee-a64f23fb7dc4",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "43" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "365" }
+        },
+        "title": "Mobile Postpaid",
+        "url": "/postpaid-plans",
+        "weight": "-50"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:5f8156c8-343a-4edb-810d-fb3d0b04005f",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "44" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "menu_link_content:94df0b37-e672-4798-bfee-a64f23fb7dc4",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "368" }
+        },
+        "title": "Apply for SIM-only Plan",
+        "url": "/postpaid-plans/customize-plan/sim-only",
+        "weight": "-50"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:cbe7fa4a-3b9b-4aea-b9a4-bcf7f60d3d13",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "45" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "menu_link_content:94df0b37-e672-4798-bfee-a64f23fb7dc4",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "645" }
+        },
+        "title": "Apply for Plan with Device",
+        "url": "/postpaid-plans/devices",
+        "weight": "-49"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:d986a270-4bcb-498d-80a2-ee5929614e9a",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "35" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "field_event_category": "Personal-Conversion",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          },
+          "query": []
+        },
+        "parent": "menu_link_content:94df0b37-e672-4798-bfee-a64f23fb7dc4",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "1384" }
+        },
+        "title": "Renew Plan",
+        "url": "/renew",
+        "weight": "-48"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:fb4a711b-7de8-4355-aaba-0d71a0c20ee7",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "38" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "menu_link_content:94df0b37-e672-4798-bfee-a64f23fb7dc4",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "646" }
+        },
+        "title": "Renewal Devices",
+        "url": "/plan-renewal/devices",
+        "weight": "-47"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:59243643-21e2-48b6-bdcd-66040f1e15f0",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": true,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "37" },
+        "options": {
+          "attributes": {
+            "class": ["hpw"],
+            "sub_heading": "GLOBE AT HOME",
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "1240" }
+        },
+        "title": "GFiber",
+        "url": "/gfiber",
+        "weight": "-49"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:200adece-ce1b-4036-aa32-a692bb7fb633",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "46" },
+        "options": { "attributes": { "class": [] } },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "41" }
+        },
+        "title": "Prepaid Wifi",
+        "url": "/prepaid-wifi/device",
+        "weight": "-48"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:32aad8bf-07fe-4794-9896-5bb3256d6703",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "4" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "sub_heading": "GLOBE AT HOME",
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "menu_link_content:200adece-ce1b-4036-aa32-a692bb7fb633",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "41" }
+        },
+        "title": "Home Prepaid WiFi",
+        "url": "/prepaid-wifi/device",
+        "weight": "-50"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:b1e1e06c-2000-4c7e-a865-a1a9eed6cf70",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "27" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "sub_heading": "GLOBE AT HOME",
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "menu_link_content:200adece-ce1b-4036-aa32-a692bb7fb633",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "45" }
+        },
+        "title": "Xtreme Prepaid WiFi",
+        "url": "/prepaid-wifi/xtreme",
+        "weight": "-49"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:7408221c-fd9f-44fa-a776-028726085fcb",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "65" },
+        "options": { "attributes": { "class": [] } },
+        "parent": "menu_link_content:200adece-ce1b-4036-aa32-a692bb7fb633",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "1524" }
+        },
+        "title": "Home Prepaid WiFi SIM",
+        "url": "/prepaid-wifi/sim",
+        "weight": "-48"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:a5bb5e25-acb8-4e09-bd6d-5e0a59ff1b27",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "47" },
+        "options": { "attributes": { "class": [] } },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "1397" }
+        },
+        "title": "Deals",
+        "url": "/postpaid-promos",
+        "weight": "-47"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:35dfbbc0-2167-4c22-b8e5-eb1f0f3e81d5",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "63" },
+        "options": { "attributes": { "class": [] } },
+        "parent": "menu_link_content:a5bb5e25-acb8-4e09-bd6d-5e0a59ff1b27",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "1397" }
+        },
+        "title": "Postpaid Promos",
+        "url": "/postpaid-promos",
+        "weight": "-50"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:5abe4449-c2d5-49ff-8954-d83bfff3353d",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "64" },
+        "options": { "attributes": { "class": [] }, "query": [] },
+        "parent": "menu_link_content:a5bb5e25-acb8-4e09-bd6d-5e0a59ff1b27",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "1511" }
+        },
+        "title": "Prepaid Deals",
+        "url": "/prepaid-promos",
+        "weight": "-49"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:ebe5a2e1-fd4c-4215-8ccb-3617cf10969d",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "39" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "homePrepaidWifi",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "193" }
+        },
+        "title": "Reload",
+        "url": "/buy-load",
+        "weight": "-46"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:2c70dc1c-b848-47ab-8bd9-f85199a3bc91",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "36" },
+        "options": {
+          "attributes": {
+            "class": ["mnp"],
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "89" }
+        },
+        "title": "Switch",
+        "url": "/port-number",
+        "weight": "-45"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:740df5e9-3d2c-41f5-98da-772d941026cf",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-left-menu",
+        "meta": { "entity_id": "58" },
+        "options": { "attributes": { "class": [] } },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "1441" }
+        },
+        "title": "Register SIM",
+        "url": "/simreg",
+        "weight": "-44"
+      }
+    }
+  ],
+  "links": {
+    "self": {
+      "href": "https://new.globe.com.ph/api/content/menu_items/header-left-menu"
+    }
+  }
+}

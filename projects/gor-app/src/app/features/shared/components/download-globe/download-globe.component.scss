@@ -1,0 +1,114 @@
+@import '../../../../../styles.scss';
+.download-globe-container {
+  width: 375px;
+  height: 673px;
+  border-radius: 8px;
+  background: radial-gradient(
+        121.82% 276.18% at 134.41% 196.86%,
+        #00ffff 0%,
+        rgba(0, 16, 61, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    #00103d;
+  color: white;
+  padding: 28.5px 11px 8px 11px;
+  display: flex;
+  flex-direction: column;
+}
+
+.download-globe-1 span {
+  @extend .font-semibold;
+}
+.download-globe-1 {
+  width: 189px;
+  font-size: 18px;
+  padding-left: 20px;
+  line-height: 100%;
+  align-self: stretch;
+}
+
+.download-globe-1-details {
+  @extend .font-light;
+  margin: 23px 0px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 135%;
+  width: 140px;
+}
+
+.order-success-section-3-info-stores {
+  width: 123.28px;
+  display: flex;
+  flex-direction: column;
+  gap: 7.73px;
+}
+.order-success-section-3-info-stores > div {
+  width: 100%;
+  // height: 35.29px;
+  background-color: black;
+}
+
+.mobiles {
+  margin-top: 40.65px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.order-success-section-4 {
+  background-color: transparent;
+  margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+.order-success-section-4-head {
+  color: white;
+  font-size: 20px;
+  line-height: 130%;
+}
+.order-success-section-4-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 11px 8px;
+}
+.order-success-section-4-card {
+  padding: 8px;
+  width: 172px;
+  height: 132px;
+
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(71, 83, 106, 0.15);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.order-success-section-4-title {
+  color: $regalBlue;
+  @extend .font-semibold;
+  font-size: 16px;
+  width: 102px;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+}
+.order-success-section-4-desc {
+  font-size: 12px;
+  line-height: 135%;
+  text-align: center;
+  color: $secondaryTextColor;
+}
+
+.order-success-section-4-card > div:first-child {
+  display: flex;
+  gap: 10px;
+}
+
+.download-globe-section-1 {
+  display: flex;
+}

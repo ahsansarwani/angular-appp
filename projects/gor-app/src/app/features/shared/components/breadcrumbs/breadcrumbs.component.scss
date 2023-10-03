@@ -1,0 +1,36 @@
+.active-class {
+  color: #2274e5;
+}
+li {
+  color: #bcc4cd;
+  font-size: 14px;
+}
+
+.order-success-breadcrumb {
+  li {
+    color: white;
+  }
+  .active-class {
+    color: #60f178;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .breadcrumb {
+    width: 335px;
+    align-self: center;
+    justify-content: center;
+  }
+}
+
+ol {
+  padding-left: 24px;
+}
+
+.breadcrumb {
+  margin: 0px;
+}
+nav {
+  margin-top: 10px;
+
+  margin-bottom: 10px;
+}

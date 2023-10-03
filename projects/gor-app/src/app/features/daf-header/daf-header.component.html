@@ -1,0 +1,15 @@
+<div class="daf-steps">
+  <div>
+    <p class="font-semibold">
+      STEP {{ steps[index].no }} OF {{ steps.length }}
+    </p>
+    <p *ngIf="index === 0; else notAtZero" class="font-semibold">
+      Please provide an ID to help us verify your identity.
+    </p>
+    <ng-template #notAtZero>
+      <p>
+        {{ steps[index].stepDesc }}
+      </p>
+    </ng-template>
+  </div>
+</div>

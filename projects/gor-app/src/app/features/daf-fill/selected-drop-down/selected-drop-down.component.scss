@@ -1,0 +1,91 @@
+@import '../../../../styles.scss';
+
+.daf-dropdown {
+  width: 100%;
+}
+
+.daf-dropdown-btn:hover,
+.daf-dropdown-btn:active,
+.daf-dropdown-btn:focus,
+.daf-dropdown-btn:active:focus,
+.daf-dropdown-btn:visited {
+  background-color: white;
+  border: 1px solid $buttonColor;
+  color: $textColor2;
+}
+.daf-dropdown-btn-clicked {
+  border: 1px solid $buttonColor !important;
+}
+.daf-dropdown-btn {
+  padding: 6px 12px 6px 12px;
+  background-color: white;
+  border: 1px solid $borderLineColor3;
+  border-radius: 6px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $textColor2;
+  font-size: 12px;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-menu {
+  width: 100%;
+  height: fit-content;
+  max-height: $scrollHeight;
+  overflow: scroll;
+}
+.required-input {
+  color: $requiredColor;
+}
+
+.selected-option-view > span:nth-child(2) {
+  color: $primaryTextColor;
+}
+.selected-option-view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  // color:$primaryTextColor;
+  color: $textColor2;
+  font-size: 14px;
+  align-items: flex-start;
+}
+.selected-option-view > span:first-child {
+  font-size: 12px;
+}
+.dropdown-menu,
+.dropdown-menu {
+  border: 1px solid $buttonColor;
+}
+.fill-select {
+  font-size: 14px !important;
+}
+.fill-label {
+  font-size: 10px;
+}
+
+label {
+  color: $textColor2;
+}
+
+.search {
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid $borderLineColor3;
+  padding: 4px 16px;
+  outline: none;
+}
+
+.search:focus {
+  border-bottom: 2px solid $buttonColor;
+}
+
+.dropdown-item {
+  // max-width: $scrollHeight;
+  // white-space: nowrap;
+  // overflow-y: scroll;
+  // text-overflow: ellipsis;
+}

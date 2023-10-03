@@ -1,0 +1,31 @@
+<div *ngIf="isVisible" class="id-modal-mask"></div>
+<div *ngIf="isVisible" class="id-modal-container-visible">
+  <div class="id-modal-header">
+    <svg
+      width="45"
+      height="45"
+      viewBox="0 0 45 45"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <rect width="45" height="45" rx="22.5" fill="#F0F5FE" />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M10.5 8.5H11.5H33.1667H34.1667V9.5V35.5V36.5H33.1667H27.8335H16.8335H11.5H10.5V35.5V9.5V8.5ZM16.8335 34.5H27.8335V26.75H16.8335V34.5ZM29.8335 34.5V26.75C29.8335 25.6454 28.9381 24.75 27.8335 24.75H16.8335C15.7289 24.75 14.8335 25.6454 14.8335 26.75V34.5H12.5V10.5H32.1667V34.5H29.8335ZM22.3333 14.8333C20.4924 14.8333 19 16.3257 19 18.1666C19 20.0076 20.4924 21.5 22.3333 21.5C24.1743 21.5 25.6667 20.0076 25.6667 18.1666C25.6667 16.3257 24.1743 14.8333 22.3333 14.8333ZM17 18.1666C17 15.2211 19.3878 12.8333 22.3333 12.8333C25.2789 12.8333 27.6667 15.2211 27.6667 18.1666C27.6667 21.1122 25.2789 23.5 22.3333 23.5C19.3878 23.5 17 21.1122 17 18.1666Z"
+        fill="#2274E5" />
+    </svg>
+  </div>
+  <div class="id-modal-content">
+    <div class="font-bold">Submit any of the following IDs:</div>
+    <ul class="list-of-ids">
+      <li *ngFor="let id of listOfIds; index as i">{{ id }}</li>
+    </ul>
+  </div>
+  <div class="id-modal-footer">
+    <button
+      class="font-semibold outline-button-with-app"
+      (click)="onCloseModal()">
+      Close
+    </button>
+  </div>
+</div>

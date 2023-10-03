@@ -1,0 +1,29 @@
+@import '../../../styles.scss';
+
+// * {
+//   @extend .font-reg;
+// }
+// .parent-retry {
+//   position: relative;
+// }
+
+@media screen and (min-width: 888px) {
+  .container-style {
+    max-width: 35%;
+   // margin-right: auto;
+    margin-left: 25%;
+  }
+}
+
+#review {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pay-spinner {
+  z-index: 10002;
+}
+.billing-details-class{
+  color:#1F3B59;
+  font-size: 24px;
+}

@@ -1,0 +1,85 @@
+<div class="list-group list-group-flush" id="upcomingBill">
+  <div class="list-group-item flex-column align-items-start">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex w-100 justify-content-between">
+          <p
+            id="upcoming-bill-title"
+            class="primary-text-color font-16 font-bold h-12">
+            Your Upcoming Bill
+          </p>
+        </div>
+        <div class="d-flex w-100 justify-content-between">
+          <p
+            id="upcoming-bill-amount"
+            class="primary-text-color font-bold font-24 mb-1">
+            <span class="font-light">₱</span> {{ payableAmt$ | async }}
+          </p>
+          <p
+            class="font-14 mt-10 breakdown-link"
+            data-toggle="collapse"
+            data-target="#viewBreakdown"
+            aria-expanded="true"
+            aria-controls="viewBreakdown"
+            aria-labelledby="view-breakdown-label"
+            (click)="changeText()"
+            style="cursor: pointer">
+            {{ text }}
+          </p>
+        </div>
+        <div
+          id="viewBreakdown"
+          class="collapse"
+          aria-labelledby="headingOne"
+          data-parent="#upcomingBill">
+          <div
+            class="d-flex w-100 justify-content-between"
+            *ngFor="let b of bill.bill; let i = index">
+            <div class="d-flex w-100 flex-column align-items-start">
+              <p
+                class="font-14 h-5 font-bold plan-title"
+                id="{{ 'title ' + i }}">
+                {{ b.title ? b.title : (planTitle$ | async) }}
+              </p>
+              <p
+                class="font-10 w-190 primary-text-color font-semibold"
+                *ngIf="b.additionalNote"
+                id="{{ 'note ' + i }}">
+                {{ b.additionalNote }}
+              </p>
+            </div>
+
+            <p
+              class="font-14 font-semibold plan-amount"
+              id="{{ 'plan-amount-  ' + i }}">
+              {{ planAmount$ | async }}
+            </p>
+          </div>
+
+          <hr class="hr" />
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <div class="d-flex w-100">
+              <p
+                class="font-14 font-bold primary-text-color"
+                id="estimated-amount-to-pay-label">
+                Estimated amount to pay
+              </p>
+            </div>
+
+            <p class="font-14 font-bold" id="estimated-amount">
+              <span class="font-light">₱</span>{{ payableAmt$ | async }}
+            </p>
+          </div>
+          <p mb-1 class="font-14 color-grey font-reg" id="upcoming-bill-note">
+            Depending on your activation date and add-ons, your monthly fee may
+            be pro-rated so the amount on your first bill may be different.
+            <br />
+            <a href="{{ sampleBillLink }}" target="_blank"
+              >[View sample bill]</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+@import '../../../../../styles.scss';
+* {
+  font-family: $fontFamily;
+}
+.daf-steps-action {
+  height: 84px;
+  display: flex;
+  justify-content: space-between;
+  background-color: $sectionColor;
+  padding: 5px 0px 5px 24px;
+}
+
+.daf-steps-content {
+  height: fit-content;
+  padding: 5px 24px 5px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.daf-button-container {
+  width: 100%;
+}
+
+.daf-button-container > button:disabled {
+  color: $disabledTextColor;
+  background-color: $borderLineColor2;
+}
+
+.daf-button-container > button {
+  height: 42px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  background-color: $buttonColor;
+  color: white;
+}
+
+.daf-steps-content-text {
+  color: $secondaryTextColor;
+  font-size: 14px;
+}
+
+.daf-steps-content-text > strong:first-child {
+  font-weight: bolder;
+  color: $regalBlue;
+  font-size: 16px;
+}
+
+.highlight {
+  color: $buttonColor;
+}
+.daf-steps-actions {
+  height: 154px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.daf-steps-actions-dropdowns {
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 375px) {
+  .daf-steps-content {
+    align-items: center;
+  }
+  .daf-steps-content {
+    padding-left: 6.4vw;
+  }
+  .daf-steps-actions {
+    width: 87vw;
+    max-width: 390px;
+  }
+}

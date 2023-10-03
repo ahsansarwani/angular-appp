@@ -1,0 +1,119 @@
+@import '../../../../../styles.scss';
+.main-card-div {
+  width: 184px;
+  height: 277px;
+  border-radius: 11px;
+ 
+}
+.gradient-box {
+  background-image: linear-gradient(
+    93.58deg,
+    #ff837f 0%,
+    #f8a629 48.96%,
+    #0093e6 100%
+  );
+  border-radius: 12px;
+  padding: 1.5px;
+  margin-top: -22px;
+ 
+}
+.image-div {
+  display: flex;
+  justify-content: center;
+}
+.icon-div {
+  position: relative;
+}
+.plan-name-image {
+  position: absolute;
+  top: 27px;
+  left: 90px;
+  font-size: 10px;
+  color: white;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  top: 30px;
+  left: 100px;
+}
+@font-face {
+  font-family: 'extra-light';
+  src: url('../../../../../assets/gor-fonts/TTF/Neue\ Plak\ Narrow\ Light.ttf');
+  font-weight: lighter;
+}
+.peso-class {
+  font-family: 'system-ui';
+  font-weight: lighter;
+}
+.badge-class {
+  width: fit-content;
+  height: 18px;
+  padding: 1px 10px;
+  text-align: center;
+  background-color: #fce8b2;
+  color: #a66b11;
+  z-index: 1;
+  border-radius: 11px 0 4px 0;
+  position: absolute;
+}
+.data-title-class {
+  color: #62768b;
+  height: 5px;
+}
+.data-content-class {
+  color: #2274e5;
+  height: 8px;
+}
+.plan-name-class {
+  height: 6px;
+  color: #1f3b59;
+}
+.button-buy {
+  height: 31px;
+  width: 100%;
+  line-height: 12px;
+  border-radius: 0 0 12px 12px;
+}
+.button-buy-link {
+  height: 31px;
+  width: 100%;
+  line-height: 12px;
+  border-radius: 0 0 12px 12px;
+}
+.img-class {
+  margin-top: 22px;
+}
+@media screen and (max-width: 647px) {
+  .button-buy {
+    height: 34px;
+    width: 100%;
+    line-height: 15px;
+    border-radius: 0 0 12px 12px;
+  }
+  .button-buy-link {
+    height: 34px;
+    width: 100%;
+    line-height: 15px;
+    border-radius: 0 0 12px 12px;
+  }
+}
+
+.gradient-border-bg {
+  background: linear-gradient(
+    0deg,
+    rgba(248, 166, 41, 1),
+    rgba(0, 147, 229, 1) 30%,
+    rgba(248, 166, 41, 1) 70%,
+    rgba(248, 166, 41, 1) 90%
+  );
+  border: 2px solid transparent;
+  border-radius: 13px;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  box-shadow: 0px 4px 12px 0px rgba(17, 45, 90, 0.12);
+}
+.font-100 {
+  font-weight: lighter;
+}

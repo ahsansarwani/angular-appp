@@ -1,0 +1,9 @@
+<div class="daf-container">
+  <div class="daf-wrapper">
+    <gor-breadcrumbs></gor-breadcrumbs>
+    <gor-daf-plan></gor-daf-plan>
+    <gor-daf-header [steps]="steps"></gor-daf-header>
+    <gor-spinner *ngIf="checkIdInit$ | async"></gor-spinner>
+    <gor-daf-scan-form></gor-daf-scan-form>
+  </div>
+</div>

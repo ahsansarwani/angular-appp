@@ -1,0 +1,127 @@
+<button
+  class="btn btn-primary"
+  id="toggleDrawer"
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasBottom"
+  aria-controls="offcanvasBottom"
+  style="display: none">
+  Toggle offcanvas
+</button>
+<div
+  class="offcanvas offcanvas-end offcanvas-drawer"
+  tabindex="-1"
+  id="offcanvasBottom"
+  aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-container-head font-semibold">
+      <img src="assets/images/svg/card.svg" alt="card icon" />
+      Credit / Debit card
+    </div>
+  </div>
+  <div class="offcanvas-body">
+    <div class="offcanvas-container">
+      <div class="offcanvas-options">
+        <div class="offcanvas-cards-container">
+          <div *ngFor="let item of cardInfoButtons">
+            <button class="icon-button">
+              <img src="{{ item.cardSvg }}" alt="Card Button" />
+            </button>
+          </div>
+        </div>
+        <div class="card-number-container">
+          <div class="card-number">
+            <div class="form-floating">
+              <input
+                [formControl]="creditCardNumberControl"
+                maxlength="19"
+                minlength="19"
+                type="text"
+                (paste)="pasteTriggered($event)"
+                class="form-control card-input font-semibold"
+                id="cardNum"
+                placeholder="0000 0000 0000" />
+              <div
+                class="error-text"
+                *ngIf="isFieldInvalid(creditCardNumberControl, 'cardNo')">
+                <div *ngIf="creditCardNumberControl.errors?.['required']">
+                  Credit Card Number is required.
+                </div>
+                <div
+                  *ngIf="creditCardNumberControl.errors?.['pattern'] || creditCardNumberControl.errors?.['cardNo']==true">
+                  Credit Card Number is invalid.
+                </div>
+              </div>
+              <label class="card-label" for="floatingInput">Card number</label>
+            </div>
+          </div>
+        </div>
+        <div class="dates">
+          <div class="form-floating">
+            <input
+              class="form-control card-input font-semibold"
+              size="6"
+              minlength="7"
+              maxlength="7"
+              type="text"
+              id="expiryDate"
+              (paste)="pasteTriggered($event)"
+              [formControl]="expiryDateControl"
+              placeholder="MM / YY"
+              pattern="(0[1-9]|1[0-2])\s?\/\s?\d{2}" />
+            <div
+              class="error-text"
+              *ngIf="isFieldInvalid(expiryDateControl, 'cardValidity')">
+              <div *ngIf="expiryDateControl.errors?.['required']">
+                Expiry Date is required.
+              </div>
+              <div *ngIf="expiryDateControl.errors?.['pattern']">
+                Expiry Date must be in the format MM / YY.
+              </div>
+              <div *ngIf="expiryDateControl.errors?.['cardValidity']===true">
+                Expiry Date is invalid
+              </div>
+            </div>
+            <label class="valid-thru-label" for="floatingInput"
+              >Valid thru</label
+            >
+          </div>
+          <div class="form-floating">
+            <input
+              (input)="formatCvvNumber($event.target)"
+              class="form-control card-input font-semibold"
+              id="cvv"
+              type="text"
+              [formControl]="cvvControl"
+              (paste)="pasteTriggered($event)"
+              placeholder="000"
+              minlength="3"
+              maxlength="3" />
+            <div
+              class="error-text"
+              *ngIf="isFieldInvalid(cvvControl, 'cardCvn')">
+              <div *ngIf="cvvControl.errors?.['required']">
+                CVV is required.
+              </div>
+              <div *ngIf="cvvControl.errors?.['pattern']">
+                CVV must be a 3-digit number.
+              </div>
+              <div *ngIf="cvvControl.errors?.['cardCvn'] === true">
+                CVV is invalid.
+              </div>
+            </div>
+            <label class="CVV-label" for="floatingInput">CVV</label>
+          </div>
+        </div>
+        <div class="card-info-action">
+          <button
+            [disabled]="isValid()"
+            (click)="onPaybill()"
+            data-bs-dismiss="offcanvas">
+            Pay bill
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

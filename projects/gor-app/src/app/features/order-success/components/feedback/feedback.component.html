@@ -1,0 +1,19 @@
+
+<div class="feedback-container">
+    <div class="feedback-container-wrapper">
+      <div class="feedback-container-head">
+        {{feedback[feedbackIndex].title}}
+      </div>
+      <div *ngIf="feedback[feedbackIndex].subtitle" class="feedback-container-head-sub">
+        {{feedback[feedbackIndex].subtitle}}
+      </div>
+      <gor-star-rating style="width:100%;margin-top:28px;" *ngIf="feedback[feedbackIndex].id==='star'"></gor-star-rating>
+      <gor-number-rating style="width:100%" *ngIf="feedback[feedbackIndex].id==='number'"></gor-number-rating>
+      <!-- <gor-star-rating style="width:100%" ></gor-star-rating>
+      <gor-number-rating style="width:100%"></gor-number-rating> -->
+      <gor-text-rating 
+      *ngIf="feedback[feedbackIndex].id==='text'"
+      style="width:100%"></gor-text-rating>
+    </div>
+  </div>
+  

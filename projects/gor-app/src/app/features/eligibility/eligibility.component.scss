@@ -1,0 +1,99 @@
+@import '../../../styles.scss';
+
+// $spinner-vertical-align: -.425em;
+// $spinner-border-width: .15em;
+
+.spinner-border {
+  margin-left: -7px;
+  --bs-spinner-vertical-align: -0.425em;
+  --bs-spinner-border-width: 0.15em;
+}
+
+.textClass {
+  font-family: 'Neue Plak';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.success {
+  color: #00a441;
+}
+
+.loading {
+  color: #2274e5;
+}
+
+.uninit {
+  color: #1f3b59;
+}
+
+.maindiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mobileNumber {
+  background-color: white;
+  border: 1px solid #2274e5;
+}
+// Usage
+.custom-container {
+  width: 80%;
+}
+
+.input-class {
+  color: #1a458b;
+  height: 44px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.subtitle {
+  color: $textColor;
+}
+
+.title {
+  color: $primaryTextColor;
+}
+
+.image-style {
+  width: 75%;
+  height: 75%;
+}
+
+.progress {
+  background-color: #cfddf4;
+  margin-top: 5px;
+  height: 8px;
+}
+
+.text-start,
+.text-end {
+  color: #1559b7;
+}
+
+.h-10 {
+  height: 10px;
+}
+
+@media screen and (min-width: 1025px) {
+  .container {
+    max-width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+input:disabled {
+  -webkit-text-fill-color: $primaryTextColor !important;
+  opacity: 1 !important;
+}

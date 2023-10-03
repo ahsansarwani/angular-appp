@@ -1,0 +1,247 @@
+@import '../../../../../styles.scss';
+
+.starter-banner6-wrapper {
+  display: flex;
+  background: none;
+  background-color: #3a78b0;
+}
+.starter-banner6-container {
+  padding: 32px 0 64px;
+  padding-left: 120px;
+  padding-top: 50px;
+  // padding-right: 10%;
+  flex-grow: 1;
+}
+.d-flex.flex-column.starter-banner6-wrapper-mobile {
+  align-items: flex-start;
+  background: none;
+
+  background-color: #3a78b0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 357px;
+}
+
+.d-flex.flex-column.starter-banner6-wrapper-tablet {
+  align-items: flex-start;
+  background: none;
+
+  background-color: #3a78b0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 288px;
+}
+
+.d-flex.flex-column.starter-banner6-container {
+  padding: 32px 0 64px;
+  background: none;
+  margin-left: 120px;
+  margin-top: 50px;
+}
+
+.d-flex.flex-column.starter-banner6-container-mobile {
+  padding: 32px 0 64px;
+  background: none;
+  margin: 0 10%;
+}
+
+.top-headline span {
+  color: #1f3b59;
+  display: block;
+  line-height: 1;
+  font-size: 3.6rem;
+}
+
+.top-body p {
+  margin-bottom: 15px;
+}
+
+.top-body span {
+  @include font-decoration('Neue Plak', normal, normal, 1.8rem);
+  color: #1f3b59;
+  display: block;
+  max-width: 445px;
+  line-height: 1.4;
+}
+
+.top-body-banner-6-tablet span {
+  @include font-decoration('Neue Plak', normal, 600, 12px);
+  color: white;
+  display: block;
+  max-width: 355px;
+  line-height: 16.8px;
+  margin-top: 10px;
+}
+
+.text-title-tab {
+  @include font-decoration('Neue Plak', normal, 700, 16px);
+  color: white;
+  line-height: 19.2px;
+  margin-left: 10px;
+}
+
+.top-body-banner-6 span {
+  @include font-decoration('Neue Plak', normal, normal, 14px);
+  color: white;
+  display: block;
+  max-width: 445px;
+  line-height: 16.8px;
+}
+
+.top-body-banner-6-mobile span {
+  @include font-decoration('Neue Plak', normal, normal, 14px);
+  color: white;
+  display: block;
+  max-width: 445px;
+  line-height: 16.8px;
+  margin-top: 10px;
+}
+
+.top-body-banner-6-tablet {
+  max-width: 445px;
+}
+
+.top-body-banner-6-tablet img {
+  margin: 0rem;
+  width: 130px;
+  height: 40px;
+}
+
+.top-body-banner-6-tablet a img {
+  margin-right: 0.5rem;
+  height: 42px;
+  width: 139px;
+  margin-top: 15px;
+}
+
+.top-body-banner-6-tablet a:first-child img {
+  margin-right: 0.5rem;
+}
+
+.top-body-banner-6-tablet a:last-child img {
+  margin-right: 0.5rem;
+}
+
+.top-body-banner-6 img {
+  margin: 0rem;
+  width: 130px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.top-body-banner-6 a img {
+  height: 60px;
+  width: auto;
+  padding-top: 20px;
+}
+
+.top-body-banner-6 a:first-child img {
+  margin-right: 0.5rem;
+}
+
+.top-body-banner-6 a:last-child img {
+  margin-left: 0.5rem;
+}
+
+.top-body-banner-6-mobile span {
+  @include font-decoration('Neue Plak', normal, normal, 12px);
+  color: white;
+  display: block;
+  max-width: 445px;
+  line-height: 16.8px;
+}
+
+.top-body-banner-6-mobile img {
+  margin: 0rem;
+  width: 130px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.top-body-banner-6-mobile a img {
+  margin: 0.5rem 0px;
+  height: 52px;
+  width: 139px;
+  padding-top: 10px;
+}
+
+.banner-text {
+  display: flex;
+
+  @include font-decoration('Neue Plak', normal, 700, 24px);
+  line-height: 28.8px;
+  color: white;
+  // align-items: center;
+  // justify-content: center
+}
+
+.banner-text img {
+  width: 58px;
+  height: 58px;
+}
+
+.banner-text-tab {
+  display: flex;
+
+  // align-items: center;
+  // justify-content: center
+}
+
+.banner-text-tab img {
+  width: 38px;
+  height: 38px;
+}
+
+.text-desktop {
+  @include font-decoration('Neue Plak', normal, 700, 24px);
+  line-height: 28.8px;
+  padding-left: 10px;
+  color: #ffffff;
+}
+
+.text-tab {
+  @include font-decoration('Neue Plak', normal, 700, 16px);
+  line-height: 19.2px;
+  padding-left: 10px;
+  color: #ffffff;
+}
+
+.banner-text-mobile {
+  display: flex;
+  @include font-decoration('Neue Plak', normal, 700, 16px);
+  line-height: 19.2px;
+  color: white;
+}
+
+.banner-text-mobile img {
+  max-width: 38px;
+  max-height: 38px;
+}
+
+.banner-text-mobile .text {
+  padding-left: 10px;
+}
+
+.heading-1 {
+  @include font-decoration('Neue Plak', normal, bold, 42px);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.imgcontainer-tablet {
+  width: 400px;
+}
+.imageclass {
+  flex-basis: 30%; /* Set a fixed width for the imageclass column */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.desktopmobileimage {
+  height: 290px;
+}
+.d-flex.starter-banner6-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

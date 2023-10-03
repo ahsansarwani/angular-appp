@@ -1,0 +1,26 @@
+<div class="feedback-container-number-rating">
+    <div class="number-rating">
+      <div class="number-rating-numbers">
+        <button (click)="onNumber(rate,i)"  
+        *ngFor="let rate of rating;index as i" 
+
+        class="number-rating-number icon-button"
+        [class.number-rating-number-selected]="rate"
+        >
+        {{i}}
+        </button>
+      </div>
+      <div class="number-rating-value">
+        <div class="lower-rating-value">Not at all likely</div>
+        <div class="higher-rating-value">Extremely likely</div> 
+      </div>
+    </div>
+    <button
+    class="custom-fill-button"
+    [style.height.px]="60"
+    [style.width.px]="343"
+    (click)="onProceed()">
+    {{ buttonText }}
+  </button>
+   
+  </div>

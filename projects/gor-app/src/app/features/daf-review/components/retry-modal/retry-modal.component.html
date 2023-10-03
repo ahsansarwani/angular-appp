@@ -1,0 +1,52 @@
+<div
+  class="modal"
+  id="retryModal"
+  aria-labelledby="retryModal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <!-- <div>Temp ...</div> -->
+      <div
+        class="modal-header no-border d-flex justify-content-end"
+        style="height: 20px">
+        <div class="p-2">
+          <button
+            type="button"
+            class="close close-btn"
+            aria-label="Close"
+            (click)="closeModal()">
+            <span aria-hidden="true" style="width: 20px">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col" style="display: flex; justify-content: center">
+            <p id="title" class="text-center font-semibold">{{ title }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col subtitle-center">
+            <p
+              id="sub-title"
+              class="text-center subtitle-class"
+              [innerHTML]="subTitle">
+              {{ subTitle }}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col button-center">
+            <button
+              id="primary-btn"
+              type="button"
+              (click)="closeModal()"
+              class="btn btn-primary btn-block primary-btn-class">
+              {{ primaryBtnText }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,151 @@
+// @import "./../../../styles/abstracts/_mixins.scss";
+
+.desktop-view {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.mobile-view {
+  display: none;
+}
+.globe-footer-nav {
+  padding: 40px 64px;
+  background-color: #1a458b;
+  width: 100%;
+  min-height: 174px;
+  .globe-footer-nav-container {
+    width: 100%;
+    .desktop-globe-logo-icon {
+      width: 25%;
+      .globe-logo {
+        img {
+          width: 100px;
+          height: 40px;
+        }
+      }
+    }
+    .globe-footer-nav-menu {
+      padding-left: 0px;
+      width: 50%;
+      .globe-footer-nav-menu-form {
+        flex-wrap: wrap;
+        justify-content: center;
+        .menu-padding {
+          padding: 10px 12px;
+          a {
+            text-decoration: none;
+            color: #cfddf4;
+            // @include font-decoration(Neue Plak, normal, bold, 1.6rem);
+            line-height: 140%;
+            text-align: center;
+          }
+        }
+      }
+    }
+    .social-media-icon {
+      width: 25%;
+      display: flex;
+      justify-content: flex-end;
+      span {
+        width: 35px;
+        height: 35px;
+        background-color: #fff;
+        display: inline-block;
+        border-radius: 50%;
+        margin-right: 10px;
+        .img-icon-div {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          position: relative;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .rights-by {
+    color: #cfddf4;
+    // @include font-decoration(Neue Plak, normal, normal, 1.4rem);
+    line-height: 100%;
+    text-align: center;
+    padding-top: 60px;
+    opacity: 0.7;
+  }
+}
+@media (min-width: 320px) and (max-width: 975px) {
+  .desktop-view {
+    display: none;
+  }
+  .mobile-view {
+    display: block;
+  }
+  .globe-footer-nav {
+    padding: 40px 64px 24px 64px;
+    background-color: #1e51a4;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    .globe-footer-nav-container {
+      display: inline-block;
+      .globe-logo {
+        display: block;
+        float: left;
+        width: 100%;
+        padding-bottom: 14px;
+        margin-left: -20px;
+        img {
+          width: 180px;
+          height: 60px;
+        }
+      }
+      .globe-footer-nav-menu {
+        float: left;
+        padding-left: 0px;
+        .menu-padding {
+          display: block;
+          padding: 14px 0 0 0;
+          width: 100%;
+          a {
+            text-decoration: none;
+            color: #cfddf4;
+            // @include font-decoration(Neue Plak, normal, bold, 1.8rem);
+            line-height: 140%;
+            text-align: center;
+          }
+        }
+      }
+      .social-media-icon {
+        float: left;
+        padding-top: 30px;
+        display: block;
+        width: 100%;
+      }
+    }
+    .rights-by {
+      text-align: left;
+      padding-top: 54px;
+    }
+  }
+}
+
+a {
+  cursor: pointer;
+}
+#footer-mob {
+  display: none;
+}
+
+#footer-desk {
+  display: block;
+}
+@media (max-width: 767px) {
+  #footer-mob {
+    display: block !important;
+  }
+
+  #footer-desk {
+    display: none !important;
+  }
+}

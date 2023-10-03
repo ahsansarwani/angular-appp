@@ -1,0 +1,14 @@
+@import '../../../../../styles.scss';
+.custom-fill-label {
+  display: flex;
+  width: fit-content;
+  padding: 8px 10px 10px;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  border-radius: 6px;
+  font-size: 10px;
+  @extend .font-semibold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,49 @@
+@import '../../../../styles.scss';
+
+.duplicate-processes-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.duplicate-processes-wrapper {
+  width: 375px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.duplicate-processes-info {
+  color: $textColor3;
+  text-align: center;
+  font-size: 32px;
+  font-family: Neue Plak;
+  line-height: 134%;
+  width: 324px;
+  display: flex;
+  width: 324px;
+  padding: 0 24px;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin-top: 24px;
+  width: 324px;
+  border-radius: 6px;
+  height: 48px;
+  background-color: $buttonColor;
+  color: white;
+  font-size: 14px;
+  padding: 14px 24px 20px 24px;
+}
+
+@media (max-width: 375px) {
+  .duplicate-processes-wrapper {
+    width: 100%;
+  }
+  button,
+  .duplicate-processes-info {
+    width: 86.5%;
+  }
+}

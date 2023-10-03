@@ -1,0 +1,115 @@
+@import '../../../../../styles.scss';
+
+#offcanvasBottom {
+  z-index: 10001;
+}
+
+.offcanvas-drawer {
+  border-radius: 8px;
+  // height: 308px !important;
+}
+
+.offcanvas-card {
+  border: 3px solid red;
+}
+
+.offcanvas-header {
+  padding: 16px 24px 0px 24px;
+}
+
+.offcanvas-body {
+  padding: 0px;
+}
+
+.offcanvas-container {
+  display: flex;
+  padding: 18px 24px 0px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.card-input {
+  border: 2px solid $sectionColor;
+  width: 327px;
+  height: 44px !important;
+  font-size: 14px;
+  color: $primaryTextColor;
+}
+
+.card-input:focus {
+  color: $primaryTextColor;
+}
+
+.offcanvas-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-floating>.form-control::placeholder {
+  color: revert;
+}
+
+.form-floating>.form-control:not(:focus)::placeholder {
+  color: transparent;
+}
+
+.dates {
+  display: flex;
+  gap: 6px;
+  height: 44px;
+}
+
+.dates input {
+  width: 160px !important;
+  border: 2px solid $sectionColor;
+  font-size: 14px;
+}
+
+.dates label,
+.card-label {
+  font-size: 10px;
+}
+
+.card-info-action>button {
+  height: 42px;
+  border: none;
+  border-radius: 6px;
+  background-color: $borderLineColor2;
+  width: 100%;
+  padding: 12px 24px 16px 24px;
+  max-width: 327px;
+  font-size: 14px;
+  background-color: $buttonColor;
+  color: white;
+}
+
+.card-info-action>button:disabled {
+  color: $disabledTextColor;
+  background-color: $borderLineColor2;
+}
+
+.offcanvas-cards-container {
+  width: fit-content;
+  display: flex;
+  gap: 8px;
+}
+
+.card-number-container {
+  margin-top: 4px;
+}
+
+.dates {
+  height: fit-content;
+  margin-bottom: 4px;
+}
+
+.offcanvas-bottom {
+  height: 308px !important;
+}
+
+
+.offcanvas-container-head {
+  color: $regalBlue;
+}

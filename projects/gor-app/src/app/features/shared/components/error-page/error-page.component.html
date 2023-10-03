@@ -1,0 +1,54 @@
+<div class="container" [style.padding.px]="30">
+  <div class="row">
+    <div class="col-sm">
+      <h5
+        class="error-title text-center font-semibold"
+        id="errorTitle"
+        [class.header-style]="errorObject?.headerStyle">
+        {{ errorObject?.errorTextHeader }}
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm justify-center">
+      <p
+        class="error-description text-center font-14"
+        id="errorDescription"
+        [class.content-style]="errorObject?.contentStyle">
+        {{ errorObject?.errorTextContent }}
+      </p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <a
+      (click)="linkRedirection(errorObject.linkRedirectTo)"
+      type="button"
+      id="error-link"
+      class="btn btn-link btn-cancel text-center font-reg"
+      [ngStyle]="{
+        'text-decoration':
+          errorObject?.hasTextDecoration === false ? 'none' : 'underline'
+      }">
+      {{ errorObject?.linkText }}
+    </a>
+  </div>
+  <div
+    *ngIf="errorObject?.buttonText"
+    class="row justify-content-center">
+    <a
+      class="btn btn-primary"
+      [class.button-style]="errorObject?.buttonStyle"
+      (click)="
+        buttonRedirection(
+          errorObject.buttonRedirectTo,
+          errorObject.redirectAngular
+        )
+      "
+      role="button"
+      id="error-button"
+      style="width: 80%">
+      {{ errorObject?.buttonText }}
+    </a>
+  </div>
+</div>

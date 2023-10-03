@@ -1,0 +1,29 @@
+<div class="dialog-container">
+  <div class="dialog-wrapper">
+    <div class="dialog-head">
+      <button class="dialog-close icon-button" (click)="onCloseModal()">
+        <img src="assets/images/svg/cross.svg" alt="close icon" />
+      </button>
+      <div class="dialog-title font-semibold">Are you sure?</div>
+    </div>
+    <div class="dialog-content">
+      {{ dialogContent }}
+    </div>
+    <div class="dialog-action">
+      <button
+        class="custom-fill-button"
+        [style.height.px]="35"
+        [style.width.px]="275"
+        (click)="onDialogClick(true)">
+        {{ yesButtonText }}
+      </button>
+      <button
+        class="custom-outline-button font-semibold"
+        [style.height.px]="35"
+        [style.width.px]="275"
+        (click)="onDialogClick(false)">
+        {{ noButtonText }}
+      </button>
+    </div>
+  </div>
+</div>

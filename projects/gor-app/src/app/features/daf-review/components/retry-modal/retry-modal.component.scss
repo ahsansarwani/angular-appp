@@ -1,0 +1,24 @@
+@import '../../../../../styles.scss';
+
+#retryModal {
+    z-index: 10002
+}
+
+.no-border {
+    border: none;
+}
+
+.button-center {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.primary-btn-class {
+    background-color: $buttonColor;
+    color: white;
+    width: 100%;
+}

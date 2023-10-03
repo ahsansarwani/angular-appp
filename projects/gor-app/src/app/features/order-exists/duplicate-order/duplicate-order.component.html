@@ -1,0 +1,134 @@
+<div class="duplicate-order-container">
+  <div class="duplicate-order-wrapper">
+    <gor-yes-no-dialog
+      [yesButtonText]="'Yes, I’m sure'"
+      [noButtonText]="'No, I’ll think about it'"
+      *ngIf="isVisible"
+      (clickCloseModal)="onCloseModal()"
+      (clickDialogbutton)="onClickDialogbutton($event)"
+      [dialogContent]="dialogContent"></gor-yes-no-dialog>
+    <div class="duplicate-order-header font-w-700 font-semibold">
+      {{ message }}
+    </div>
+    <div *ngIf="false; else pendingBlock" class="duplicate-order-content">
+      <div class="duplicate-order-card">
+        <div class="duplicate-order-card-head">
+          <div class="duplicate-order-card-plan-title font-semibold">
+            {{ planName$ | async }}
+          </div>
+          <gor-fill-label
+            [label]="planLabel"
+            [background]="'#d7dce1'"
+            [color]="'#1f3b59'"
+            [height]="'28'" />
+        </div>
+        <div class="duplicate-order-card-details">
+          <div class="duplicate-order-card-details-1">
+            <div class="font-semibold">{{ submitDate$ | async | date }}</div>
+            <div>{{ submitDate$ | async | date : 'mediumTime' }}</div>
+            <div>{{ dateOfSubmition.text }}</div>
+          </div>
+          <div class="duplicate-order-card-details-2">
+            <div class="font-semibold">{{ updateDate$ | async | date }}</div>
+            <div>{{ updateDate$ | async | date : 'mediumTime' }}</div>
+            <div>{{ dateOfLastUpdate.text }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-block">
+        <div class="payment-block-title font-semibold">
+          {{ paymentBlockTitle }}
+        </div>
+        <div class="payment-block-card">
+          <div class="duplicate-order-card-head">
+            <div class="duplicate-order-card-plan-title font-semibold">
+              {{ planText }}
+            </div>
+
+            <gor-fill-label
+              [label]="planLabel2"
+              [background]="'#CFDDF4'"
+              [color]="'#2274e5'"
+              [height]="'28'" />
+          </div>
+          <div class="duplicate-order-card-details">
+            <div class="duplicate-order-card-details-1">
+              <div class="font-semibold">{{ dateOfSubmition.date }}</div>
+              <div>{{ dateOfSubmition.time }}</div>
+              <div>{{ dateOfSubmition.text }}</div>
+            </div>
+            <div class="duplicate-order-card-details-2">
+              <div class="font-semibold">{{ dateOfLastUpdate.date }}</div>
+              <div>{{ dateOfLastUpdate.time }}</div>
+              <div>{{ dateOfLastUpdate.text }}</div>
+            </div>
+          </div>
+
+          <button
+            class="custom-fill-button"
+            [style.height.px]="35"
+            [style.width.px]="275"
+            (click)="onProceed(true)">
+            {{ buttonText }}
+          </button>
+          <button
+            class="custom-outline-button font-semibold"
+            [style.height.px]="35"
+            [style.width.px]="275"
+            (click)="onProceed(false)">
+            {{ buttonText2 }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <ng-template #pendingBlock>
+      <div
+        *ngIf="(pendingOrder$ | async) === true"
+        class="duplicate-order-card">
+        <div class="duplicate-order-card-head">
+          <div class="duplicate-order-card-head-fill">
+            <div class="duplicate-order-card-head-fill-ref">
+              <label>Reference ID:</label
+              ><span>{{ prevOrderId$ | async }}</span>
+            </div>
+            <gor-fill-label
+              [label]="planLabel3"
+              [color]="'#064720'"
+              [background]="'#D2F9D8'"
+              [height]="'28'" />
+          </div>
+          <div class="duplicate-order-card-plan-title">
+            {{ prevPlanName$ | async }}
+          </div>
+        </div>
+        <div class="duplicate-order-card-details">
+          <div class="duplicate-order-card-details-1">
+            <div class="font-semibold">{{ submitDate$ | async | date }}</div>
+            <div>{{ submitDate$ | async | date : 'mediumTime' }}</div>
+            <div>{{ dateOfSubmition.text }}</div>
+          </div>
+          <div class="duplicate-order-card-details-2">
+            <div class="font-semibold">{{ updateDate$ | async | date }}</div>
+            <div>{{ updateDate$ | async | date : 'mediumTime' }}</div>
+            <div>{{ dateOfLastUpdate.text }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="duplicate-order-card-action">
+        <div
+          *ngIf="(pendingOrder$ | async) === true"
+          class="duplicate-order-card-action-title">
+          {{ prevOrderTitle }}
+        </div>
+        <button
+          class="custom-fill-button homepage-button"
+          [style.height.px]="48"
+          [style.width.px]="324"
+          (click)="onGoBack()">
+          {{ buttonText3 }}
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>

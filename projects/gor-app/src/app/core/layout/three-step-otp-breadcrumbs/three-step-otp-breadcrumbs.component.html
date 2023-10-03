@@ -1,0 +1,26 @@
+<!-- [ngClass]="{
+    'gk-breadcrumbs go_sc-otp__breadcrumbs--mobile': isMobile,
+    'gk-breadcrumbs go_sc-otp__breadcrumbs--desktop': !isMobile
+}" -->
+<div>
+  <nav class="gk-breadcrumbs__wrapper go_sc-otp-breadcrumbs__wrap">
+    <div class="gk-breadcrumbs__list">
+      <a href="#" class="gk-breadcrumbs__list-item">
+        <div class="gk-breadcrumbs__ellipsis">
+          <span class="gk-breadcrumbs__ellipsis-dot"></span>
+          <span class="gk-breadcrumbs__ellipsis-dot"></span>
+          <span class="gk-breadcrumbs__ellipsis-dot"></span>
+        </div>
+      </a>
+      <a href="#" class="gk-breadcrumbs__list-item active">
+        {{ fieldMessages }}
+      </a>
+      <a href="#" class="gk-breadcrumbs__list-item">
+        {{ fieldMessages }}
+      </a>
+      <a href="#" class="gk-breadcrumbs__list-item">
+        {{ fieldMessages }}
+      </a>
+    </div>
+  </nav>
+</div>

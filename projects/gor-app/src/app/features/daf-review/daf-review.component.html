@@ -1,0 +1,62 @@
+<div
+  id="review"
+  [ngStyle]="{ display: (lob$ | async) !== 'Mobile' ? 'flex' : 'block' }">
+  <div class="container-style" style="float: left">
+    <gor-spinner
+      *ngIf="(payInit$ | async) === true"
+      class="pay-spinner"></gor-spinner>
+    <div id="breadcrumb-component" *ngIf="(lob$ | async) === 'Mobile'">
+      <gor-breadcrumbs></gor-breadcrumbs>
+    </div>
+    <div id="daf-plan-component" *ngIf="(lob$ | async) === 'Mobile'">
+      <gor-daf-plan></gor-daf-plan>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <ul class="list-group list-group-flush">
+          <li
+            style="margin-left: -10px"
+            class="list-group-item"
+            id="daf-header-component"
+            *ngIf="(lob$ | async) === 'Mobile'">
+            <gor-daf-header [steps]="steps" [index]="2"></gor-daf-header>
+          </li>
+          <li class="list-group-item" *ngIf="(lob$ | async) !== 'Mobile'">
+            <p class="font-bold font-24 billing-details-class">
+              Billing Details
+            </p>
+          </li>
+
+          <li class="list-group-item" id="pay-today-component">
+            <gor-pay-today [payToday]="payToday"></gor-pay-today>
+          </li>
+          <li class="list-group-item" id="upcoming-bill-component">
+            <gor-upcoming-bill [bill]="upcomingBill"></gor-upcoming-bill>
+          </li>
+          <li class="list-group-item" id="delivery-component">
+            <gor-delivery [delivery]="delivery"></gor-delivery>
+          </li>
+          <li
+            class="list-group-item"
+            *ngIf="isPaymentModeVisible$ | async"
+            id="payment-mode-component">
+            <gor-payment-mode></gor-payment-mode>
+          </li>
+          <li class="list-group-item" id="tnc-component">
+            <gor-terms-and-conditions [tnc]="tnc"></gor-terms-and-conditions>
+          </li>
+          <li class="list-group-item" id="review-detail-component">
+            <gor-review-details></gor-review-details>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="float: right" [style.paddingLeft.px]="32">
+    <div *ngIf="(lob$ | async) !== 'Mobile'">
+      <gor-daf-plan></gor-daf-plan>
+    </div>
+  </div>
+</div>
+<gor-auth-modal [url]="authUrl"></gor-auth-modal>
+<gor-retry-modal class="parent-retry"></gor-retry-modal>

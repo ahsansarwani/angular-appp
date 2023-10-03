@@ -1,0 +1,78 @@
+<div class="list-group list-group-flush">
+  <div class="list-group-item flex-column align-items-start">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex w-100 align-items-center">
+          <input
+            class="form-check-input checkbox-class"
+            type="checkbox"
+            id="selectall"
+            [checked]="checkall$ | async"
+            (click)="checkAllBoxes($event)" />
+          <label
+            class="form-check-label font-semibold card-body ml-20"
+            for="selectall">
+            <b class="primary-text-color daf-review-heading font-bold">
+              {{ tNC.tncTitle }}
+            </b>
+          </label>
+        </div>
+        <div class="mt-1" *ngFor="let tc of tNC.conditions; let i = index">
+          <div
+            class="d-flex w-100 flex-column justify-content-between align-items-center">
+            <div
+              class="d-flex w-100 justify-content-between align-items-center">
+              <div>
+                <input
+                  class="form-check-input checkboxSelection checkbox-class"
+                  type="checkbox"
+                  [id]="'check_' + i"
+                  (click)="acceptCondition($event, i)"
+                  [checked]="i === 0 ? (check0$ | async) : (check1$ | async)" />
+              </div>
+
+              <label
+                class="form-check-label card-body font-semibold condition-title"
+                for="conditionTitle"
+                [ngClass]="{ 'required-field': tc.isRequired === true }">
+                {{ tc.conditionTitle }}
+              </label>
+
+              <button
+                class="btn btn-link click d-block"
+                [attr.aria-controls]="tc.id"
+                [attr.data-target]="'#' + tc.id"
+                data-toggle="collapse"
+                aria-expanded="false">
+                <img
+                  src="../../../../../assets/arrow-up-full.svg"
+                  class="icon" />
+              </button>
+            </div>
+            <div class="d-flex w-100">
+              <div
+                id="{{ tc.id }}"
+                class="row collapse show"
+                aria-labelledby="tncDescription"
+                data-parent="#accordion">
+                <p
+                  class="card-body condition-description font-reg"
+                  [innerHTML]="tc.conditionDescription">
+                  {{ tc.conditionDescription }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex w-100 align-items-center">
+          <p
+            class="card-body mt-3 font-reg"
+            id="understand-clause"
+            [innerHTML]="tNC.clause">
+            {{ tNC.clause }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1341 @@
+<div class="daf-fill-nav" *ngIf="(lob$ | async) !== 'Mobile'">
+  <gor-back-button class="daf-fill-nav-button"></gor-back-button>
+</div>
+<gor-breadcrumbs-new *ngIf="(lob$ | async) !== 'Mobile'"></gor-breadcrumbs-new>
+<div
+  [class.daf-fill-container]="(lob$ | async) === 'Mobile'"
+  [class.desk-daf-fill-container]="(lob$ | async) !== 'Mobile'">
+  <div
+    class="daf-fill-wrapper"
+    [class.desk-daf-fill-wrapper]="(lob$ | async) === 'Desktop'">
+    <div
+      *ngIf="(lob$ | async) !== 'Mobile'"
+      class="daf-title"
+      [class.desk-daf-fill-form]="(lob$ | async) === 'Desktop'"
+      [class.tab-daf-fill-form]="(lob$ | async) === 'Tablet'">
+      Fill out your details
+    </div>
+    <gor-breadcrumbs *ngIf="(lob$ | async) === 'Mobile'"></gor-breadcrumbs>
+
+    <gor-daf-plan *ngIf="(lob$ | async) === 'Mobile'"></gor-daf-plan>
+    <gor-daf-header
+      *ngIf="(lob$ | async) === 'Mobile'"
+      [steps]="steps"
+      [index]="1"></gor-daf-header>
+    <form
+      class="daf-fill-form"
+      [class.desk-daf-fill-form]="(lob$ | async) === 'Desktop'"
+      [class.tab-daf-fill-form]="(lob$ | async) === 'Tablet'"
+      [formGroup]="myForm">
+      <div
+        [class.mob-error-indicator]="(lob$ | async) === 'Mobile'"
+        [class.desk-error-indicator]="(lob$ | async) !== 'Mobile'">
+        <div class="daf-form-1-title">
+          <span class="font-semibold" *ngIf="(lob$ | async) !== 'Mobile'"
+            >Personal information</span
+          >
+          <div class="field-required">
+            <span class="required-input">*</span> Fields are required
+          </div>
+        </div>
+
+        <div class="daf-form-1-sub-title" *ngIf="(lob$ | async) !== 'Mobile'">
+          <div>
+            Please ensure that the details you provide exactly match the
+            information on your ID. It is important for accuracy and
+            verification purposes
+          </div>
+          <div style="display: flex; align-items: center">
+            Click here to see the list of
+            <a (click)="openIdModal()" class="highlighted-text icon-button">
+              &nbsp;accepted IDs.
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center w-100" style="gap: 8px">
+        <ng-container *ngIf="!formSubmitted">
+          <div
+            class="daf-input-container"
+            [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'"
+            [class.desk-daf-bg-container]="(lob$ | async) === 'Mobile'">
+            <gor-fill-drop-down
+              *ngIf="!formSubmitted; else notSelected"
+              [disable]="true"
+              [color]="dropdown[0].color"
+              [dropColor]="dropdown[0].dropColor"
+              [triggerNationality]="triggerNationality"
+              [required]="dropdown[0].required"
+              [dropDownHeight]="'44'"
+              (selectedOption)="selectedOption($event, dropdown[0].id)"
+              [dropdownTitle]="dropdown[0].inputTitle"
+              [dropDownOptions]="dropdown[0].options"></gor-fill-drop-down>
+            <ng-template #notSelected>
+              <gor-selected-drop-down
+                style="width: 100%"
+                [disable]="true"
+                [color]="dropdown[0].color"
+                [dropColor]="dropdown[0].dropColor"
+                [triggerNationality]="triggerNationality"
+                [required]="dropdown[0].required"
+                [dropDownHeight]="'44'"
+                (selectedOption)="selectedOption($event, dropdown[0].id)"
+                [dropdownTitle]="dropdown[0].inputTitle"
+                [dropDownOptions]="
+                  dropdown[0].options
+                "></gor-selected-drop-down>
+            </ng-template>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="formSubmitted">
+          <div
+            class="daf-input-container"
+            [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'"
+            [class.desk-daf-bg-container]="(lob$ | async) === 'Mobile'">
+            <gor-fill-drop-down
+              *ngIf="
+                !(selectedNationality && selectedNationality.length > 0);
+                else notSelected1
+              "
+              [disable]="true"
+              [color]="dropdown[0].color"
+              [dropColor]="dropdown[0].dropColor"
+              [triggerNationality]="triggerNationality"
+              [required]="dropdown[0].required"
+              [dropDownHeight]="'44'"
+              [dropDownWidth]="'160'"
+              (selectedOption)="selectedOption($event, dropdown[0].id)"
+              [dropdownTitle]="dropdown[0].inputTitle"
+              [dropDownOptions]="dropdown[0].options"></gor-fill-drop-down>
+            <ng-template #notSelected1>
+              <gor-selected-drop-down
+                [selected]="selectedNationality"
+                [disable]="true"
+                [color]="dropdown[0].color"
+                [dropColor]="dropdown[0].dropColor"
+                [triggerNationality]="triggerNationality"
+                [required]="dropdown[0].required"
+                [dropDownHeight]="'44'"
+                (selectedOption)="selectedOption($event, dropdown[0].id)"
+                [dropdownTitle]="dropdown[0].inputTitle"
+                [dropDownOptions]="
+                  dropdown[0].options
+                "></gor-selected-drop-down>
+            </ng-template>
+          </div>
+        </ng-container>
+        <div
+          class="daf-input-container w-100"
+          *ngIf="(lob$ | async) === 'Mobile'"
+          [class.desk-daf-bg-container]="(lob$ | async) === 'Mobile'">
+          <gor-fill-drop-down
+            [color]="dropdown[1].color"
+            [dropColor]="dropdown[1].dropColor"
+            [triggerGender]="triggerGender"
+            [required]="dropdown[1].required"
+            [dropDownHeight]="'44'"
+            [dropDownWidth]="'160'"
+            (selectedOption)="selectedOption($event, dropdown[1].id)"
+            [dropdownTitle]="dropdown[1].inputTitle"
+            [dropDownOptions]="dropdown[1].options"></gor-fill-drop-down>
+        </div>
+      </div>
+      <div
+        class="d-flex justify-content-center w-100"
+        style="gap: 8px"
+        *ngIf="inputs[0].isVisible">
+        <div
+          *ngIf="inputs[0].isVisible"
+          style="font-size: 14px"
+          [style.width.px]="inputs[0].inputWidth"
+          class="dynamic-width fill-input-container w-49"
+          [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+          <div
+            class="form-floating fill-input"
+            [class.error-wrapper]="isFieldInvalid(inputs[0].id)"
+            [style.height.px]="inputs[0].inputHeight">
+            <input
+              maxlength="320"
+              (keydown)="onInputKeyDown($event, inputs[0].id)"
+              *ngIf="!inputs[0].dropDown"
+              (blur)="markFieldAsTouched(inputs[0].id)"
+              type="{{ inputs[0].inputType }}"
+              class="form-control font-semibold"
+              id="{{ inputs[0].inputId }}"
+              [formControlName]="inputs[0].id"
+              [style.height.px]="inputs[0].inputHeight"
+              [class.error]="isFieldInvalid(inputs[0].id)"
+              placeholder=" " />
+            <div *ngIf="isFieldInvalid(inputs[0].id)" class="error-text">
+              <div
+                *ngIf="myForm.get(inputs[0].id)?.errors?.['required'];else spaceValidation">
+                Field is required.
+              </div>
+              <ng-template #spaceValidation>
+                <div
+                  *ngIf="myForm.get(inputs[0].id)?.errors?.['leadingSpace'];else spaceValidation2">
+                  Leading spaces are not allowed.
+                </div>
+              </ng-template>
+              <ng-template #spaceValidation2>
+                <div
+                  *ngIf="myForm.get(inputs[0].id)?.errors?.['emptySpaces'];else emailValidation3">
+                  Field cannot be empty spaces
+                </div>
+              </ng-template>
+
+              <!-- <ng-template #emailValidation> 
+                  <div
+                    *ngIf="myForm.get(inp.inputId)?.errors?.['email'];else emailValidation2;">
+                    Invalid Email.
+                  </div>
+                </ng-template> -->
+              <!-- <ng-template #emailValidation2> -->
+              <ng-template #emailValidation3>
+                <div
+                  *ngIf="myForm.get(inputs[0].id)?.errors?.['pattern'];else emailValidation4">
+                  Invalid Entry.
+                </div>
+              </ng-template>
+              <ng-template #emailValidation4>
+                <div *ngIf="isEmailValid(inputs[0].id)">
+                  Please enter a valid email address
+                </div>
+              </ng-template>
+            </div>
+
+            <label
+              *ngIf="!inputs[0].required; else elseBlock10"
+              for="floatingInput"
+              >{{ inputs[0].inputTitle }}</label
+            >
+            <ng-template #elseBlock10>
+              <label for="floatingInput"
+                >{{ inputs[0].inputTitle
+                }}<span class="required-input">*</span></label
+              >
+            </ng-template>
+
+            <div
+              *ngIf="
+                myForm.controls[inputs[0].id].invalid &&
+                (myForm.controls[inputs[0].id].dirty ||
+                  myForm.controls[inputs[0].id].touched)
+              "
+              class="alert">
+              <!-- <div *ngIf="myForm.controls[inp.id].errors.required?"> -->
+              <!-- Please enter {{inp.inputTitle|lowercase}} -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="inputs[1].isVisible"
+          style="font-size: 14px"
+          [style.width.px]="inputs[1].inputWidth"
+          class="dynamic-width fill-input-container w-49"
+          [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+          <div
+            class="form-floating fill-input"
+            [class.error-wrapper]="isFieldInvalid(inputs[1].id)"
+            [style.height.px]="inputs[1].inputHeight">
+            <input
+              maxlength="320"
+              (keydown)="onInputKeyDown($event, inputs[1].id)"
+              *ngIf="!inputs[1].dropDown"
+              (blur)="markFieldAsTouched(inputs[1].id)"
+              type="{{ inputs[1].inputType }}"
+              class="form-control font-semibold"
+              id="{{ inputs[1].inputId }}"
+              [formControlName]="inputs[1].id"
+              [style.height.px]="inputs[1].inputHeight"
+              [class.error]="isFieldInvalid(inputs[1].id)"
+              placeholder=" " />
+            <div *ngIf="isFieldInvalid(inputs[1].id)" class="error-text">
+              <div
+                *ngIf="myForm.get(inputs[1].id)?.errors?.['required'];else spaceValidation">
+                Field is required.
+              </div>
+
+              <ng-template #spaceValidation>
+                <div
+                  *ngIf="myForm.get(inputs[1].id)?.errors?.['leadingSpace'];else spaceValidation2">
+                  Leading spaces are not allowed.
+                </div>
+              </ng-template>
+              <ng-template #spaceValidation2>
+                <div
+                  *ngIf="myForm.get(inputs[1].id)?.errors?.['emptySpaces'];else emailValidation3">
+                  Field cannot be empty spaces
+                </div>
+              </ng-template>
+              <!-- <ng-template #emailValidation> 
+                    <div
+                      *ngIf="myForm.get(inp.inputId)?.errors?.['email'];else emailValidation2;">
+                      Invalid Email.
+                    </div>
+                  </ng-template> -->
+              <!-- <ng-template #emailValidation2> -->
+              <ng-template #emailValidation3>
+                <div
+                  *ngIf="myForm.get(inputs[1].id)?.errors?.['pattern'];else emailValidation4">
+                  Invalid Entry.
+                </div>
+              </ng-template>
+              <ng-template #emailValidation4>
+                <div *ngIf="isEmailValid(inputs[1].id)">
+                  Please enter a valid email address
+                </div>
+              </ng-template>
+            </div>
+
+            <label
+              *ngIf="!inputs[1].required; else elseBlock11"
+              for="floatingInput"
+              >{{ inputs[1].inputTitle }}</label
+            >
+            <ng-template #elseBlock11>
+              <label for="floatingInput"
+                >{{ inputs[1].inputTitle
+                }}<span class="required-input">*</span></label
+              >
+            </ng-template>
+
+            <div
+              *ngIf="
+                myForm.controls[inputs[1].id].invalid &&
+                (myForm.controls[inputs[1].id].dirty ||
+                  myForm.controls[inputs[1].id].touched)
+              "
+              class="alert">
+              <!-- <div *ngIf="myForm.controls[inp.id].errors.required?"> -->
+              <!-- Please enter {{inp.inputTitle|lowercase}} -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center w-100" style="gap: 8px">
+        <div
+          *ngIf="inputs[2].isVisible"
+          style="font-size: 14px"
+          [style.width.px]="inputs[2].inputWidth"
+          class="dynamic-width fill-input-container w-100"
+          [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+          <div
+            class="form-floating fill-input"
+            [class.error-wrapper]="isFieldInvalid(inputs[2].id)"
+            [style.height.px]="inputs[2].inputHeight">
+            <input
+              maxlength="{{ inputs[2].max }}"
+              (keydown)="onInputKeyDown($event, inputs[2].id)"
+              *ngIf="!inputs[2].dropDown"
+              (blur)="markFieldAsTouched(inputs[2].id)"
+              type="{{ inputs[2].inputType }}"
+              class="form-control font-semibold"
+              id="{{ inputs[2].inputId }}"
+              [formControlName]="inputs[2].id"
+              [style.height.px]="inputs[2].inputHeight"
+              [class.error]="isFieldInvalid(inputs[2].id)"
+              placeholder=" " />
+            <div *ngIf="isFieldInvalid(inputs[2].id)" class="error-text">
+              <div
+                *ngIf="myForm.get(inputs[2].id)?.errors?.['required'];else spaceValidation">
+                Field is required.
+              </div>
+
+              <ng-template #spaceValidation>
+                <div
+                  *ngIf="myForm.get(inputs[2].id)?.errors?.['leadingSpace'];else spaceValidation2">
+                  Leading spaces are not allowed.
+                </div>
+              </ng-template>
+              <ng-template #spaceValidation2>
+                <div
+                  *ngIf="myForm.get(inputs[2].id)?.errors?.['emptySpaces'];else emailValidation3">
+                  Field cannot be empty spaces
+                </div>
+              </ng-template>
+              <!-- <ng-template #emailValidation> 
+                    <div
+                      *ngIf="myForm.get(inp.inputId)?.errors?.['email'];else emailValidation2;">
+                      Invalid Email.
+                    </div>
+                  </ng-template> -->
+              <!-- <ng-template #emailValidation2> -->
+              <ng-template #emailValidation3>
+                <div
+                  *ngIf="myForm.get(inputs[2].id)?.errors?.['pattern'];else emailValidation4">
+                  Invalid Entry.
+                </div>
+              </ng-template>
+              <ng-template #emailValidation4>
+                <div *ngIf="isEmailValid(inputs[2].id)">
+                  Please enter a valid email address
+                </div>
+              </ng-template>
+            </div>
+
+            <label
+              *ngIf="!inputs[2].required; else elseBlock11"
+              for="floatingInput"
+              >{{ inputs[2].inputTitle }}</label
+            >
+            <ng-template #elseBlock11>
+              <label for="floatingInput"
+                >{{ inputs[2].inputTitle
+                }}<span class="required-input">*</span></label
+              >
+            </ng-template>
+
+            <div
+              *ngIf="
+                myForm.controls[inputs[2].id].invalid &&
+                (myForm.controls[inputs[2].id].dirty ||
+                  myForm.controls[inputs[2].id].touched)
+              "
+              class="alert">
+              <!-- <div *ngIf="myForm.controls[inp.id].errors.required?"> -->
+              <!-- Please enter {{inp.inputTitle|lowercase}} -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="inputs[3].isVisible"
+          style="font-size: 14px"
+          [style.width.px]="inputs[3].inputWidth"
+          class="dynamic-width fill-input-container w-100"
+          [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+          <div
+            class="form-floating fill-input"
+            [class.error-wrapper]="isFieldInvalid(inputs[3].id)"
+            [style.height.px]="inputs[3].inputHeight">
+            <input
+              maxlength="{{ inputs[3].max }}"
+              (keydown)="onInputKeyDown($event, inputs[3].id)"
+              *ngIf="!inputs[3].dropDown"
+              (blur)="markFieldAsTouched(inputs[3].id)"
+              type="{{ inputs[3].inputType }}"
+              class="form-control font-semibold"
+              id="{{ inputs[3].inputId }}"
+              [formControlName]="inputs[3].id"
+              [style.height.px]="inputs[3].inputHeight"
+              [class.error]="isFieldInvalid(inputs[3].id)"
+              placeholder=" " />
+            <div *ngIf="isFieldInvalid(inputs[3].id)" class="error-text">
+              <div
+                *ngIf="myForm.get(inputs[3].id)?.errors?.['required'];else spaceValidation">
+                Field is required.
+              </div>
+              <ng-template #spaceValidation>
+                <div
+                  *ngIf="myForm.get(inputs[3].id)?.errors?.['leadingSpace'];else spaceValidation2">
+                  Leading spaces are not allowed.
+                </div>
+              </ng-template>
+              <ng-template #spaceValidation2>
+                <div
+                  *ngIf="myForm.get(inputs[3].id)?.errors?.['emptySpaces'];else emailValidation3">
+                  Field cannot be empty spaces
+                </div>
+              </ng-template>
+              <!-- <ng-template #emailValidation> 
+                  <div
+                    *ngIf="myForm.get(inp.inputId)?.errors?.['email'];else emailValidation2;">
+                    Invalid Email.
+                  </div>
+                </ng-template> -->
+              <!-- <ng-template #emailValidation2> -->
+              <ng-template #emailValidation3>
+                <div
+                  *ngIf="myForm.get(inputs[3].id)?.errors?.['pattern'];else emailValidation4">
+                  Invalid Entry.
+                </div>
+              </ng-template>
+              <ng-template #emailValidation4>
+                <div *ngIf="isEmailValid(inputs[3].id)">
+                  Please enter a valid email address
+                </div>
+              </ng-template>
+            </div>
+
+            <label
+              *ngIf="!inputs[3].required; else elseBlock11"
+              for="floatingInput"
+              >{{ inputs[3].inputTitle }}</label
+            >
+            <ng-template #elseBlock11>
+              <label for="floatingInput"
+                >{{ inputs[3].inputTitle
+                }}<span class="required-input">*</span></label
+              >
+            </ng-template>
+
+            <div
+              *ngIf="
+                myForm.controls[inputs[3].id].invalid &&
+                (myForm.controls[inputs[3].id].dirty ||
+                  myForm.controls[inputs[3].id].touched)
+              "
+              class="alert">
+              <!-- <div *ngIf="myForm.controls[inp.id].errors.required?"> -->
+              <!-- Please enter {{inp.inputTitle|lowercase}} -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="font-size: 14px"
+        [style.width.px]="inputs[4].inputWidth"
+        class="dynamic-width fill-input-container"
+        [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+        <div
+          class="form-floating fill-input"
+          [class.error-wrapper]="isFieldInvalid(inputs[4].id)"
+          [style.height.px]="inputs[4].inputHeight">
+          <input
+            maxlength="{{ inputs[4].max }}"
+            (keydown)="onInputKeyDown($event, inputs[4].id)"
+            *ngIf="!inputs[4].dropDown"
+            (blur)="markFieldAsTouched(inputs[4].id)"
+            type="{{ inputs[4].inputType }}"
+            class="form-control font-semibold"
+            id="{{ inputs[4].inputId }}"
+            [formControlName]="inputs[4].id"
+            [style.height.px]="inputs[4].inputHeight"
+            [class.error]="isFieldInvalid(inputs[4].id)"
+            placeholder=" " />
+          <div *ngIf="isFieldInvalid(inputs[4].id)" class="error-text">
+            <div
+              *ngIf="myForm.get(inputs[4].id)?.errors?.['required'];else spaceValidation">
+              Field is required.
+            </div>
+            <ng-template #spaceValidation>
+              <div
+                *ngIf="myForm.get(inputs[4].id)?.errors?.['leadingSpace'];else spaceValidation2">
+                Leading spaces are not allowed.
+              </div>
+            </ng-template>
+            <ng-template #spaceValidation2>
+              <div
+                *ngIf="myForm.get(inputs[4].id)?.errors?.['emptySpaces'];else emailValidation3">
+                Field cannot be empty spaces
+              </div>
+            </ng-template>
+            <!-- <ng-template #emailValidation> 
+                    <div
+                      *ngIf="myForm.get(inp.inputId)?.errors?.['email'];else emailValidation2;">
+                      Invalid Email.
+                    </div>
+                  </ng-template> -->
+            <!-- <ng-template #emailValidation2> -->
+            <ng-template #emailValidation3>
+              <div
+                *ngIf="myForm.get(inputs[4].id)?.errors?.['pattern'];else emailValidation4">
+                Invalid Entry.
+              </div>
+            </ng-template>
+            <ng-template #emailValidation4>
+              <div *ngIf="isEmailValid(inputs[4].id)">
+                Please enter a valid email address
+              </div>
+            </ng-template>
+          </div>
+
+          <label
+            *ngIf="!inputs[4].required; else elseBlock31"
+            for="floatingInput"
+            >{{ inputs[4].inputTitle }}</label
+          >
+          <ng-template #elseBlock31>
+            <label for="floatingInput"
+              >{{ inputs[4].inputTitle
+              }}<span class="required-input">*</span></label
+            >
+          </ng-template>
+
+          <div
+            *ngIf="
+              myForm.controls[inputs[4].id].invalid &&
+              (myForm.controls[inputs[4].id].dirty ||
+                myForm.controls[inputs[4].id].touched)
+            "
+            class="alert">
+            <!-- <div *ngIf="myForm.controls[inp.id].errors.required?"> -->
+            <!-- Please enter {{inp.inputTitle|lowercase}} -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center w-100" style="gap: 8px">
+        <div
+          style="font-size: 14px"
+          class="fill-gender w-100"
+          [style.height.px]="42"
+          [class.error-wrapp]="isFieldInvalid(inputs[5].id)"
+          [class.error-wrapper]="isFieldInvalid(inputs[5].id)">
+          <mat-form-field class="birthday-input fill-gender">
+            <mat-label style="font-size: 12px; color: #62768b"
+              >Birthday</mat-label
+            >
+            <input
+              maxlength="14"
+              [class.error-wrapp]="isFieldInvalid(inputs[5].id)"
+              class="birthday"
+              matInput
+              [max]="maxDate"
+              [formControlName]="inputs[5].id"
+              [matDatepicker]="picker"
+              type="text" />
+
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year"></mat-datepicker>
+          </mat-form-field>
+          <div *ngIf="isFieldInvalid(inputs[5].id)" class="error-text">
+            <ng-template #invalidDate>
+              <div
+                *ngIf="myForm.get(inputs[5].id)?.errors?.['required'];else invalidMaxDate"
+                class="error-message">
+                Field is required.
+              </div>
+            </ng-template>
+            <ng-template #invalidMaxDate>
+              <div
+                *ngIf="myForm.get(inputs[5].id)?.errors?.['matDatepickerMax'];"
+                class="error-message">
+                Age must be minimum of 18 years
+              </div>
+            </ng-template>
+            <!-- <ng-template #invalidMinDate>
+            <div
+              *ngIf="myForm.get(inputs[5].id)?.errors?.['matDatepickerMin']"
+              class="error-message">
+              Minimum date is {{ minDate.toDateString() }}
+            </div>
+          </ng-template> -->
+
+            <div
+              *ngIf="myForm.get(inputs[5].id)?.errors?.['matDatepickerParse'];else invalidDate"
+              class="error-message">
+              Invalid Date.
+            </div>
+          </div>
+        </div>
+
+        <div
+          [class.desk-daf-bg-container]="(lob$ | async) !== 'Mobile'"
+          class="daf-input-container"
+          style="width: 100% !important"
+          *ngIf="(lob$ | async) !== 'Mobile'">
+          <gor-fill-drop-down
+            [color]="dropdown[1].color"
+            [dropColor]="dropdown[1].dropColor"
+            [triggerGender]="triggerGender"
+            [required]="dropdown[1].required"
+            [dropDownHeight]="'44'"
+            [dropDownWidth]="'160'"
+            (selectedOption)="selectedOption($event, dropdown[1].id)"
+            [dropdownTitle]="dropdown[1].inputTitle"
+            [dropDownOptions]="dropdown[1].options"></gor-fill-drop-down>
+        </div>
+      </div>
+
+      <div
+        style="font-size: 14px"
+        [style.width.px]="inputs[6].inputWidth"
+        class="dynamic-width fill-input-container"
+        [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+        <div
+          class="form-floating fill-input"
+          [class.error-wrapper]="isFieldInvalid(inputs[6].id)"
+          [style.height.px]="inputs[6].inputHeight">
+          <input
+            maxlength="{{ inputs[6].max }}"
+            (keydown)="onInputKeyDown($event, inputs[6].id)"
+            *ngIf="!inputs[6].dropDown"
+            (blur)="markFieldAsTouched(inputs[6].id)"
+            type="{{ inputs[6].inputType }}"
+            class="form-control font-semibold"
+            id="{{ inputs[6].inputId }}"
+            [formControlName]="inputs[6].id"
+            [style.height.px]="inputs[6].inputHeight"
+            [class.error]="isFieldInvalid(inputs[6].id)"
+            placeholder=" " />
+          <div *ngIf="isFieldInvalid(inputs[6].id)" class="error-text">
+            <div
+              *ngIf="myForm.get(inputs[6].id)?.errors?.['required'];else spaceValidation">
+              Field is required.
+            </div>
+            <ng-template #spaceValidation>
+              <div
+                *ngIf="myForm.get(inputs[6].id)?.errors?.['leadingSpace'];else spaceValidation2">
+                Leading spaces are not allowed.
+              </div>
+            </ng-template>
+            <ng-template #spaceValidation2>
+              <div
+                *ngIf="myForm.get(inputs[6].id)?.errors?.['emptySpaces'];else emailValidation3">
+                Field cannot be empty spaces
+              </div>
+            </ng-template>
+            <!-- <ng-template #emailValidation> 
+                    <div
+                      *ngIf="myForm.get(inp.inputId)?.errors?.['email'];else emailValidation2;">
+                      Invalid Email.
+                    </div>
+                  </ng-template> -->
+            <!-- <ng-template #emailValidation2> -->
+            <ng-template #emailValidation3>
+              <div
+                *ngIf="myForm.get(inputs[6].id)?.errors?.['pattern'];else emailValidation4">
+                Invalid Entry.
+              </div>
+            </ng-template>
+            <ng-template #emailValidation4>
+              <div *ngIf="isEmailValid(inputs[6].id)">
+                Please enter a valid email address
+              </div>
+            </ng-template>
+          </div>
+
+          <label
+            *ngIf="!inputs[6].required; else elseBlock4"
+            for="floatingInput"
+            >{{ inputs[6].inputTitle }}</label
+          >
+          <ng-template #elseBlock4>
+            <label for="floatingInput"
+              >{{ inputs[6].inputTitle
+              }}<span class="required-input">*</span></label
+            >
+          </ng-template>
+
+          <div
+            *ngIf="
+              myForm.controls[inputs[6].id].invalid &&
+              (myForm.controls[inputs[6].id].dirty ||
+                myForm.controls[inputs[6].id].touched)
+            "
+            class="alert">
+            <!-- <div *ngIf="myForm.controls[inp.id].errors.required?"> -->
+            <!-- Please enter {{inp.inputTitle|lowercase}} -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <div
+        style="font-size: 14px"
+        [style.width.px]="inputs[7].inputWidth"
+        class="dynamic-width fill-input-container"
+        [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+        <div
+          class="form-floating fill-input"
+          [class.error-wrapper]="isFieldInvalid(inputs[7].id)"
+          [style.height.px]="inputs[7].inputHeight">
+          <label *ngIf="!ada" id="prefix">{{ prefix }}</label>
+          <input
+            maxlength="{{ inputs[7].max }}"
+            (keydown)="onInputKeyDown($event, inputs[7].id)"
+            *ngIf="!inputs[7].dropDown"
+            (blur)="markFieldAsTouched(inputs[7].id)"
+            type="{{ inputs[7].inputType }}"
+            class="form-control font-semibold mobile-input"
+            id="{{ inputs[7].inputId }}"
+            [formControlName]="inputs[7].id"
+            [style.height.px]="inputs[7].inputHeight"
+            [class.error]="isFieldInvalid(inputs[7].id)"
+            [ngStyle]="{ 'padding-left': ada ? '12px' : '31px !important' }"
+            style="padding-left: 31px !important" />
+          <div *ngIf="isFieldInvalid(inputs[7].id)" class="error-text">
+            <div
+              *ngIf="myForm.get(inputs[7].id)?.errors?.['required'];else spaceValidation">
+              Field is required.
+            </div>
+            <ng-template #spaceValidation>
+              <div
+                *ngIf="myForm.get(inputs[7].id)?.errors?.['leadingSpace'];else spaceValidation2">
+                Leading spaces are not allowed.
+              </div>
+            </ng-template>
+            <ng-template #spaceValidation2>
+              <div
+                *ngIf="myForm.get(inputs[7].id)?.errors?.['emptySpaces'];else emailValidation3">
+                Field cannot be empty spaces
+              </div>
+            </ng-template>
+            <!-- <ng-template #emailValidation> 
+                    <div
+                      *ngIf="myForm.get(inp.inputId)?.errors?.['email'];else emailValidation2;">
+                      Invalid Email.
+                    </div>
+                  </ng-template> -->
+            <!-- <ng-template #emailValidation2> -->
+            <ng-template #emailValidation3>
+              <div
+                *ngIf="myForm.get(inputs[7].id)?.errors?.['pattern'];else emailValidation4">
+                Invalid Entry.
+              </div>
+            </ng-template>
+            <ng-template #emailValidation4>
+              <div *ngIf="isEmailValid(inputs[7].id)">
+                Please enter a valid email address
+              </div>
+            </ng-template>
+          </div>
+
+          <label
+            *ngIf="!inputs[7].required; else elseBlock5"
+            for="floatingInput"
+            >{{ inputs[7].inputTitle }}</label
+          >
+          <ng-template #elseBlock5>
+            <label for="floatingInput"
+              >{{ inputs[7].inputTitle
+              }}<span class="required-input">*</span></label
+            >
+          </ng-template>
+
+          <div
+            *ngIf="
+              myForm.controls[inputs[7].id].invalid &&
+              (myForm.controls[inputs[7].id].dirty ||
+                myForm.controls[inputs[7].id].touched)
+            "
+            class="alert">
+            <!-- <div *ngIf="myForm.controls[inp.id].errors.required?"> -->
+            <!-- Please enter {{inp.inputTitle|lowercase}} -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <div
+        style="font-size: 14px"
+        [style.width.px]="inputs[8].inputWidth"
+        class="dynamic-width fill-input-container"
+        [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+        <div
+          class="form-floating fill-input"
+          [class.error-wrapper]="isFieldInvalid(inputs[8].id)"
+          [style.height.px]="inputs[8].inputHeight">
+          <input
+            style="padding-right: 33px !important"
+            maxlength="320"
+            (keydown)="onInputKeyDown($event, inputs[8].id)"
+            *ngIf="!inputs[8].dropDown"
+            (blur)="markFieldAsTouched(inputs[8].id)"
+            type="{{ inputs[8].inputType }}"
+            class="form-control font-semibold"
+            id="{{ inputs[8].inputId }}"
+            [formControlName]="inputs[8].id"
+            [style.height.px]="inputs[8].inputHeight"
+            [class.error]="isFieldInvalid(inputs[8].id)"
+            placeholder=" " />
+          <div *ngIf="isFieldInvalid(inputs[8].id)" class="error-text">
+            <div
+              *ngIf="myForm.get(inputs[8].id)?.errors?.['required'];else spaceValidation">
+              Field is required.
+            </div>
+            <ng-template #spaceValidation>
+              <div
+                *ngIf="myForm.get(inputs[8].id)?.errors?.['leadingSpace'];else spaceValidation2">
+                Leading spaces are not allowed.
+              </div>
+            </ng-template>
+            <ng-template #spaceValidation2>
+              <div
+                *ngIf="myForm.get(inputs[8].id)?.errors?.['emptySpaces'];else emailValidation3">
+                Field cannot be empty spaces
+              </div>
+            </ng-template>
+            <!-- <ng-template #emailValidation> 
+                    <div
+                      *ngIf="myForm.get(inp.inputId)?.errors?.['email'];else emailValidation2;">
+                      Invalid Email.
+                    </div>
+                  </ng-template> -->
+            <!-- <ng-template #emailValidation2> -->
+            <ng-template #emailValidation3>
+              <div
+                *ngIf="myForm.get(inputs[8].id)?.errors?.['pattern']||myForm.get(inputs[8].id)?.errors?.['email'];else emailValidation4">
+                Invalid Entry.
+              </div>
+            </ng-template>
+            <ng-template #emailValidation4>
+              <div *ngIf="isEmailValid(inputs[8].id)">
+                Please enter a valid email address
+              </div>
+            </ng-template>
+          </div>
+
+          <button
+            *ngIf="inputs[8].iicon"
+            class="i-icon-button"
+            data-title="Please ensure that you have a valid and accessible email address. We will use this email to send you important updates, notifications, as well as your billing details."
+            type="button"
+            (click)="iIconClicked(inputs[8].id)">
+            <!-- <i [ngClass]="showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i> -->
+            <img
+              src="assets/images/svg/i-with-blue.svg"
+              height="16px"
+              width="16px"
+              alt="i icon" />
+          </button>
+          <label
+            *ngIf="!inputs[8].required; else elseBlock6"
+            for="floatingInput"
+            >{{ inputs[8].inputTitle }}</label
+          >
+          <ng-template #elseBlock6>
+            <label for="floatingInput"
+              >{{ inputs[8].inputTitle
+              }}<span class="required-input">*</span></label
+            >
+          </ng-template>
+
+          <div
+            *ngIf="
+              myForm.controls[inputs[8].id].invalid &&
+              (myForm.controls[inputs[8].id].dirty ||
+                myForm.controls[inputs[8].id].touched)
+            "
+            class="alert">
+            <!-- <div *ngIf="myForm.controls[inp.id].errors.required?"> -->
+            <!-- Please enter {{inp.inputTitle|lowercase}} -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- <gor-fill-input
+*ngFor="let inp of inputs;index as i"
+[formControlName]="inp.id"
+[required]="inp.required"
+[inputHeight]="inp.inputHeight"
+[inputWidth]="inp.inputWidth"
+[inputTitle]="inp.inputTitle"
+[inputType]="inp.inputType"
+></gor-fill-input> -->
+    </form>
+    <div
+      *ngIf="visible"
+      class="hidden-form"
+      [class.desk-daf-fill-form]="(lob$ | async) === 'Desktop'"
+      [class.tab-daf-fill-form]="(lob$ | async) === 'Tablet'">
+      <div class="hidden-form-head">
+        <div class="font-semibold">Where can we deliver your SIM card?</div>
+        <div class="font-reg">
+          We will deliver your order based on the address you will provide.
+          Certain addresses are not serviceable and are not found on the list,
+          you may need to provide another one.
+        </div>
+      </div>
+      <div class="form-check">
+        <input
+          id="condo-checkbox"
+          class="form-check-input font-semibold"
+          type="checkbox"
+          value=""
+          id="flexCheckChecked"
+          [checked]="!addressDetails"
+          (click)="onCheck()"
+          [disabled]="condoDisabled" />
+        <label class="form-check-label" for="flexCheckChecked">
+          Do you live in a condominium?
+        </label>
+      </div>
+      <!-- FORM 2 House... -->
+      <form
+        *ngIf="addressDetails"
+        class="hidden-form-content"
+        [formGroup]="myForm2">
+        <div
+          style="font-size: 14px"
+          *ngFor="let inp of inputs2; index as i"
+          [style.height.px]="inp.inputHeight"
+          [style.width.px]="inp.inputWidth"
+          class="dynamic-width fill-input-container"
+          [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+          <div
+            class="form-floating fill-input"
+            [class.error-wrapper]="isFieldInvalid(inp.id)"
+            [style.height.px]="inp.inputHeight">
+            <input
+              maxlength="{{ inp.max }}"
+              placeholder=" "
+              (blur)="markFieldAsTouched(inp.id)"
+              type="{{ inp.inputType }}"
+              class="form-control font-semibold"
+              id="{{ inp.inputId }}"
+              [style.height.px]="inp.inputHeight"
+              [class.error]="isFieldInvalid(inp.id)"
+              [formControlName]="inp.id"
+              [style.height.px]="inp.inputHeight" />
+            <div *ngIf="isFieldInvalid(inp.id)" class="error-text">
+              <div
+                *ngIf="myForm2.get(inp.id)?.errors?.['required'];else spaceValidation">
+                Field is required.
+              </div>
+            </div>
+            <ng-template #patternValidation>
+              <div *ngIf="myForm2.get(inp.id)?.errors?.['pattern'];">
+                Invalid Entry.
+              </div>
+            </ng-template>
+
+            <ng-template #spaceValidation>
+              <div
+                *ngIf="myForm2.get(inp.id)?.errors?.['leadingSpace'];else spaceValidation2">
+                Leading spaces are not allowed.
+              </div>
+            </ng-template>
+            <ng-template #spaceValidation2>
+              <div
+                *ngIf="myForm2.get(inp.id)?.errors?.['emptySpaces'];else patternValidation">
+                Field cannot be empty spaces
+              </div>
+            </ng-template>
+            <label
+              *ngIf="!inp.required; else elseBlock"
+              class="font-reg"
+              for="floatingInput"
+              >{{ inp.inputTitle }}</label
+            >
+            <ng-template #elseBlock>
+              <label class="font-reg" for="floatingInput"
+                >{{ inp.inputTitle
+                }}<span class="required-input">*</span></label
+              >
+            </ng-template>
+            <!-- <div *ngIf="myForm.controls[inp.id].invalid && (myForm.controls[inp.id].dirty || myForm.controls[inp.id].touched)" class="alert"> -->
+            <!-- <div *ngIf="myForm.controls[inp.id].errors.required?"> -->
+            <!-- Please enter {{inp.inputTitle|lowercase}} -->
+            <!-- </div> -->
+            <!-- </div> -->
+          </div>
+        </div>
+        <ng-container>
+          <div class="daf-input-container" style="width: 100% !important">
+            <gor-fill-drop-down
+              *ngIf="
+                !(selectedAddress[0] && selectedAddress[0].length > 0);
+                else notSelected3
+              "
+              [disable]="dropdown2[0].disable"
+              [required]="dropdown2[0].required"
+              [dropDownHeight]="dropdown2[0].inputHeight"
+              [dropDownWidth]="dropdown2[0].inputWidth"
+              (selectedOption)="selectedOption2($event, dropdown2[0].id)"
+              [dropdownTitle]="dropdown2[0].inputTitle"
+              [dropDownOptions]="dropdown2[0].options">
+            </gor-fill-drop-down>
+            <ng-template #notSelected3>
+              <gor-selected-drop-down
+                [selected]="selectedAddress[0]"
+                [disable]="dropdown2[0].disable"
+                [required]="dropdown2[0].required"
+                [dropDownHeight]="dropdown2[0].inputHeight"
+                [dropDownWidth]="dropdown2[0].inputWidth"
+                (selectedOption)="selectedOption2($event, dropdown2[0].id)"
+                [dropdownTitle]="dropdown2[0].inputTitle"
+                [dropDownOptions]="
+                  dropdown2[0].options
+                "></gor-selected-drop-down>
+            </ng-template>
+          </div>
+          <div class="daf-input-container" style="width: 100% !important">
+            <gor-fill-drop-down
+              *ngIf="
+                !(selectedAddress[1] && selectedAddress[1].length > 0);
+                else notSelected30
+              "
+              [disable]="dropdown2[1].disable"
+              [required]="dropdown2[1].required"
+              [dropDownHeight]="dropdown2[1].inputHeight"
+              [dropDownWidth]="dropdown2[1].inputWidth"
+              (selectedOption)="selectedOption2($event, dropdown2[1].id)"
+              [dropdownTitle]="dropdown2[1].inputTitle"
+              [dropDownOptions]="dropdown2[1].options">
+            </gor-fill-drop-down>
+            <ng-template #notSelected30>
+              <gor-selected-drop-down
+                [selected]="selectedAddress[1]"
+                [disable]="dropdown2[1].disable"
+                [required]="dropdown2[1].required"
+                [dropDownHeight]="dropdown2[1].inputHeight"
+                [dropDownWidth]="dropdown2[1].inputWidth"
+                (selectedOption)="selectedOption2($event, dropdown2[1].id)"
+                [dropdownTitle]="dropdown2[1].inputTitle"
+                [dropDownOptions]="
+                  dropdown2[1].options
+                "></gor-selected-drop-down>
+            </ng-template>
+          </div>
+
+          <div class="daf-input-container w-100">
+            <gor-fill-drop-down
+              *ngIf="
+                !(selectedAddress[2] && selectedAddress[2].length > 0);
+                else notSelected31
+              "
+              [disable]="dropdown2[2].disable"
+              [required]="dropdown2[2].required"
+              [dropDownHeight]="dropdown2[2].inputHeight"
+              [dropDownWidth]="dropdown2[2].inputWidth"
+              (selectedOption)="selectedOption2($event, dropdown2[2].id)"
+              [dropdownTitle]="dropdown2[2].inputTitle"
+              [dropDownOptions]="dropdown2[2].options">
+            </gor-fill-drop-down>
+            <ng-template #notSelected31>
+              <gor-selected-drop-down
+                [selected]="selectedAddress[2]"
+                [disable]="dropdown2[2].disable"
+                [required]="dropdown2[2].required"
+                [dropDownHeight]="dropdown2[2].inputHeight"
+                [dropDownWidth]="dropdown2[2].inputWidth"
+                (selectedOption)="selectedOption2($event, dropdown2[2].id)"
+                [dropdownTitle]="dropdown2[2].inputTitle"
+                [dropDownOptions]="
+                  dropdown2[2].options
+                "></gor-selected-drop-down>
+            </ng-template>
+          </div>
+          <div
+            style="font-size: 14px"
+            [style.height.px]="dropdown2[3].inputHeight"
+            class="fill-input-container zipcode-input w-100">
+            <div
+              class="form-floating fill-input"
+              [class.error-wrapper]="isFieldInvalid(dropdown2[3].id)"
+              [style.height.px]="dropdown2[3].inputHeight">
+              <input
+                placeholder=" "
+                (blur)="markFieldAsTouched(dropdown2[3].id)"
+                type="{{ dropdown2[3].inputType }}"
+                class="form-control font-semibold"
+                id="{{ dropdown2[3].inputId }}"
+                [formControlName]="dropdown2[3].id"
+                [style.height.px]="dropdown2[3].inputHeight"
+                [class.error]="isFieldInvalid(dropdown2[3].id)" />
+
+              <label
+                *ngIf="!dropdown2[3].required; else elseBlock"
+                for="floatingInput"
+                >{{ dropdown2[3].inputTitle }}</label
+              >
+              <ng-template #elseBlock>
+                <label for="floatingInput" class="font-reg"
+                  >{{ dropdown2[3].inputTitle
+                  }}<span class="required-input">*</span></label
+                >
+              </ng-template>
+            </div>
+          </div>
+        </ng-container>
+      </form>
+      <!-- <ng-template #elseBlock3> -->
+      <!-- Form 3 -->
+      <form
+        *ngIf="!addressDetails"
+        class="hidden-form-content"
+        [formGroup]="myForm3">
+        <div
+          style="font-size: 14px"
+          *ngFor="let inp of inputs3; index as i"
+          [style.height.px]="inp.inputHeight"
+          [style.width.px]="inp.inputWidth"
+          class="dynamic-width fill-input-container"
+          [class.desk-daf-input-container]="(lob$ | async) !== 'Mobile'">
+          <div
+            class="form-floating fill-input"
+            [class.error-wrapper]="isFieldInvalid(inp.id)"
+            [style.height.px]="inp.inputHeight">
+            <input
+              maxlength="{{ inp.max }}"
+              placeholder=" "
+              (blur)="markFieldAsTouched(inp.id)"
+              type="{{ inp.inputType }}"
+              class="form-control font-semibold"
+              id="{{ inp.inputId }}"
+              [formControlName]="inp.id"
+              [style.height.px]="inp.inputHeight"
+              [class.error]="isFieldInvalid(inp.id)" />
+            <div *ngIf="isFieldInvalid(inp.id)" class="error-text">
+              <div
+                *ngIf="myForm3.get(inp.id)?.errors?.['required'];else spaceValidation">
+                Field is required.
+              </div>
+            </div>
+            <ng-template #patternValidation>
+              <div *ngIf="myForm3.get(inp.id)?.errors?.['pattern'];">
+                Invalid Entry.
+              </div>
+            </ng-template>
+
+            <ng-template #spaceValidation>
+              <div
+                *ngIf="myForm3.get(inp.id)?.errors?.['leadingSpace'];else spaceValidation2">
+                Leading spaces are not allowed.
+              </div>
+            </ng-template>
+            <ng-template #spaceValidation2>
+              <div
+                *ngIf="myForm3.get(inp.id)?.errors?.['emptySpaces'];else patternValidation">
+                Field cannot be empty spaces
+              </div>
+            </ng-template>
+
+            <label *ngIf="!inp.required; else elseBlock" for="floatingInput">{{
+              inp.inputTitle
+            }}</label>
+            <ng-template #elseBlock>
+              <label for="floatingInput" class="font-reg"
+                >{{ inp.inputTitle
+                }}<span class="required-input">*</span></label
+              >
+            </ng-template>
+          </div>
+        </div>
+        <div class="daf-input-container" style="width: 100% !important">
+          <gor-fill-drop-down
+            *ngIf="
+              !(selectedAddress[0] && selectedAddress[0].length > 0);
+              else notSelected4
+            "
+            [disable]="dropdown2[0].disable"
+            [required]="dropdown2[0].required"
+            [dropDownHeight]="dropdown2[0].inputHeight"
+            [dropDownWidth]="dropdown2[0].inputWidth"
+            (selectedOption)="selectedOption2($event, dropdown2[0].id)"
+            [dropdownTitle]="dropdown2[0].inputTitle"
+            [dropDownOptions]="dropdown2[0].options">
+          </gor-fill-drop-down>
+          <ng-template #notSelected4>
+            <gor-selected-drop-down
+              [selected]="selectedAddress[0]"
+              [disable]="dropdown2[0].disable"
+              [required]="dropdown2[0].required"
+              [dropDownHeight]="dropdown2[0].inputHeight"
+              [dropDownWidth]="dropdown2[0].inputWidth"
+              (selectedOption)="selectedOption2($event, dropdown2[0].id)"
+              [dropdownTitle]="dropdown2[0].inputTitle"
+              [dropDownOptions]="dropdown2[0].options"></gor-selected-drop-down>
+          </ng-template>
+        </div>
+        <div class="daf-input-container" style="width: 100% !important">
+          <gor-fill-drop-down
+            *ngIf="
+              !(selectedAddress[1] && selectedAddress[1].length > 0);
+              else notSelected40
+            "
+            [disable]="dropdown2[1].disable"
+            [required]="dropdown2[1].required"
+            [dropDownHeight]="dropdown2[1].inputHeight"
+            [dropDownWidth]="dropdown2[1].inputWidth"
+            (selectedOption)="selectedOption2($event, dropdown2[1].id)"
+            [dropdownTitle]="dropdown2[1].inputTitle"
+            [dropDownOptions]="dropdown2[1].options">
+          </gor-fill-drop-down>
+          <ng-template #notSelected40>
+            <gor-selected-drop-down
+              [selected]="selectedAddress[1]"
+              [disable]="dropdown2[1].disable"
+              [required]="dropdown2[1].required"
+              [dropDownHeight]="dropdown2[1].inputHeight"
+              [dropDownWidth]="dropdown2[1].inputWidth"
+              (selectedOption)="selectedOption2($event, dropdown2[1].id)"
+              [dropdownTitle]="dropdown2[1].inputTitle"
+              [dropDownOptions]="dropdown2[1].options"></gor-selected-drop-down>
+          </ng-template>
+        </div>
+
+        <div class="daf-input-container w-100">
+          <gor-fill-drop-down
+            *ngIf="
+              !(selectedAddress[2] && selectedAddress[2].length > 0);
+              else notSelected41
+            "
+            [disable]="dropdown2[2].disable"
+            [required]="dropdown2[2].required"
+            [dropDownHeight]="dropdown2[2].inputHeight"
+            [dropDownWidth]="dropdown2[2].inputWidth"
+            (selectedOption)="selectedOption2($event, dropdown2[2].id)"
+            [dropdownTitle]="dropdown2[2].inputTitle"
+            [dropDownOptions]="dropdown2[2].options">
+          </gor-fill-drop-down>
+          <ng-template #notSelected41>
+            <gor-selected-drop-down
+              [selected]="selectedAddress[2]"
+              [disable]="dropdown2[2].disable"
+              [required]="dropdown2[2].required"
+              [dropDownHeight]="dropdown2[2].inputHeight"
+              [dropDownWidth]="dropdown2[2].inputWidth"
+              (selectedOption)="selectedOption2($event, dropdown2[2].id)"
+              [dropdownTitle]="dropdown2[2].inputTitle"
+              [dropDownOptions]="dropdown2[2].options"></gor-selected-drop-down>
+          </ng-template>
+        </div>
+        <div
+          style="font-size: 14px"
+          [style.height.px]="dropdown2[3].inputHeight"
+          class="fill-input-container zipcode-input w-100">
+          <div
+            class="form-floating fill-input"
+            [class.error-wrapper]="isFieldInvalid(dropdown2[3].id)"
+            [style.height.px]="dropdown2[3].inputHeight">
+            <input
+              placeholder=" "
+              (blur)="markFieldAsTouched(dropdown2[3].id)"
+              type="{{ dropdown2[3].inputType }}"
+              class="form-control font-semibold"
+              id="{{ dropdown2[3].inputId }}"
+              [formControlName]="dropdown2[3].id"
+              [style.height.px]="dropdown2[3].inputHeight"
+              [class.error]="isFieldInvalid(dropdown2[3].id)" />
+
+            <label
+              *ngIf="!dropdown2[3].required; else elseBlock"
+              for="floatingInput"
+              >{{ dropdown2[3].inputTitle }}</label
+            >
+            <ng-template #elseBlock>
+              <label for="floatingInput" class="font-reg"
+                >{{ dropdown2[3].inputTitle
+                }}<span class="required-input">*</span></label
+              >
+            </ng-template>
+          </div>
+        </div>
+      </form>
+      <!-- </ng-template> -->
+    </div>
+    <div
+      class="submit-form"
+      [class.desk-daf-fill-form]="(lob$ | async) === 'Desktop'"
+      [class.tab-daf-fill-form]="(lob$ | async) === 'Tablet'">
+      <div class="submit-text">
+        <p class="font-reg">{{ submitText[0] }}</p>
+        <p class="font-reg">{{ submitText[1] }}</p>
+      </div>
+      <button
+        style="width: 100%"
+        [style.height.px]="42"
+        [disabled]="!formSubmitted && isValid()"
+        class="pb-button"
+        (click)="onProceed($event)">
+        Let's do this!
+      </button>
+    </div>
+  </div>
+  <div class="offline-daf-section-2" *ngIf="(lob$ | async) !== 'Mobile'">
+    <gor-daf-plan
+      [styles]="'gap: 8px;'"
+      [styles2]="'border-radius:8px;'"></gor-daf-plan>
+
+    <gor-download-globe></gor-download-globe>
+  </div>
+</div>

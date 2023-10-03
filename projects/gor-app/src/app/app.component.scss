@@ -1,0 +1,19 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: fit-content;
+  // overflow-x: hidden;
+}
+
+.gor-body {
+  flex: 1;
+}
+
+[nz-carousel-content] {
+  line-height: 160px;
+  background: #cbcaca;
+  color: #fff;
+  overflow: hidden;
+  padding: 20px;
+}

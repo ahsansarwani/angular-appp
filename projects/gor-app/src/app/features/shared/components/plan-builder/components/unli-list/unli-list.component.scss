@@ -1,0 +1,92 @@
+@import '../../../../../../../styles.scss';
+
+.image-container {
+  // overflow-y: hidden;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  filter: drop-shadow(0 2px 2px rgba(24, 39, 75, 0.28));
+  box-shadow: none;
+  border: 0px;
+
+  border-radius: 0px;
+  background: none;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+
+  border-radius: 16px;
+}
+
+.app-image {
+  width: 48px;
+  height: 48px;
+}
+
+.image:first-child {
+  // outline: 4px solid #2274E5;
+
+  z-index: 1;
+  justify-self: flex-end;
+}
+
+.plan-builder-content-2-app {
+  padding: 0px;
+}
+
+.plan-builder-content-2-app-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  height: 184px;
+  width: 333px;
+  border: 1px solid #e9ebee;
+  border-radius: 8px;
+  padding: 8px 3px 8px 3px;
+  overflow-y: scroll !important;
+}
+
+@media screen and (min-width: 768px) {
+  .plan-builder-content-2 {
+    height: 384px;
+  }
+
+  .plan-builder-content-2-app-list {
+    height: 422px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-image {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.selected-app-check {
+  left: 44px;
+  top: -7px;
+}
+
+.selected-app-check-border {
+  // outline: 3px solid $borderLineColor4;
+  opacity: 0.5;
+}
+
+.outline-button-with-app {
+  width: 323px;
+  height: 46px;
+  background-color: transparent;
+  border: none;
+  outline: 2px solid $buttonColor;
+  color: $buttonColor;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+}

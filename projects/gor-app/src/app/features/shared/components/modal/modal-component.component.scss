@@ -1,0 +1,44 @@
+@import '../../../../../styles.scss';
+
+.secondary-btn-class {
+  background-color: white;
+  border: 2px solid $buttonColor;
+  color: $buttonColor;
+}
+.primary-btn-class {
+  background-color: $buttonColor;
+  color: white;
+}
+.subtitle-class {
+  color: $textColor;
+}
+.no-border {
+  border: none;
+}
+.close-btn {
+  background-color: white;
+  color: $primaryColor;
+}
+.span {
+  height: 12px;
+  width: 12px;
+}
+.modal {
+  width: 100%;
+}
+
+.modal-content {
+  width: fit-content;
+  height: 370px;
+}
+.horizontal-center {
+  display: flex;
+  justify-content: center;
+}
+#title {
+  font-size: 18px;
+  color: #354f6a;
+}
+.w-275 {
+  width: 275px;
+}

@@ -1,0 +1,119 @@
+<div class="main-body-class pt-20" [style.background]="background">
+  <h2 class="title-class font-semibold">
+    Experience the
+    <span class="bold-text-color font-bold text-center">freedom</span> of
+    always-on connection
+    <span class="font-bold bold-text-color">with Globe Postpaid</span>.
+  </h2>
+  <h6 class="subtitle-class font-semibold">
+    Choose the SIM-only plan that best suits your needs and enjoy a seamless
+    mobile experience with
+  </h6>
+  <div class="centered-plan-features-div">
+    <div
+      class="plan-feature-div"
+      *ngFor="let feature of selectedCard.planFeatures">
+      <div class="icon-div-feature">
+        <img
+          alt="tick icon"
+          src="../../../assets//new_landing_feature_tick.svg"
+          [style.width.px]="17"
+          [style.width.px]="19"
+          [style.marginTop.px]="-4" />
+      </div>
+      <div class="font-reg plan-feature-text">
+        {{ feature }}
+      </div>
+    </div>
+  </div>
+  <div class="centered-plan-benefits-div">
+    <div class="plan-benefit-div" *ngFor="let pb of selectedCard.planBenefits">
+      <div class="icon-div">
+        <img alt="{{ pb.imageSrc }} image " src="{{ pb.imageSrc }}" />
+      </div>
+      <div class="font-reg plan-benefit-text">
+        {{ pb.benefits
+        }}<a
+          class="text-decoration-none"
+          *ngIf="pb?.link"
+          (click)="openIdModal()"
+          >{{ pb?.link }}</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="plan-type-div">
+    <a
+      id="gplan-plus-link"
+      [ngClass]="{
+        'underline': selectedPlanType === 'gplan',
+      }"
+      class="text-decoration-none"
+      (click)="selectPlanType('gplan')">
+      <span class="plan-type font-bold"> GPlan PLUS</span>
+    </a>
+    <a
+      id="platinum-link"
+      [ngClass]="{
+        'underline': selectedPlanType === 'platinum',
+      }"
+      class="text-decoration-none"
+      (click)="selectPlanType('platinum')">
+      <span class="plan-type font-bold"> Platinum</span>
+    </a>
+  </div>
+  <div class="pages navbar-through toolbar-through">
+    <div data-page="index" class="page">
+      <div class="swiper">
+        <div class="swiper-wrapper" id="swiper-class">
+          <div
+            class="swiper-slide opacity-none"
+            *ngFor="let sc of swiperArray"
+            [id]="'slide_' + sc.index"
+            [ngClass]="{
+            basic: sc.subPlanType === 'basic',
+            premium: sc.subPlanType === 'premium',
+            platinum: sc.subPlanType === 'platinum',
+          }">
+            <gor-inner-card
+              [id]="sc.index"
+              [selectedCard]="selectedCard"
+              [subCard]="sc"
+              [planType]="planType"
+              [deviceType]="deviceType"
+              (buttonClicked)="planSelectHandler($event)"
+              style="cursor: pointer">
+            </gor-inner-card>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next" (click)="handleFrontNavigation()"></div>
+        <div class="swiper-button-prev" (click)="handleBackNavigation()"></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showAppIcons === true" [style.marginTop.px]="-20">
+    <h6 class="text-center app-icon-title-class font-semibold">
+      Enjoy open access to one app from <br />
+      a variety of options
+    </h6>
+    <div class="app-icon-image-div" style="position: relative">
+      <img
+        alt="footer image icon"
+        src="../../../assets/footer_image_icon.png"
+        class="app-icon-class opacity-none" />
+    </div>
+  </div>
+  <div
+    class="footer-image-div"
+    *ngIf="deviceType === 'Desktop' || deviceType === 'Tablet'">
+    <footer-image [deviceType]="deviceType"></footer-image>
+  </div>
+</div>
+
+<gor-id-modal [isVisible]="isVisible"></gor-id-modal>
+<gor-change-plan-selector
+  [showIdModal]="false"
+  (idClick)="onIdClick()"></gor-change-plan-selector>
+<gor-modal [card]="modalCard"></gor-modal>

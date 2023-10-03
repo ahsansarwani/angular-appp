@@ -1,0 +1,33 @@
+.header {
+  height: 64px;
+  width: 100vw;
+  background-color: #11336a;
+  padding: 5px;
+}
+nz-divider {
+  border-left: 1px solid grey;
+  height: 60px;
+}
+
+@media (max-width: 767px) {
+  #header-mob {
+    display: block !important;
+  }
+  #footer-mob {
+    display: block !important;
+  }
+  #header-desk {
+    display: none !important;
+  }
+  #footer-desk {
+    display: none !important;
+  }
+}
+
+#header-mob {
+  display: none;
+}
+
+#header-desk {
+  display: block;
+}

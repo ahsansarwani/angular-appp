@@ -1,0 +1,118 @@
+@import '../../../../../styles.scss';
+
+.plan-builder-header {
+  background-color: white;
+  height: 61px;
+  border-bottom: 1px solid $borderLineColor;
+  padding: 8px 24px 8px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan-builder-header-left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $primaryTextColor;
+}
+.plan-builder-container {
+  height: 482px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.plan-builder-wrapper {
+  width: 375px;
+}
+@media (max-width: 375px) {
+  .plan-builder-wrapper {
+    width: 100%;
+  }
+}
+
+.plan-builder-header-right-section {
+}
+.plan-builder-content {
+  height: fit-content;
+  padding: 16px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+}
+.plan-builder-content-2-head-title {
+  color: $primaryTextColor;
+  font-weight: 700;
+}
+
+.plan-builder-content-1 {
+  color: $secondaryTextColor;
+}
+
+.plan-builder-content-2-head {
+  display: flex;
+  justify-content: space-between;
+}
+.plan-builder-content-2-app {
+  cursor: pointer;
+  height: 64px;
+  width: 64px;
+  border-radius: 16px;
+  background-color: transparent;
+}
+.plan-builder-content-3 {
+  border-top: 1px solid $borderLineColor3;
+  height: 51px;
+  width: 323px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.plan-builder-header-left-section-amount {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.custom-drawer-right .cdk-overlay-pane {
+  transform: translateX(100%) !important;
+}
+.plan-builder-content-1-wrapper {
+  width: 100%;
+}
+
+.plan-builder-content-2-app-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  overflow-y: scroll;
+  height: 184px;
+
+  border: 1px solid #e9ebee;
+  border-radius: 8px;
+  padding: 8px 3px 8px 3px;
+}
+.plan-builder-content-2 {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 324px;
+}
+
+@media screen and (min-width: 768px) {
+  .plan-builder-content-2 {
+    height: fit-content;
+  }
+}

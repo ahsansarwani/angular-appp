@@ -1,0 +1,143 @@
+@import '../../../../../styles.scss';
+
+p {
+    text-decoration: none;
+}
+
+.mobile {
+    display: block;
+}
+
+.desktop {
+    display: none;
+}
+
+.border {
+    margin: 3%;
+    border: 1px solid $borderLineColor3;
+    border-radius: 8px;
+}
+
+.steps-container {
+    margin: 3% 15px;
+    padding: 5%;
+    border: 1px solid $borderLineColor3;
+    border-radius: 8px
+}
+
+.step {
+    display: flex;
+}
+
+.fulfilled {
+    color: $fillColor3
+}
+
+.fulfilled-cancel {
+    color: $requiredColor
+}
+
+.unfulfilled-ongoing {
+    color: $textColor2
+}
+
+.unfulfilled {
+    color: $disabledTextColor
+}
+
+.step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vl {
+    height: 50px;
+    width: 0px;
+    border-left-width: 0px;
+}
+
+.dashed {
+    border-style: dashed;
+}
+
+.solid {
+    border-style: solid;
+}
+
+.step-right {
+    width: 100%;
+    p {
+        margin: 0% 5%;
+    }
+}
+
+.step-date {
+    color: $textColor2;
+    padding-top: 5px;
+}
+
+hr {
+    opacity: 1;
+}
+
+.qr-container {
+    text-align: center;
+    color: $textColor2;
+    padding-top: 5%;
+
+    p {
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .mobile {
+        display: none;
+    }
+    .desktop {
+        display: flex;
+    }
+    .steps-container {
+        flex-direction: column;
+    }
+    .steps-content-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        :last-child .step-top {
+            justify-content: flex-start;
+        }
+    }
+    .steps-content {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        p {
+            margin: 0;
+        }
+        .step-top :last-child {
+            justify-content: flex-start;
+        }
+    }
+    .step-top {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .step-top-content {
+        display: flex;
+        width: 30%;
+    }
+    .vl {
+        height: auto;
+        width: 45%;
+        border: 2px solid; 
+    }
+    .progress-line {
+        width: 45%;
+        border-width: 1px;
+    }
+}

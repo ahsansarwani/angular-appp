@@ -1,0 +1,27 @@
+<div class="container" style="padding-bottom: 36px">
+  <div class="row justify-content-center">
+    <img
+      id="loading-screen-image"
+      [src]="svgPath"
+      alt="Loading screen image"
+      style="width: 350px; height: fit-content"
+      class="image-style" />
+    <!-- <img 
+    src="assets/images/svg/loader.gif"
+    /> -->
+  </div>
+  <div
+    id="main-text"
+    class="row loader-text justify-content-center text-center font-semibold">
+    {{ mainText }}
+  </div>
+
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <div
+        id="sub-text"
+        [innerHTML]="subText"
+        class="loader-sub-text text-center"></div>
+    </div>
+  </div>
+</div>

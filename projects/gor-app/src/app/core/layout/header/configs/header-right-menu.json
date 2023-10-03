@@ -1,0 +1,104 @@
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta": {
+      "links": { "self": { "href": "http://jsonapi.org/format/1.0/" } }
+    }
+  },
+  "data": [
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:82f471c6-562f-4527-a5e9-5f8295ec0b43",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-right-menu",
+        "meta": { "entity_id": "5" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Click",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "button",
+            "target": "_blank"
+          },
+          "external": true
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": { "name": "", "parameters": [] },
+        "title": "Help",
+        "url": "https://www.globe.com.ph/help.html",
+        "weight": "-50"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:35bee952-7874-4306-8cb1-b6e490a01913",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-right-menu",
+        "meta": { "entity_id": "6" },
+        "options": {
+          "attributes": {
+            "class": ["cart-image"],
+            "icon": "/assets/cart-icon.svg",
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "27" }
+        },
+        "title": "Cart",
+        "url": "/checkout",
+        "weight": "-49"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:792e2611-a791-4005-b2f5-e66235f0e984",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "header-right-menu",
+        "meta": { "entity_id": "7" },
+        "options": {
+          "attributes": {
+            "class": [],
+            "field_event_category": "Personal-Core",
+            "field_event_action": "Navigation",
+            "field_ui_section": "HomePage",
+            "field_ui_element": "clickableText",
+            "target": "_self"
+          }
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "entity.node.canonical",
+          "parameters": { "node": "42" }
+        },
+        "title": "Track my order",
+        "url": "/track-order",
+        "weight": "-48"
+      }
+    }
+  ],
+  "links": {
+    "self": {
+      "href": "https://new.globe.com.ph/api/content/menu_items/header-right-menu"
+    }
+  }
+}

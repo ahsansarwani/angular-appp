@@ -1,0 +1,841 @@
+import { Delivery } from './app/features/daf-review/components/delivery/delivery.model';
+import { PayToday } from './app/features/daf-review/components/pay-today/pay-today.model';
+import { PaymentMode } from './app/features/daf-review/components/payment-mode/payment-mode.model';
+import { PromoCode } from './app/features/daf-review/components/promo-code/promo-code.model';
+
+import { TermsAndConditions } from './app/features/daf-review/components/terms-and-conditions/terms-and-conditions.model';
+import { UpcomingBill } from './app/features/daf-review/components/upcoming-bill/upcoming-bill.model';
+import { OrderData } from './app/features/order-tracker/state/order-tracker.model';
+import { Card } from './app/features/plan-selector/components/card/card.model';
+import { InnerCard } from './app/features/plan-selector/components/inner-card/inner-card.model';
+import { Modal } from './app/features/plan-selector/modal/modal.model';
+import { redirectionLinks } from './app/globals/redirection-links';
+import { environment } from './environments/environment';
+
+export const mainTitle =
+  'Experience the freedom of always-on connection with Globe Postpaid.';
+export const subTitle =
+  'Choose the SIM-only plan that best suits your needs and enjoy a seamless mobile experience with';
+
+export const appList = [
+  {
+    id: 'youtube',
+
+    nameOfApp: 'YouTube',
+    svgPath: 'assets/images/svg/youtube.svg',
+
+    altText: 'youtube SVG Image',
+    whiteBg: true,
+  },
+  {
+    id: 'tiktok',
+    nameOfApp: 'TikTok',
+
+    svgPath: 'assets/images/svg/tiktok.svg',
+    altText: 'tiktok SVG Image',
+  },
+
+  {
+    id: 'facebook',
+    nameOfApp: 'Facebook',
+    svgPath: 'assets/images/svg/facebook.svg',
+    altText: 'facebook SVG Image',
+  },
+  {
+    id: 'instagram',
+    nameOfApp: 'Instagram',
+    svgPath: 'assets/images/svg/instagram.svg',
+    altText: 'instagram SVG Image',
+  },
+
+  {
+    id: 'spotify',
+    nameOfApp: 'Spotify',
+    svgPath: 'assets/images/svg/spotify.svg',
+    altText: 'spotify SVG Image',
+  },
+  {
+    id: 'twitter',
+    nameOfApp: 'X',
+    svgPath: 'assets/images/svg/twitter.svg',
+    altText: 'twitter SVG Image',
+  },
+
+  {
+    id: 'mobile legends',
+    nameOfApp: 'Mobile Legends',
+    svgPath: 'assets/images/svg/mobile-legends.svg',
+    altText: 'mobile legends SVG Image',
+  },
+  {
+    id: 'genshin',
+    nameOfApp: 'Genshin Impact',
+    svgPath: 'assets/images/svg/mihoyu.svg',
+    altText: 'mihoyu SVG Image',
+  },
+  {
+    id: 'pokemon',
+    nameOfApp: 'Pokemon UNITE',
+    svgPath: 'assets/images/svg/pokemon.svg',
+    altText: 'pokemon SVG Image',
+  },
+  {
+    id: 'leagueoflegends',
+    nameOfApp: 'League of Legends: Wild Rift',
+    svgPath: 'assets/images/svg/fortnite.svg',
+    altText: 'fortnite SVG Image',
+  },
+  {
+    id: 'cod',
+    nameOfApp: 'Call of Duty: Mobile',
+    svgPath: 'assets/images/svg/cod.svg',
+    altText: 'cod SVG Image',
+  },
+  {
+    id: 'pubg',
+    nameOfApp: 'PUBG: Mobile',
+    svgPath: 'assets/images/svg/pubg.svg',
+    altText: 'pubg SVG Image',
+  },
+  {
+    id: 'grab',
+    nameOfApp: 'Grab',
+    svgPath: 'assets/images/svg/grab.svg',
+    altText: 'grab SVG Image',
+    whiteBg: true,
+  },
+  {
+    id: 'food panda',
+    nameOfApp: 'Foodpanda',
+    svgPath: 'assets/images/svg/food-panda.svg',
+    altText: 'food panda SVG Image',
+  },
+  {
+    id: 'waze',
+    nameOfApp: 'Waze',
+    svgPath: 'assets/images/svg/waze.svg',
+    altText: 'waze SVG Image',
+  },
+  {
+    id: 'viber',
+    nameOfApp: 'Viber',
+    svgPath: 'assets/images/svg/viber.svg',
+    altText: 'viber SVG Image',
+  },
+  {
+    id: 'viu',
+    nameOfApp: 'Viu',
+    svgPath: 'assets/images/svg/viu.svg',
+    altText: 'viu SVG Image',
+  },
+  {
+    id: 'crunchyroll',
+    nameOfApp: 'Crunchyroll',
+    svgPath: 'assets/images/svg/crunchyroll.svg',
+    altText: 'crunchyroll SVG Image',
+  },
+  {
+    id: 'iqiyi',
+    nameOfApp: 'iQIYI',
+    svgPath: 'assets/images/svg/iqiyi.svg',
+    altText: 'iQIYI SVG Image',
+  },
+  // {
+  //   id: 'kumu',
+  //   nameOfApp: 'Kumu',
+  //   svgPath: 'assets/images/svg/kumu.svg',
+  //   altText: 'Kumu SVG Image',
+  // },
+  // {
+  //   id: 'tapgo',
+  //   nameOfApp: 'Tap Go',
+  //   svgPath: 'assets/images/svg/tapgo.svg',
+  //   altText: 'tap go SVG Image',
+  // },
+  {
+    id: 'twitch',
+    nameOfApp: 'Twitch',
+    svgPath: 'assets/images/svg/twitch.svg',
+    altText: 'twitch SVG Image',
+  },
+  {
+    id: 'soundcloud',
+    nameOfApp: 'SoundCloud',
+    svgPath: 'assets/images/svg/soundcloud.svg',
+    altText: 'sound cloud SVG Image',
+  },
+  {
+    id: 'wesing',
+    nameOfApp: 'WeSing',
+    svgPath: 'assets/images/svg/wesing.svg',
+    altText: 'wesing SVG Image',
+    whiteBg: true,
+  },
+];
+export const innerCardPlatinum1: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan3799.svg',
+  planType: 'platinum',
+  amount: 3799,
+  planName: 'GPlan Plus 3799',
+  planName_: 'GPlan PLUS 3799',
+  planTitle: 'GPlan with SIM Only 3799',
+  goWifi: '3GB',
+  hasUnli: true,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  dataTitle: 'All-access Data',
+  dataContent: 'Unli',
+  dataFeature: '1 Day Data Roaming',
+  hasBadge: false,
+  badgeContent: '',
+  badgeColor: '',
+  apps: undefined,
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  link: undefined,
+  backgroundColor: '#3B5A87',
+  border: '0px solid',
+  primaryColor: '#BF9890',
+  secondaryColor: '#F5F9FC',
+  dataFeatureColor: '#fff',
+  roamingTitle: 'Roaming',
+  roamingDays: '1 Day',
+  monthlyConsumableAllowanceTitle: 'Monthly Consumable',
+  monthlyConsumableAllowance: '₱1500',
+  name: 'GPlan with SIM Only 3799',
+  redirectionLink: redirectionLinks.gplansimonly3799,
+  centerText: true,
+};
+export const innerCardPlatinum2: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan4999.svg',
+  planType: 'platinum',
+  amount: 4999,
+  planName_: 'GPlan PLUS 4999',
+  planName: 'GPlan Plus 4999',
+  planTitle: 'GPlan with SIM Only 4999',
+  goWifi: '3GB',
+  hasUnli: true,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  planAmount: '₱4,999.00',
+  payableAmt: '9,998.00',
+  dataTitle: 'All-access Data',
+  dataContent: 'Unli',
+  dataFeature: '3 Days Data Roaming',
+  hasBadge: false,
+  badgeContent: '',
+  badgeColor: '',
+  apps: undefined,
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  link: undefined,
+  backgroundColor: '#3B5A87',
+  border: '0px solid',
+  primaryColor: '#BF9890',
+  secondaryColor: '#F5F9FC',
+  dataFeatureColor: '#fff',
+  roamingTitle: 'Roaming',
+  roamingDays: '3 Days',
+  monthlyConsumableAllowanceTitle: 'Monthly Consumable',
+  monthlyConsumableAllowance: '₱2250',
+  name: 'GPlan with SIM Only 4999',
+  redirectionLink: redirectionLinks.gplansimonly4999,
+  centerText: true,
+};
+export const innerCardPlatinum3: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan7999.svg',
+  planType: 'platinum',
+  amount: 7999,
+  planName_: 'GPlan PLUS 7999',
+  planName: 'GPlan Plus 7999',
+  planTitle: 'GPlan with SIM Only 7999',
+  goWifi: '3GB',
+  hasUnli: true,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  planAmount: '₱7,999.00',
+  payableAmt: '15,998.00',
+  dataTitle: 'All-access Data',
+  dataContent: 'Unli',
+  roamingTitle: 'Roaming',
+  roamingDays: '5 Days',
+  monthlyConsumableAllowanceTitle: 'Monthly Consumable',
+  dataFeature: ' 5 Days Data Roaming',
+  hasBadge: false,
+  badgeContent: '',
+  badgeColor: '',
+  apps: undefined,
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  link: undefined,
+  backgroundColor: '#3B5A87',
+  border: '0px solid',
+  primaryColor: '#BF9890',
+  secondaryColor: '#F5F9FC',
+  dataFeatureColor: '#fff',
+  name: 'GPlan with SIM Only 7999',
+  monthlyConsumableAllowance: '₱4250',
+  redirectionLink: redirectionLinks.gplansimonly7999,
+  centerText: true,
+};
+export const innerCardPremium1: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan1299.svg',
+  planType: 'gplanPlus',
+  amount: 1299,
+  planName: 'Plan 1299',
+  planName_: 'GPlan PLUS 1299',
+  planTitle: 'GPlan with SIM Only 1299',
+  goWifi: '3GB',
+  hasUnli: true,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  planAmount: '₱1299.00',
+  payableAmt: '2598.00',
+  dataTitle: 'All-access data',
+  dataContent: '30GB',
+  dataFeature: 'Unli Data for 1 Chosen App',
+  hasBadge: false,
+  badgeContent: '',
+  badgeColor: '',
+  apps: undefined,
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  link: undefined,
+  backgroundColor: undefined,
+  border: '1px solid #eee',
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  dataFeatureColor: '#4D97FF',
+  hasUnlimitedAccess: true,
+  name: 'GPlan with SIM Only 1299',
+  redirectionLink: redirectionLinks.gplansimonly1299,
+  appDataTitle: 'App Data',
+  appData: 'Unlimited',
+};
+export const innerCardPremium2: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan1499.svg',
+  planType: 'gplanPlus',
+  amount: 1499,
+  planName: 'Plan 1499',
+  planName_: 'GPlan PLUS 1499',
+  planTitle: 'GPlan with SIM Only 1499',
+  goWifi: '3GB',
+  hasUnli: true,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  planAmount: '₱1,499.00',
+  payableAmt: '2,998.00',
+  dataTitle: 'All-access data',
+  dataContent: '40GB',
+  dataFeature: 'Unli Data for 1 Chosen App',
+  apps: undefined,
+  hasBadge: false,
+  badgeContent: '',
+  badgeColor: '',
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  link: undefined,
+  backgroundColor: undefined,
+  border: '1px solid #eee',
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  dataFeatureColor: '#4D97FF',
+  hasUnlimitedAccess: true,
+  name: 'GPlan with SIM Only 1499',
+  redirectionLink: redirectionLinks.gplansimonly1499,
+  appDataTitle: 'App Data',
+  appData: 'Unlimited',
+};
+export const innerCardPremium3: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan1799.svg',
+  amount: 1799,
+  planType: 'gplanPlus',
+  planName: 'Plan 1799',
+  planName_: 'GPlan PLUS 1799',
+  planTitle: 'GPlan with SIM Only 1799',
+  goWifi: '3GB',
+  hasUnli: true,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  planAmount: '₱1,799.00',
+  payableAmt: '3,598.00',
+  dataTitle: 'All-access data',
+  dataContent: '50GB',
+  dataFeature: 'Unli Data for 1 Chosen App',
+  hasBadge: true,
+  badgeContent: 'Best Seller',
+  badgeColor: {
+    backgroundColor: '#FFC3A7',
+    color: '#B91E28',
+  },
+  apps: undefined,
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  link: undefined,
+  backgroundColor: undefined,
+  border: '1px solid #eee',
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  dataFeatureColor: '#4D97FF',
+  hasUnlimitedAccess: true,
+  name: 'GPlan with SIM Only 1799',
+  redirectionLink: redirectionLinks.gplansimonly1799,
+  appDataTitle: 'App Data',
+  appData: 'Unlimited',
+};
+export const innerCardPremium4: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan1999.svg',
+  planType: 'gplanPlus',
+  amount: 1999,
+  planName: 'Plan 1999',
+  planName_: 'GPlan PLUS 1999',
+  planTitle: 'GPlan with SIM Only 1999',
+  goWifi: '3GB',
+  hasUnli: true,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  planAmount: '₱1,999.00',
+  payableAmt: '3,998.00',
+  dataTitle: 'All-access data',
+  dataContent: '60GB',
+  dataFeature: 'Unli Data for 1 Chosen App',
+  dataFeatureColor: '#4D97FF',
+  hasBadge: false,
+  badgeContent: '',
+  badgeColor: '',
+  apps: appList,
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  link: undefined,
+  backgroundColor: undefined,
+  border: '1px solid #eee',
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  hasUnlimitedAccess: true,
+  name: 'GPlan with SIM Only 1999',
+  redirectionLink: redirectionLinks.gplansimonly1999,
+  appDataTitle: 'App Data',
+  appData: 'Unlimited',
+};
+export const innerCardPremium5: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan2499.svg',
+  planType: 'gplanPlus',
+  amount: 2499,
+  planName: 'Plan 2499',
+  planName_: 'GPlan PLUS 2499',
+  planAmount: '₱1,999.00',
+  payableAmt: '3,998.00',
+  dataTitle: 'All-access data',
+  dataContent: '100GB',
+  dataFeature: 'Unli Data for 1 Chosen App',
+  dataFeatureColor: '#4D97FF',
+  hasBadge: false,
+  badgeContent: '',
+  badgeColor: '',
+  apps: undefined,
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  link: undefined,
+  backgroundColor: undefined,
+  border: '1px solid #eee',
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  hasUnlimitedAccess: true,
+  name: 'GPlan with SIM Only 2499',
+  redirectionLink: redirectionLinks.gplansimonly2499,
+  appDataTitle: 'App Data',
+  appData: 'Unlimited',
+};
+export const dummyInnerCard1: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan599.svg',
+  planType: 'gplanPlus',
+  amount: 599,
+  id: 'Basic599',
+  planName: 'Plan 599',
+  planName_: 'GPlan PLUS 599',
+  planTitle: 'GPlan PLUS SIM-Only 599',
+  goWifi: '3GB',
+  hasUnli: false,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  planAmount: '₱599.00',
+  payableAmt: '1,198.00',
+  payableAmtNo: 1198,
+  simType: 'Physical',
+  dataTitle: 'All-access data',
+  dataContent: '6GB',
+  dataFeature: `Get add-ons in new `,
+  link: `GlobeOne App`,
+  hasBadge: true,
+  badgeContent: 'Basic',
+  badgeColor: {
+    backgroundColor: '#FCE8B2',
+    color: '#A66B11',
+  },
+  apps: undefined,
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  backgroundColor: undefined,
+  border: '1px solid #eee',
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  dataFeatureColor: '#4C627A',
+  name: 'GPlan with SIM Only 599',
+  accessDataTitle: 'All-access Data',
+  accessData: '6 GB',
+};
+export const dummyInnerCard2: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan799.svg',
+  accessDataTitle: 'All-access Data',
+  accessData: '10 GB',
+  planType: 'gplanPlus',
+  amount: 799,
+  id: 'Basic799',
+  planName: 'Plan 799',
+  planName_: 'GPlan PLUS 799',
+  planTitle: 'GPlan PLUS SIM-Only 799',
+  goWifi: '3GB',
+  hasUnli: false,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  planAmount: '₱799.00',
+  payableAmt: '1,598.00',
+  payableAmtNo: 1598,
+  simType: 'Physical',
+  dataTitle: 'All-access data',
+  dataContent: '10GB',
+  dataFeature: `Get add-ons in new `,
+  hasBadge: true,
+  badgeContent: 'Starter',
+  badgeColor: {
+    backgroundColor: '#CFDDF4',
+    color: '#1A458B',
+  },
+  apps: undefined,
+  duration: 'monthly',
+  planFeatures: [
+    'Unli 5G data for 6 months',
+    'Unli Allnet Calls & Text + Landline',
+    '3GB GoWiFI Access',
+  ],
+  link: 'GlobeOne App',
+  backgroundColor: undefined,
+  border: '1px solid #eee',
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  dataFeatureColor: '#4C627A',
+  name: 'GPlan with SIM Only 799',
+};
+export const dummyInnerCard3: InnerCard = {
+  svg: 'assets/Sim plans/svg/plan999.svg',
+  accessDataTitle: 'All-access Data',
+  accessData: '20 GB',
+  planType: 'gplanPlus',
+  amount: 999,
+  id: 'Basic999',
+  planName: 'Plan 999',
+  planName_: 'GPlan PLUS 999',
+  planTitle: 'GPlan PLUS SIM-Only 999',
+  goWifi: '3GB',
+  hasUnli: true,
+  callNText: 'Unli All-net Calls, Text, & Landline calls',
+  contractDuration: 'No Lockup Period',
+  planAmount: '₱999.00',
+  payableAmt: '1,998.00',
+  payableAmtNo: 1998,
+  simType: 'Physical',
+  dataTitle: 'All-access data',
+  dataContent: '20GB',
+  dataFeature: 'Unli Data for 1 Chosen App',
+  hasBadge: true,
+  badgeContent: 'Best Value',
+  badgeColor: {
+    backgroundColor: '#FCE8B2',
+    color: '#A66B11',
+  },
+  apps: appList,
+  duration: 'monthly',
+  planFeatures: ['Unli Allnet Calls and Text + Landline', '3GB GoWiFI Access'],
+  link: undefined,
+  backgroundColor: undefined,
+  border: '1px solid #eee',
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  dataFeatureColor: '#4D97FF',
+  hasUnlimitedAccess: true,
+  name: 'GPlan with SIM Only 999',
+  appDataTitle: 'App Data',
+  appData: 'Unlimited',
+};
+export const dummyModal: Modal = {
+  title: 'Thanks for choosing Globe!',
+  subTitle: `Do you have an existing Globe
+  Postpaid plan?`,
+  primaryBtnText: "I'm new to Globe.",
+  secondaryBtnText: 'Yes, I already have an account.',
+};
+export const dummyModal2: Modal = {
+  title: '',
+  subTitle: 'What would you like to do?',
+  primaryBtnText: 'Add a new account',
+  secondaryBtnText: 'Renew my account',
+};
+export const dummyPlanBenefits = [
+  {
+    imageSrc: '../assets/plan-benefits-images/no-contract.svg',
+    benefits: `No contract`,
+    link: '',
+  },
+  {
+    imageSrc: '../assets/plan-benefits-images/apply-with-id.svg',
+    benefits: `Apply with any one of these `,
+    link: 'IDs',
+  },
+  {
+    imageSrc: '../assets/plan-benefits-images/upfront.svg',
+    benefits: `No upfront payment`,
+    link: '',
+  },
+];
+export const premiumPlanBenefits = [
+  {
+    imageSrc: '../../../../../assets/images/Sim plans/svg/icon-container.svg',
+    benefits: `No contract`,
+    link: '',
+  },
+  {
+    imageSrc: '../assets/images/Sim plans/svg/icon-container-1.svg',
+    benefits: `Apply with any one of these `,
+    link: 'IDs',
+  },
+  {
+    imageSrc: '../assets/upfront-icon-svg.svg',
+    benefits: `12 months free Disney+ or Prime Videos`,
+    link: '',
+  },
+];
+export const platinumPlanBenefits = [
+  {
+    imageSrc:
+      '../assets/plan-benefits-images/platinum/benefit-1-Globe Priority Network.svg',
+    benefits: 'Globe Priority Network',
+    link: '',
+  },
+  {
+    imageSrc:
+      '../assets/plan-benefits-images/platinum/benefit-2-dedicated-manager.svg',
+    benefits: 'Dedicated Relationship Manager',
+  },
+
+  {
+    imageSrc:
+      '../assets/plan-benefits-images/platinum/benefit-3-exclusive-perks.svg',
+    benefits: 'Exclusive perks and rewards',
+    link: '',
+  },
+  {
+    imageSrc:
+      '../assets/plan-benefits-images/platinum/benefit-4-No contract.svg',
+    benefits: 'No Contract',
+    link: '',
+  },
+];
+
+export const dummyCard1: Card = {
+  mainTitle: 'Choose Your Sim Only Plans',
+  planId: 'basic-plan',
+  planType: 'GPlan PLUS',
+  planSubtitle: `Experience the freedom of connection that’s always <br> on with Globe Postpaid`,
+  planBenefits: dummyPlanBenefits,
+  innerCard: [dummyInnerCard1, dummyInnerCard2, dummyInnerCard3],
+  planFeaturesTitle: 'All plans comes with:',
+  planFeatures: ['Unli Allnet Calls & Text + Landline', '3GB GoWiFI Access'],
+  backgroundColor: undefined,
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  planFeaturesIcon: '../assets/images/tick-mark.svg',
+};
+export const dummyCard2: Card = {
+  mainTitle: '',
+  planId: 'premium-plan',
+  planType: 'GPlan PLUS',
+  planSubtitle: `Connect with friends and family with new Globe<br>starter plans.`,
+  planBenefits: premiumPlanBenefits,
+  innerCard: [
+    innerCardPremium1,
+    innerCardPremium2,
+    innerCardPremium3,
+    innerCardPremium4,
+    innerCardPremium5,
+  ],
+  planFeaturesTitle: 'Your SIM-only plan comes with:',
+  planFeatures: [
+    'Unli data for 6 months on your chosen app',
+    'Unli 5G data for 6 months',
+    'Unli Allnet Calls & Text + Landline',
+    '3GB GoWiFI Access',
+  ],
+  backgroundColor: undefined,
+  primaryColor: undefined,
+  secondaryColor: undefined,
+  planFeaturesIcon: '../assets/images/tick-mark.svg',
+};
+export const dummyCard3: Card = {
+  mainTitle: '',
+  planId: 'platinum-plan',
+  planType: 'Platinum Plans',
+  planSubtitle: 'Own the extraordinary with Globe Platinum',
+  planBenefits: platinumPlanBenefits,
+  innerCard: [innerCardPlatinum1, innerCardPlatinum2, innerCardPlatinum3],
+  planFeatures: ['Unli Allnet Calls & Text + Landline', '3GB GoWiFI Access'],
+  planFeaturesIcon: '../../../../../assets/plan-feature-icon.png',
+  backgroundColor:
+    'linear-gradient(180deg, #051C42 0%, #194998 58.63%, #051C42 100%)',
+  primaryColor: '#BF9890',
+  secondaryColor: '#F5F9FC',
+};
+export const planCards = {
+  gplanPlus: {
+    basicPlan: dummyCard1,
+
+    premiumPlan: dummyCard2,
+  },
+
+  platinumPlan: dummyCard3,
+};
+export const tnc: TermsAndConditions = {
+  tncTitle: 'I accept all terms and conditions',
+  conditions: [
+    {
+      id: 1,
+      conditionTitle: 'Subscriber’s Declaration and Terms & Conditions',
+      conditionDescription:
+        `I confirm that I have read,understood, and agree to be bound by the  <a target='_blank'class="text-decoration-none" href=` +
+        environment.subscriberUrl +
+        `>Subscriber's Declaration</a> and the GPlan <a target='_blank' class="text-decoration-none" href=` +
+        environment.tncUrl +
+        `>Terms and Conditions</a>.`,
+      isRequired: true,
+    },
+    {
+      id: 2,
+      conditionTitle: 'Information We Share',
+      conditionDescription:
+        "I allow Globe to share my personal data with the Globe Group Portfolio Companies and with Globe's Partners for credit scoring, business analytics, and product development, as well as for them to advertise and extend their products and services to me.",
+      isRequired: false,
+    },
+  ],
+  clause: `By completing and submitting this Application Form, I understand and agree that any personal data I will provide will be processed in accordance with the Data Privacy Act of 2012 and the <a href="https://www.globe.com.ph/privacy-policy.html?_ga=2.198468335.19600538.1691738542-1620830515.1677634575" class="text-decoration-none font-semibold" style="text-decoration:none">Privacy Policy of Globe</a>. I further understand and agree that the required and relevant personal data will be used for SIM Card Registration in accordance with the SIM Registration Act.
+  <br><br>I affirm that the information provided in this application Form and the supporting documents submitted in connection therewith are true, authentic, and correct.`,
+};
+
+export const promoCode: PromoCode = {
+  promoCodeTitle: 'Got a promo code? Enter it here!',
+  promoCode: undefined,
+};
+export const payToday: PayToday = {
+  amount: '₱4,601.00',
+  activeAccountTitle: 'Balances from active accounts',
+  activeAccounts: [
+    {
+      accountNumber: '09171234567',
+      amountOverdue: '1,600.00',
+      isMobile: true,
+      isBroadband: false,
+    },
+  ],
+  terminatedAccountTitle: 'Balances from previously terminated accounts',
+  terminatedAccounts: [
+    {
+      accountNumber: '09178909823',
+      amountOverdue: '1,500.00',
+      isMobile: true,
+      isBroadband: false,
+    },
+    {
+      accountNumber: '0928153011',
+      amountOverdue: '1,501.00',
+      isMobile: false,
+      isBroadband: true,
+    },
+  ],
+};
+
+export const upcomingBill: UpcomingBill = {
+  bill: [
+    {
+      title: 'Pro-rated charges',
+      additionalNote:
+        'Partial charge for the time between date of activation until end of first bill cycle date',
+    },
+    {
+      additionalNote: 'Full month of your service',
+    },
+  ],
+};
+
+export const paymentModes: PaymentMode = {
+  paymentModes: [
+    {
+      icon: '../../../assets//images/gCash-logo.svg',
+      name: 'GCash',
+      id: 'gcash',
+    },
+    {
+      icon: '../../../assets//images/Visa-MasterCard-icon.svg',
+      name: 'Visa/Mastercard',
+      id: 'xendit',
+    },
+  ],
+};
+export const delivery: Delivery = {
+  deliveryType: 'Regular',
+  deliveryCharge: 'FREE',
+  deliveryDescription:
+    'NCR delivery in 1-2 days, and 3-5 days for non-NCR areas once approved',
+};
+export const orderTrackerDetails: OrderData = {
+  orderDetails: {
+    firstName: 'John',
+    referenceNumber: 'GLA-1234567890',
+    planName: 'GPlan Plus SIM-Only 999',
+  },
+  orderHistory: [
+    {
+      status: 'Order Confirmed',
+      internalStatus: 'For Reservation',
+      statusDescription: '',
+      timestamp: '2023-07-13T01:52:33.547Z',
+    },
+    {
+      status: 'Order Confirmed',
+      internalStatus: 'For Customer Creation',
+      statusDescription: '',
+      timestamp: '2023-07-13T01:52:47.113Z',
+    },
+    {
+      status: 'Order Confirmed',
+      internalStatus: 'For Address ID Creation',
+      statusDescription: '',
+      timestamp: '2023-07-13T01:52:59.716Z',
+    },
+    {
+      status: 'Order Confirmed',
+      internalStatus: 'For Order Creation',
+      statusDescription: '',
+      timestamp: '2023-07-13T01:53:11.444Z',
+    },
+    {
+      status: 'Order Confirmed',
+      internalStatus: 'For Case Queue',
+      statusDescription: '',
+      timestamp: '2023-07-13T01:54:56.865Z',
+    },
+    {
+      status: 'SIM Activated',
+      internalStatus: 'For SCR',
+      statusDescription: '',
+      timestamp: '2023-07-13T01:54:56.865Z',
+    },
+  ],
+};

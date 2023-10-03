@@ -1,0 +1,30 @@
+<gor-order-confirmed
+  *ngIf="offline; else notOffline"
+  [breadCrumbs]="true"
+  [inTouch]="false"
+  [orderSuccessTitle]="orderSuccessTitle"
+  [statusSvgDesktop]="statusSvgDesktop"
+  [expectDescriptionDesktop]="expectDescriptionDesktopOnline"
+  [svgDesktop]="svgDesktop"
+  [tellYourFriends]="true"></gor-order-confirmed>
+<ng-template #notOffline>
+  <gor-order-confirmed
+    [inTouch]="true"
+    [breadCrumbs]="false"
+    [tellYourFriends]="tellYourFriends"
+    [orderSuccessTitle]="orderSuccessTitle"
+    [statusSvg]="statusSvg"
+    [statusSvgDesktop]="svgDesktop"
+    [expectDescriptionDesktop]="expectDescriptionDesktop"
+    [thankyouDesktop]="thankyouDesktop"
+    [statusDesc]="statusDesc"
+    [statusColor]="statusColor"
+    [statusText]="statusTitle"
+    [expectDesc]="expectDesc"
+    [expectTitle]="expectTitle"></gor-order-confirmed>
+</ng-template>
+<!-- <gor-feedback></gor-feedback> -->
+<!-- <gor-loading-screen [mainText]="'Just a moment...'" 
+[subText]="'Waiting for GCash to respond...'"
+[svgPath]="'assets/images/svg/loader.gif'"
+></gor-loading-screen> -->

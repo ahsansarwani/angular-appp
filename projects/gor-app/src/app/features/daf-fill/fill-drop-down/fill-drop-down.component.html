@@ -1,0 +1,61 @@
+<div class="daf-dropdown dropdown" [style.height.px]="dropDownHeight">
+  <button
+    [disabled]="disable"
+    class="daf-dropdown-btn btn btn-secondary dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton"
+    data-bs-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+    [style.background]="'transparent'"
+    [style.color]="color"
+    [style.height.px]="dropDownHeight">
+    <div style="width: calc(100% - 20px)">
+      <div
+        style="width: 100%; display: flex"
+        *ngIf="selectedString === dropdownTitle && required; else elseBlock">
+        {{ selectedString }}
+        <span class="required-input">*</span>
+      </div>
+      <ng-template #elseBlock>
+        <div class="selected-option-view">
+          <span [style.color]="color"
+            >{{ dropdownTitle }}
+            <span class="required-input">*</span>
+          </span>
+          <span
+            style="
+              max-width: calc(100% - 20px);
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            "
+            class="font-semibold"
+            [style.color]="dropColor"
+            >{{ selectedString }}
+          </span>
+        </div>
+      </ng-template>
+    </div>
+    <img
+      src="../../../../../assets/images/svg/down-arrow-2.svg"
+      alt="down-arrow icon" />
+  </button>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <input
+      *ngIf="searchallow"
+      [style.color]="dropColor"
+      (input)="onChange($event.target)"
+      class="search"
+      type="text"
+      name="search"
+      placeholder="Search here" />
+    <button
+      (click)="selectValue(option)"
+      *ngFor="let option of displayedOptions; index as i"
+      class="dropdown-item">
+      {{ option }}
+    </button>
+  </div>
+</div>

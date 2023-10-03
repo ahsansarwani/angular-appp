@@ -1,0 +1,183 @@
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta": {
+      "links": { "self": { "href": "http://jsonapi.org/format/1.0/" } }
+    }
+  },
+  "data": [
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:987e914b-7e1f-4607-a8fd-09035e809f73",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "footer-left-menu",
+        "meta": { "entity_id": "12" },
+        "options": {
+          "attributes": { "class": [], "target": "_blank" },
+          "external": true
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": { "name": "", "parameters": [] },
+        "title": "About Us",
+        "url": "https://www.globe.com.ph/about-us.html",
+        "weight": "-49"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:0e08f24d-7d94-4a6a-b34c-965080f41888",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "footer-left-menu",
+        "meta": { "entity_id": "13" },
+        "options": {
+          "attributes": { "class": [], "target": "_blank" },
+          "external": true
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": { "name": "", "parameters": [] },
+        "title": "Governance",
+        "url": "https://www.globe.com.ph/about-us/corporate-governance.html",
+        "weight": "-48"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:76282044-6770-41a3-a606-d98098acbc04",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "footer-left-menu",
+        "meta": { "entity_id": "14" },
+        "options": {
+          "attributes": { "class": [], "target": "_blank" },
+          "external": true
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": { "name": "", "parameters": [] },
+        "title": "Investor Relations",
+        "url": "https://www.globe.com.ph/about-us/investor-relations.html",
+        "weight": "-47"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:d4161b34-9cc3-444a-a389-a559582f1d4b",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "footer-left-menu",
+        "meta": { "entity_id": "15" },
+        "options": {
+          "attributes": { "class": [], "target": "_blank" },
+          "external": true
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": { "name": "", "parameters": [] },
+        "title": "Sustainability",
+        "url": "https://www.globe.com.ph/about-us/sustainability.html",
+        "weight": "-46"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:c70a21e5-ca16-4082-8ad0-2e01a312cd88",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "footer-left-menu",
+        "meta": { "entity_id": "16" },
+        "options": {
+          "attributes": { "class": [], "target": "_blank" },
+          "external": true
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": { "name": "", "parameters": [] },
+        "title": "Cookie Policy",
+        "url": "https://www.globe.com.ph/cookie-policy.html",
+        "weight": "-45"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:651d8260-7d21-45e1-bde2-dd54adfd9232",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "footer-left-menu",
+        "meta": { "entity_id": "17" },
+        "options": {
+          "attributes": { "class": [], "target": "_blank" },
+          "external": true
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": { "name": "", "parameters": [] },
+        "title": "Privacy Policy",
+        "url": "https://www.globe.com.ph/privacy-policy.html",
+        "weight": "-44"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:8bbf9cba-dc17-428c-899f-e406ef41f84d",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "footer-left-menu",
+        "meta": { "entity_id": "18" },
+        "options": {
+          "attributes": { "class": [], "target": "_blank" },
+          "external": true
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": { "name": "", "parameters": [] },
+        "title": "Terms of Use",
+        "url": "https://www.globe.com.ph/website-terms-conditions.html",
+        "weight": "-43"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:175afaf8-51ff-4994-8f77-1eb779103fd0",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "footer-left-menu",
+        "meta": { "entity_id": "19" },
+        "options": {
+          "attributes": { "class": [], "target": "_blank" },
+          "external": true
+        },
+        "parent": "",
+        "provider": "menu_link_content",
+        "route": { "name": "", "parameters": [] },
+        "title": "Site Map",
+        "url": "https://www.globe.com.ph/site-map.html",
+        "weight": "-42"
+      }
+    }
+  ],
+  "links": {
+    "self": {
+      "href": "https://new.globe.com.ph/api/content/menu_items/footer-left-menu"
+    }
+  }
+}

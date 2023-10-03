@@ -1,0 +1,62 @@
+@import '../../../../../styles.scss';
+
+.primary-text-color {
+  color: #1a458b;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.h-12 {
+  height: 12px;
+}
+
+.font-10 {
+  font-size: 10px;
+}
+
+.divider {
+  background: #1a458b;
+  opacity: 0.2;
+  width: 90%;
+}
+
+[data-toggle='collapse'].collapsed .if-not-collapsed {
+  display: none;
+}
+
+[data-toggle='collapse']:not(.collapsed) .if-collapsed {
+  display: none;
+}
+
+.w-190 {
+  width: 190px;
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.ml-5 {
+  margin-left: 5px;
+}
+.h-5 {
+  height: 5px;
+}
+#estimated-amount{
+  color:#1A458B;
+}
+
+.plan-amount{
+  color:#1F3B59;
+}
+.plan-title{
+  color:#1F3B59;
+}

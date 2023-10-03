@@ -1,0 +1,125 @@
+<div class="container" style="position: relative">
+  <div
+    class="modal"
+    id="outerModal"
+    aria-labelledby="outerModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="height: 18px">
+          <button
+            style="margin-top: 10px"
+            type="button"
+            class="btn-close"
+            data-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="margin-top: 8px">
+          <gor-selected-plan-container
+            [svgUrl]="card?.svg"
+            [tags]="[card?.badgeContent]"
+            [planDetails]="[
+              card?.planName_,
+              card?.accessDataTitle,
+              card?.accessData,
+              'App Data',
+              'Unlimited',
+              card?.amount,
+              card?.hasUnlimitedAccess
+            ]"
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+            "></gor-selected-plan-container>
+          <div class="font-bold modal-title">
+            {{ modal1.title }}
+          </div>
+          <p class="font-light modal-subtitle">{{ modal1.subTitle }}</p>
+          <div class="plan-modal-button-container">
+            <button
+              data-dismiss="modal"
+              class="modal-button primary-button font-semibold btn-block"
+              (click)="onOpenDrawer(card, 'FTA')">
+              {{ modal1.primaryBtnText }}
+            </button>
+            <button
+              data-dismiss="modal"
+              class="modal-button secondary-button font-semibold btn-block"
+              data-bs-toggle="modal"
+              (click)="captureEvent()"
+              data-bs-target="#innerModal">
+              {{ modal1.secondaryBtnText }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal"
+    id="innerModal"
+    aria-labelledby="innerModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content modal-content-2">
+        <div class="modal-header">
+          <button class="modal-back icon-button" (click)="onBack()">
+            <img
+              alt="back icon"
+              src="../../../../../assets/back-icon-modal.svg" />
+            <div
+              class="modal-back font-light font-16 align-self-start"
+              id="exampleModalLabel"
+              style="color: #637282; font-size: 16px; margin: 0px">
+              Back
+            </div>
+          </button>
+
+          <button
+            id="close-modal"
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <gor-selected-plan-container
+            [svgUrl]="card?.svg"
+            [tags]="[card?.badgeContent]"
+            [planDetails]="[
+              card?.planName_,
+              card?.accessDataTitle,
+              card?.accessData,
+              'App Data',
+              'Unlimited',
+              card?.amount,
+              card?.hasUnlimitedAccess
+            ]"
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+            "></gor-selected-plan-container>
+
+          <p class="font-light modal-subtitle">{{ modal2.subTitle }}</p>
+          <div class="plan-modal-button-container">
+            <button
+              data-bs-dismiss="modal"
+              class="modal-button primary-button font-semibold"
+              (click)="onOpenDrawer(card, 'ADA')">
+              {{ modal2.primaryBtnText }}
+            </button>
+            <button
+              data-bs-dismiss="modal"
+              class="modal-button secondary-button font-semibold"
+              (click)="renewAccount()">
+              {{ modal2.secondaryBtnText }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

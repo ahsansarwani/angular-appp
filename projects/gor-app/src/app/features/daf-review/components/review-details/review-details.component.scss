@@ -1,0 +1,31 @@
+@import '../../../../../styles.scss';
+
+.color-regal {
+  color: #1f3b59;
+}
+.card-class {
+  border: 1px solid #0d6efd;
+  background-color: #f5f9fc;
+  height: 7.5rem;
+  width: 100%;
+}
+
+.h-20 {
+  height: 20px;
+}
+.w-30 {
+  width: 30px;
+}
+.ml-8 {
+  margin-left: 8px;
+}
+#before-you-proceed-label {
+  height: 15px;
+  color: #1f3b59;
+}
+#confirmed-text {
+  color: #1a458b;
+}
+.fullName {
+  margin: 0px;
+}

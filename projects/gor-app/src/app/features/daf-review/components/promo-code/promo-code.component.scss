@@ -1,0 +1,30 @@
+.font-16 {
+  font-size: 16px;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-14 {
+  font-size: 18px;
+}
+
+.primary-text-color {
+  color: #1a458b;
+}
+
+.card-class {
+  width: 20.438rem;
+  height: 7.5rem;
+}
+
+@media screen and (min-width: 500px) {
+  .promo-code-class {
+    max-width: 20px;
+  }
+}

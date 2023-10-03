@@ -1,0 +1,68 @@
+<div
+  class="daf-steps-action"
+  [ngClass]="{
+    'daf-steps-action-class': (lob$ | async) === 'Mobile'
+  }"
+  [style]="styles2">
+  <div class="daf-steps-action-title w-100">
+    <div class="d-flex justify-content-between w-100 daf-plan-action-title-1">
+      <div [style]="styles">
+        <div
+          *ngIf="(lob$ | async) === 'Mobile'; else mobileBlock"
+          class="daf-plan-action-title-1-p font-semibold">
+          Your new plan
+        </div>
+        <ng-template #mobileBlock>
+          <div class="daf-plan-action-title-1-p-2">Plan Selected</div>
+        </ng-template>
+        <div class="font-semibold daf-plan-title">
+          {{ planTitle$ | async }}
+        </div>
+        <button
+          *ngIf="(lob$ | async) === 'Mobile'"
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="view-hide-brekdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          (click)="onViewPlanBreakDown()"
+          class="daf-steps-action-dropdown">
+          <div class="breakdown-toggle-title">
+            {{ viewingPlanBreakDown ? 'Hide' : 'View' }} plan breakdown
+          </div>
+          <img
+            class="breakdown-toggle-arrow"
+            id="view-hide-breakdown-down-arrow"
+            *ngIf="!viewingPlanBreakDown; else upBlock"
+            src="../../../assets/images/svg/down-arrow.svg"
+            alt="drop down icon" />
+          <ng-template #upBlock>
+            <img
+              class="breakdown-toggle-arrow"
+              id="view-hide-breakdown-up-arrow"
+              src="../../../assets/images/svg/up-arrow.svg"
+              alt="drop down icon" />
+          </ng-template>
+        </button>
+      </div>
+
+      <button
+        *ngIf="(lob$ | async) === 'Mobile'"
+        class="daf-steps-action-change"
+        (click)="onChangePlan()"
+        id="daf-edit-button">
+        <button
+          class="daf-edit-button"
+          [class.no-border]="(lob$ | async) !== 'Mobile'">
+          <img src="../../../assets/images/edit.svg" alt="edit text icon" />
+          Change
+        </button>
+      </button>
+    </div>
+    <gor-change-plan-selector [showIdModal]="true" />
+    <gor-daf-plan-breakdown
+      *ngIf="
+        viewingPlanBreakDown || (lob$ | async) !== 'Mobile'
+      "></gor-daf-plan-breakdown>
+  </div>
+</div>

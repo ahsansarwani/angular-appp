@@ -1,0 +1,26 @@
+<div
+  style="font-size: 14px"
+  [style.height.px]="inputHeight"
+  [style.width.px]="inputWidth">
+  <div
+    class="form-floating fill-input"
+    [style.height.px]="inputHeight"
+    [style.width.px]="inputWidth">
+    <input
+      type="inputType"
+      class="form-control"
+      id="floatingInput"
+      [formControlName]="formControlName"
+      [style.height.px]="inputHeight"
+      [style.width.px]="inputWidth" />
+
+    <label *ngIf="!required; else elseBlock" for="floatingInput">{{
+      inputTitle
+    }}</label>
+    <ng-template #elseBlock>
+      <label for="floatingInput"
+        >{{ inputTitle }}<span class="required-input">*</span></label
+      >
+    </ng-template>
+  </div>
+</div>

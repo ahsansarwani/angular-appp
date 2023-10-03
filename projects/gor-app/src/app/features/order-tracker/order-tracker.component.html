@@ -1,0 +1,31 @@
+<div class="order-tracker-container">
+    <div class="order-tracker-content" *ngIf="display">
+        <div class="status-card-container">
+            <div class="status-card-container-left">
+                <p class="font-20 font-w-400 font-bold statusHeader"> {{ statusDisplay.header }}</p>
+                <p class="font-14 font-w-400 statusDetails">
+                    <img src="../../../assets/order-tracker/caution.svg" alt="caution"
+                        style="width: 4%; margin-right: 1%;" *ngIf="statusDisplay.ongoing"/>
+                    {{ statusDisplay.details }}
+                </p>
+            </div>
+            <div class="status-card-container-right">
+                <img alt="{{ statusDisplay.header }}" src="{{ statusDisplay.icon }}"/>
+            </div>
+        </div>
+        <div class="welcome-container">
+            <p class="font-bold font-w-400 font-20 primary-text-color" *ngIf="!cancelledOrder">Welcome to Globe Postpaid,</p>
+            <p class="font-bold font-w-400 font-20 primary-text-color" *ngIf="!cancelledOrder">{{ orderDetails.firstName }}!</p>
+            <p class="font-bold font-w-400 font-20 primary-text-color" *ngIf="cancelledOrder">Thank you!</p>
+        </div>
+        <gor-order-history [orderHistory]="orderHistory" 
+            [currentStatus]="currentStatus.status" 
+            [orderProcessing]="orderProcessing"
+            [showQr]="showQr"></gor-order-history>
+        <gor-order-details 
+            [referenceNo]="orderDetails.referenceNumber"
+            [orderDate]="formatDate(orderHistory[0].timestamp)"
+            [planName]="orderDetails.planName">
+        </gor-order-details>
+    </div>
+</div>

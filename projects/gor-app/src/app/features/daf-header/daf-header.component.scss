@@ -1,0 +1,38 @@
+@import '../../../styles.scss';
+
+.daf-steps {
+  width: 100%;
+  // border-top: 1px solid $borderLineColor2;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 19px 0px 8px 0px;
+}
+
+.daf-steps > div:first-child {
+  width: 327px;
+  padding: 0px 0px 0px 24px;
+}
+@media (min-width: 375px) {
+  .daf-steps > div:first-child {
+    padding-left: 6.4vw;
+    width: 100%;
+  }
+}
+.daf-steps > div > p:first-child {
+  font-size: 10px;
+  color: $textColor2;
+}
+
+.daf-steps > div > p:nth-child(2) {
+  font-size: 16px;
+  color: $regalBlue;
+  font-weight: 700;
+  line-height: 100%;
+}
+p {
+  margin: 0px;
+}
+.highlight {
+  color: $buttonColor;
+}

@@ -1,0 +1,14 @@
+<div
+  class="modal"
+  id="authModal"
+  aria-labelledby="outerModal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <iframe
+        class="auth-iframe"
+        [attr.src]="url | safe : 'resourceUrl'"
+        frameborder="0"></iframe>
+    </div>
+  </div>
+</div>

@@ -33,7 +33,7 @@
     "@ngrx/store": "^16.0.0",
     "@ngrx/store-devtools": "^16.0.0",
     "bootstrap": "^5.2.3",
-    "crypto-js": "^4.1.1",
+    "crypto-js": "^4.2.0",
     "gor-footer": "^1.0.0",
     "gor-header": "^1.0.1",
     "moment": "^2.29.4",
